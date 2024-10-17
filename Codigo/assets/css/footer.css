@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos del footer */
+.footer {
+    background-color: #215A59;
+    color: white;
+    padding: 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo y nombre */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer-logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Iconos de redes sociales */
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Información de contacto */
+.footer-contact {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Patrocinadores */
+.footer-sponsors {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-sponsors img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo, .footer-social, .footer-contact, .footer-sponsors {
+        margin-bottom: 20px;
+    }
+}
