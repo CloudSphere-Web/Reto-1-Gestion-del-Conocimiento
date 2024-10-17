@@ -21,5 +21,7 @@ if ($_GET["controller"] !== "Login") {
     require_once 'view/layout/header.php';
 }
 require_once 'view/' . $_GET["controller"] . '/' . $controller -> view . '.html.php';
-require_once 'view/layout/footer.php';
+if ($_GET["controller"] !== "Login") {
+    require_once 'view/layout/footer.php';
+}
 ?>
