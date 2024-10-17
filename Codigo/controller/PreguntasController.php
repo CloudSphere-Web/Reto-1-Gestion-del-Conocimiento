@@ -1,7 +1,7 @@
 <?php
-require_once "model/Login.php";
+require_once "model/Preguntas.php";
 
-class LoginController{
+class PreguntasController{
     public $page_title;
 
     public $view;
@@ -9,10 +9,11 @@ class LoginController{
     public $model;
 
     public function __construct(){
-        $this -> view = "login";
+        $this -> view = "list";
         $this -> page_title="";
         $this -> page_description="";
-        $this -> model = new Login();
+        $this -> model = new Preguntas();
     }
+
 
 }

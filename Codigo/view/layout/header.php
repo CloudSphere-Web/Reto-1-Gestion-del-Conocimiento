@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/assets/css/footer.css" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <title>Header Example</title>
 </head>
 <body>
-<div class="background">
-    <div class="login-container">
-        <h2>Login</h2>
-        <form>
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Email">
-
-            <label for="password">Password</label>
-            <div class="password-wrapper">
-                <input type="password" id="password" placeholder="Password">
-                <a href="#">Forgot Password?</a>
-            </div>
-
-            <div class="remember-me">
-                <input type="checkbox" id="remember-me">
-                <label for="remember-me">Remember me</label>
-            </div>
-
-            <button type="submit">Login</button>
-        </form>
+<header class="header">
+    <div class="header-section logo-section">
+        <a href="index.php" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="assets/svg/logo.svg" alt="Logo" class="logo">
+            <h3>AERGIBIDE</h3>
+        </a>
     </div>
-</div>
+
+    <div class="header-section icons-section">
+        <a href="index.php?controller=ranking&action=list">
+            <img src="assets/svg/ranking-star-solid.svg" alt="Chart" class="header-icon">
+        </a>
+        <a href="index.php?controller=notifications&action=list">
+            <img src="assets/svg/bell-regular.svg" alt="Notification" class="header-icon">
+        </a>
+        <a href="index.php?controller=profilea&action=view">
+            <img src="assets/svg/user-solid.svg" alt="User" class="header-icon profile-icon">
+        </a>
+    </div>
+
+</header>
+</body>
+</html>
