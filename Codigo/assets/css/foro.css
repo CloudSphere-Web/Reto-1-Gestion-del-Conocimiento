@@ -76,6 +76,10 @@ html, body {
     font-size: 12px;
     text-align: right;
 }
+.question-time {
+    font-size: 12px;
+    text-align: right;
+}
 .pagination {
     display: flex;
     justify-content: center;
@@ -97,6 +101,7 @@ html, body {
     padding: 15px;
     margin-bottom: 10px;
     width: 100%;
+    height: 75px;
     text-align: left;
     cursor: pointer;
     border-radius: 5px;
