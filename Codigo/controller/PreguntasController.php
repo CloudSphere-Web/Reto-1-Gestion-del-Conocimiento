@@ -18,7 +18,7 @@ class PreguntasController {
 
     public function list_paginated(){
         $this->view = 'list_paginated';
-        $this->page_title = 'Listado de notas paginadas';
+        $this->page_title = 'Listado de preguntas paginadas';
         $page=isset($_GET['page'])?$_GET['page']:1;
         return $this->model->getPreguntasPaginated($page);
     }

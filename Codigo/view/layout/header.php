@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/header.css">
-    <title>Header Example</title>
+    <title>Aergibide Forum</title>
+    <link rel="icon" type="image/jpg" href="assets/svg/logo.svg"/>
 </head>
 <body>
 <header class="header">
@@ -25,7 +26,7 @@
         <a href="index.php?controller=notifications&action=list">
             <img src="assets/svg/bell-regular.svg" alt="Notification" class="header-icon">
         </a>
-        <a href="index.php?controller=profilea&action=view">
+        <a href="index.php?controller=profile&action=view">
             <img src="assets/svg/user-solid.svg" alt="User" class="header-icon profile-icon">
         </a>
     </div>

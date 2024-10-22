@@ -106,6 +106,53 @@ html, body {
     cursor: pointer;
     border-radius: 5px;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    background-color: #3a7c7c;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #2a5b5b;
+}
+
+.page-item.disabled .page-link {
+    background-color: #ccc;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.page-item.active .page-link {
+    background-color: #2a5b5b;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+.page-item.disabled .page-link:hover {
+    background-color: #ccc;
+}
+
+.page-item.active .page-link:hover {
+    background-color: #2a5b5b;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
