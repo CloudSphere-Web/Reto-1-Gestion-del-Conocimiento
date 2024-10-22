@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'config/config.php';
 require_once 'model/db.php';
@@ -17,11 +18,11 @@ $dataToView["data"] = array();
 if(method_exists($controller, $_GET["action"])) $dataToView["data"] = $controller -> {$_GET["action"]}();
 
 // Esto es para que el header no salga en el Login ya que no tiene sentido
-if ($_GET["controller"] !== "Login") {
+if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login") {
     require_once 'view/layout/header.php';
 }
 require_once 'view/' . $_GET["controller"] . '/' . $controller -> view . '.html.php';
-if ($_GET["controller"] !== "Login") {
+if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login") {
     require_once 'view/layout/footer.php';
 }
 ?>
