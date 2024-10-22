@@ -1,74 +1,86 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
 }
 
+/* Estilos del footer */
 .footer {
-    background-color: #4b7a77;
+    background-color: #215A59;
+    color: white;
+    padding: 20px;
+}
+
+.footer-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 1rem;
-    text-align: center;
-}
-
-.logo-section {
+/* Logo y nombre */
+.footer-logo {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
-.logo {
-    width: 60px;
-    height: 60px;
+.footer-logo img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin-right: 0.5rem;
+    margin-right: 10px;
 }
 
-.social-section {
+.footer-logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Iconos de redes sociales */
+.footer-social {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
-.social-icon {
-    width: 30px;
-    height: 30px;
-    margin: 0.5rem 0;
+.footer-social a {
+    display: inline-block;
 }
 
-.contact-section p {
-    font-size: 0.9rem;
-    margin: 0.2rem 0;
+.footer-social img {
+    width: 24px;
+    height: 24px;
 }
 
-.patro-section {
+/* Información de contacto */
+.footer-contact {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Patrocinadores */
+.footer-sponsors {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 10px;
 }
 
-.patro {
-    display: flex;
-    align-items: center;
-    margin: 0.5rem 0;
-}
-
-.circle {
-    width: 30px;
-    height: 30px;
-    background-color: #d6d6d6;
+.footer-sponsors img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-right: 0.5rem;
+    background-color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo, .footer-social, .footer-contact, .footer-sponsors {
+        margin-bottom: 20px;
+    }
 }
