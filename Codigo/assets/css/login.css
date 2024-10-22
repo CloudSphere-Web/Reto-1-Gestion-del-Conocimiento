@@ -87,6 +87,7 @@ h2 {
     font-size: 1em;
     text-align: center;
     text-decoration: none;
+    width: 100%;
 }
 .login-button:hover {
     background-color: #238b7e;
