@@ -21,11 +21,11 @@
             </div>
             <input type="password" id="password" name="password" value="••••••••••••••••••" required>
         </div>
-        <div class="remember-me">
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember">Remember me</label>
-        </div>
-        <a href="index.php?controller=preguntas&action=list" class="login-button">Login</a>
+<!--        <div class="remember-me">-->
+<!--            <input type="checkbox" id="remember" name="remember">-->
+<!--            <label for="remember">Remember me</label>-->
+<!--        </div>-->
+        <a href="index.php?controller=preguntas&action=list_paginated" class="login-button">Login</a>
     </form>
 </div>
 </body>
