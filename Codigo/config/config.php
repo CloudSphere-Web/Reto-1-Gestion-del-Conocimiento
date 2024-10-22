@@ -9,3 +9,15 @@ define("DEFAULT_ACTION", "Login");
 
 define("PAGINATION", 5);
 ?>
+
+<?php
+//define("DB_HOST", "localhost");
+//define("DB", "proyecto");
+//define("DB_USER", "root");
+//define("DB_PASS", "");
+//
+//define("DEFAULT_CONTROLLER", "Login");
+//define("DEFAULT_ACTION", "login");
+//
+//define("PAGINATION", 5);
+//?>
