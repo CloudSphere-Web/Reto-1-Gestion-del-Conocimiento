@@ -23,6 +23,15 @@ class UsuarioController
         }
     }
 
+    public function logout() {
+        // Unset the cookie by setting its expiration time to the past
+        setcookie("email_usuario", "", time() - 3600, "/");
+
+        // Redirect to the login page
+        header('Location: index.php?controller=usuario&action=login');
+        exit();
+    }
+
 //    public function login() {
 //        $this -> page_title = 'Login';
 //        $this -> view = 'login';
