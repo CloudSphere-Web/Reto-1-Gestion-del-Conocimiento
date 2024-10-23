@@ -105,6 +105,9 @@ html, body {
     text-align: left;
     cursor: pointer;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 .pagination {
     display: flex;
