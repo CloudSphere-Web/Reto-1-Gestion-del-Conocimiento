@@ -1,0 +1,39 @@
+.question-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.question-card {
+    background-color: #3a7c7c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #2a5b5b;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.question-content {
+    flex: 1;
+}
+.question-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+.question-description {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+.question-date {
+    font-size: 12px;
+    text-align: right;
+}
+.question-time {
+    font-size: 12px;
+    text-align: right;
+}
