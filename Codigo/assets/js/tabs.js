@@ -13,22 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     respuestasBtn.addEventListener("click", function (event) {
         openTab(event, 'respuestas');
-        loadRespuestas()
     });
 
     favoritosBtn.addEventListener("click", function (event) {
         openTab(event, 'favoritos');
-        loadFavoritos()
     });
 
     multimediaBtn.addEventListener("click", function (event) {
         openTab(event, 'multimedia');
-        loadMultimedia()
     });
 });
 
 function openTab(evt, tabName) {
-    //Ocultar todo el contenido de las pestañas
+    // Ocultar todo el contenido de las pestañas
     var tabcontent = document.getElementsByClassName("tab-content");
     for (var i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
@@ -48,42 +45,10 @@ function openTab(evt, tabName) {
 function loadPublicaciones() {
     const publicacionesDiv = document.getElementById('publicaciones');
     
-    fetch('/Codigo/view/usuario/usuarioPreguntas') // Enlaza con tu archivo PHP real
+    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
         .then(response => response.text())
         .then(data => {
             publicacionesDiv.innerHTML = data; 
         });
 }
-
-function loadRespuestas() {
-    const publicacionesDiv = document.getElementById('publicaciones');
-
-    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
-        .then(response => response.text())
-        .then(data => {
-            publicacionesDiv.innerHTML = data;
-        });
-}
-
-function loadFavoritos() {
-    const publicacionesDiv = document.getElementById('publicaciones');
-
-    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
-        .then(response => response.text())
-        .then(data => {
-            publicacionesDiv.innerHTML = data;
-        });
-}
-
-function loadMultimedia() {
-    const publicacionesDiv = document.getElementById('publicaciones');
-
-    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
-        .then(response => response.text())
-        .then(data => {
-            publicacionesDiv.innerHTML = data;
-        });
-}
-
-
 
