@@ -36,7 +36,31 @@ class Pregunta{
         $total=$this->connection->query("SELECT COUNT(*) FROM ".$this->table)->fetchColumn();
         $total=ceil($total/$limit);
         return $total;
-}
+    }
 
-}
+    public function getPreguntasByUserId() {
+        // Asegurarte de que la sesión esté iniciada
+        if(session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        // Obtener el ID del usuario desde la sesión
+        $userId = $_SESSION['user_id'];
+    
+        // Preparar la consulta SQL para obtener las preguntas del usuario actual
+        $sql = "SELECT * FROM $this->table WHERE user_id = :user_id";
+        $stmt = $this->connection->prepare($sql);
+    
+        // Enlazar el parámetro :user_id con el valor del ID del usuario
+        $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+    
+        // Ejecutar la consulta
+        $stmt->execute();
+    
+        // Devolver las preguntas que coincidan con el ID del usuario
+        return $stmt->fetchAll();
+    }
+    
+    
+} 
 ?>
