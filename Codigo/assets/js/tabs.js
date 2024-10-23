@@ -1,35 +1,89 @@
-// Función para cambiar de pestaña
+document.addEventListener("DOMContentLoaded", function () {
+    // Botones
+    const publicacionesBtn = document.getElementById("publicaciones-btn");
+    const respuestasBtn = document.getElementById("respuestas-btn");
+    const favoritosBtn = document.getElementById("favoritos-btn");
+    const multimediaBtn = document.getElementById("multimedia-btn");
+
+    // Asignar eventos a cada botón
+    publicacionesBtn.addEventListener("click", function (event) {
+        openTab(event, 'publicaciones');
+        loadPublicaciones(); // Llamar la función que carga dinámicamente las publicaciones
+    });
+
+    respuestasBtn.addEventListener("click", function (event) {
+        openTab(event, 'respuestas');
+        loadRespuestas()
+    });
+
+    favoritosBtn.addEventListener("click", function (event) {
+        openTab(event, 'favoritos');
+        loadFavoritos()
+    });
+
+    multimediaBtn.addEventListener("click", function (event) {
+        openTab(event, 'multimedia');
+        loadMultimedia()
+    });
+});
+
 function openTab(evt, tabName) {
-    // Ocultar todo el contenido de las pestañas
+    //Ocultar todo el contenido de las pestañas
     var tabcontent = document.getElementsByClassName("tab-content");
     for (var i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
 
-    // Eliminar la clase "active" de todos los botones
+    // Eliminar la clase 'active' de todos los botones
     var tablinks = document.getElementsByClassName("tab");
     for (var i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
     }
 
-    // Mostrar el contenido actual y marcar el botón como activo
+    // Mostrar la pestaña actual y añadir la clase 'active' al botón seleccionado
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.classList.add("active");
 }
 
-// Cargar dinámicamente las publicaciones del usuario
 function loadPublicaciones() {
     const publicacionesDiv = document.getElementById('publicaciones');
-    // Hacer una llamada AJAX o Fetch para cargar el contenido dinámico
-    fetch('/Codigo/view/usuario/UsuarioPreguntas.php') // Enlaza a tu archivo PHP que contiene el código de preguntas
+    
+    fetch('/Codigo/view/usuario/usuarioPreguntas') // Enlaza con tu archivo PHP real
         .then(response => response.text())
         .then(data => {
-            publicacionesDiv.innerHTML = data; // Mostrar el contenido en el div
+            publicacionesDiv.innerHTML = data; 
         });
 }
 
-// Iniciar con la pestaña "PUBLICACIONES" abierta
-window.onload = function () {
-    document.querySelector('.tab-inicio').click();
-    loadPublicaciones(); // Cargar publicaciones al cargar la página
+function loadRespuestas() {
+    const publicacionesDiv = document.getElementById('publicaciones');
+
+    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
+        .then(response => response.text())
+        .then(data => {
+            publicacionesDiv.innerHTML = data;
+        });
 }
+
+function loadFavoritos() {
+    const publicacionesDiv = document.getElementById('publicaciones');
+
+    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
+        .then(response => response.text())
+        .then(data => {
+            publicacionesDiv.innerHTML = data;
+        });
+}
+
+function loadMultimedia() {
+    const publicacionesDiv = document.getElementById('publicaciones');
+
+    fetch('/ruta/al/php/que/muestra/publicaciones.php') // Enlaza con tu archivo PHP real
+        .then(response => response.text())
+        .then(data => {
+            publicacionesDiv.innerHTML = data;
+        });
+}
+
+
+

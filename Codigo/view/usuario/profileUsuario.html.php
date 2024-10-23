@@ -15,38 +15,38 @@
             <div class="email">zahirallonso.rivera@ikasle.egibide.com</div>
             <div class="position">Director General</div>
             <div class="stats">
-                <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/preguntaImagen.png" class="stat-icon"></img>1</div>
-                <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/respuestaImagen.png" class="stat-icon"></>1</div>
-                <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/favoritoImagen.png" class="stat-icon"></>1</div>
-            </div>
-        </div>
-        <div class="Ranking">2</div>
+                <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/preguntaImagen.png" class="stat-icon"/>1</div>
+                <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/respuestaImagen.png" class="stat-icon"/>1</div>
+            <div class="stat-item"><img src="/Codigo/assets/img/userImagenes/favoritoImagen.png" class="stat-icon"/>1</div>
     </div>
+</div>
+<div class="Ranking">2</div>
+</div>
 
-    <!-- Botones de pestañas -->
-    <div class="tabs">
-        <button class="tab tab-inicio" onclick="openTab(event, 'publicaciones'); loadPublicaciones();">PUBLICACIONES</button>
-        <button class="tab" onclick="openTab(event, 'respuestas')">RESPUESTAS</button>
-        <button class="tab" onclick="openTab(event, 'favoritos')">FAVORITOS</button>
-        <button class="tab tab-final" onclick="openTab(event, 'multimedia')">MULTIMEDIA</button>
-    </div>
+<!-- Botones de pestañas -->
+<div class="tabs">
+    <button class="tab tab-inicio" id="publicaciones-btn">PUBLICACIONES</button>
+    <button class="tab" id="respuestas-btn">RESPUESTAS</button>
+    <button class="tab" id="favoritos-btn">FAVORITOS</button>
+    <button class="tab tab-final" id="multimedia-btn">MULTIMEDIA</button>
+</div>
 
-    <!-- Contenidos de las pestañas -->
-    <div class="tab-content" id="publicaciones" style="display: none;">
-        <!-- Aquí se cargarán dinámicamente las publicaciones del usuario -->
-    </div>
-    <div class="tab-content" id="respuestas" style="display: none;">
-        <!-- Contenido para las respuestas -->
-        <p>Contenido de respuestas del usuario.</p>
-    </div>
-    <div class="tab-content" id="favoritos" style="display: none;">
-        <!-- Contenido para los favoritos -->
-        <p>Contenido de favoritos del usuario.</p>
-    </div>
-    <div class="tab-content" id="multimedia" style="display: none;">
-        <!-- Contenido multimedia -->
-        <p>Contenido multimedia del usuario.</p>
-    </div>
+<!-- Contenidos de las pestañas -->
+<div class="tab-content" id="publicaciones" style="display: none;">
+    <!-- Aquí se cargarán dinámicamente las publicaciones del usuario -->
+</div>
+<div class="tab-content" id="respuestas" style="display: none;">
+    <!-- Contenido para las respuestas -->
+    <p>Contenido de respuestas del usuario.</p>
+</div>
+<div class="tab-content" id="favoritos" style="display: none;">
+    <!-- Contenido para los favoritos -->
+    <p>Contenido de favoritos del usuario.</p>
+</div>
+<div class="tab-content" id="multimedia" style="display: none;">
+    <!-- Contenido multimedia -->
+    <p>Contenido multimedia del usuario.</p>
+</div>
 </div>
 
 <!-- Enlace al archivo JavaScript -->
