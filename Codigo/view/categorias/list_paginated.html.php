@@ -71,11 +71,12 @@
         ?>
     </main>
     <aside class="sidebar">
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=modelos">Modelos</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=motorizacion">Motorización</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=sistema">Sistema</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=especificaciones">Especificaciones</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=componentes">Componentes</a>
+        <a class="sidebar-button" href="index.php?controller=categoria&action=list_paginated">Modelos</a>
+        <a class="sidebar-button" href="index.php?controller=categoria&action=">Motorizacion</a>
+        <a class="sidebar-button" href="index.php?controller=categoria&action=">Sistema</a>
+        <a class="sidebar-button" href="index.php?controller=categoria&action=">Especificaciones</a>
+        <a class="sidebar-button" href="index.php?controller=categoria&action=">Componentes</a>
+
     </aside>
 </div>
 </body>
