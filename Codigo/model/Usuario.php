@@ -33,6 +33,14 @@ class Usuario
         return false; // Usuario no encontrado o credenciales incorrectas
     }
 
+    public function getUserDataByEmail($email) {
+        if (is_null($email)) return false;
+        $sql = "SELECT * FROM " . $this->table . " WHERE email = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$email]);
+        return $stmt->fetch();
+    }
+
 //    public function register() {
 //        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 //
