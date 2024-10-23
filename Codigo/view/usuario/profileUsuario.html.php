@@ -23,7 +23,6 @@
 <div class="Ranking">2</div>
 </div>
 
-<!-- Botones de pestañas -->
 <div class="tabs">
     <button class="tab tab-inicio" id="publicaciones-btn">PUBLICACIONES</button>
     <button class="tab" id="respuestas-btn">RESPUESTAS</button>
