@@ -32,6 +32,20 @@ class UsuarioController
         exit();
     }
 
+    public function viewProfile() {
+        $this->view = "profileUsuario";
+        $this->page_title = "Profile";
+        $userData = $this->model->getUserDataByEmail($_COOKIE["email_usuario"]);
+//        if ($userData) {
+//            require_once "view/usuario/profileUsuario.html.php";
+//        } else {
+//            header('Location: index.php?controller=usuario&action=login');
+//            exit();
+//        }
+        return $userData;
+    }
+
+
 //    public function login() {
 //        $this -> page_title = 'Login';
 //        $this -> view = 'login';
