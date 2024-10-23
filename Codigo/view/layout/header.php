@@ -29,7 +29,7 @@
         <div class="dropdown">
             <img src="assets/svg/user-solid.svg" alt="User" class="header-icon profile-icon" onclick="toggleDropdown(event)">
             <div id="userDropdown" class="dropdown-content">
-                <a href="index.php?controller=profile&action=view">Ver Perfil</a>
+                <a href="index.php?controller=usuario&action=viewProfile">Ver Perfil</a>
                 <a href="index.php?controller=settings&action=view">Configuración</a>
                 <a href="index.php?controller=help&action=view">Ayuda</a>
                 <a href="index.php?controller=usuario&action=logout">Cerrar Sesión</a>

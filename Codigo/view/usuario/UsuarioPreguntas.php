@@ -21,7 +21,7 @@
                         <p class='question-date'>{$pregunta['fecha_publicacion']}</p>
                         <p class='question-time'>{$pregunta['hora_publicacion']}</p>
                     </div>
-                  </article>";
+                </article>";
         }
     ?>
 </div>
