@@ -20,15 +20,15 @@
                 $fecha_publicacion = isset($pregunta['fecha_publicacion']) ? $pregunta['fecha_publicacion'] : '';
                 $hora_publicacion = isset($pregunta['hora_publicacion']) ? $pregunta['hora_publicacion'] : '';
                 ?>
-                <article class="question-card">
-                    <div class="avatar" role="img" aria-label="Avatar del usuario"></div>
-                    <div class="question-content">
-                        <h2 class="question-title"><?php echo $titulo; ?></h2>
-                        <p class="question-description"><?php echo $descripcion; ?></p>
-                        <p class="question-date"><?php echo $fecha_publicacion; ?></p>
-                        <p class="question-time"><?php echo $hora_publicacion; ?></p>
+                <a href="index.php?controller=preguntas&action=details&id=<?php echo $pregunta['id']; ?>" class='question-card'>
+                    <div class='avatar'></div>
+                    <div class='question-content'>
+                        <h2 class='question-title'><?php echo htmlspecialchars($pregunta['titulo']); ?></h2>
+                        <p class='question-description'><?php echo htmlspecialchars($pregunta['descripcion']); ?></p>
+                        <p class='question-date'><?php echo htmlspecialchars($pregunta['fecha_publicacion']); ?></p>
+                        <p class='question-time'><?php echo htmlspecialchars($pregunta['hora_publicacion']); ?></p>
                     </div>
-                </article>
+                </a>
                 <?php
             }
             ?>

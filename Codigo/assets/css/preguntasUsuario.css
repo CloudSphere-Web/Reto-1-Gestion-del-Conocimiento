@@ -1,6 +1,7 @@
 .question-list {
     flex-grow: 1;
     overflow-y: auto;
+    margin-top: 20px;
 }
 .question-card {
     background-color: #3a7c7c;
@@ -36,37 +37,4 @@
 .question-time {
     font-size: 12px;
     text-align: right;
-}
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-.pagination button {
-    background-color: #3a7c7c;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.sidebar-button {
-    background-color: #3a7c7c;
-    border: none;
-    color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 75px;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    list-style-type: none;
-    padding: 0;
 }
