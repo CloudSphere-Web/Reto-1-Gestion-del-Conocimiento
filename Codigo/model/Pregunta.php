@@ -46,6 +46,31 @@ class Pregunta{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getPreguntaById($id) {
+        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getRespuestasByPreguntaId($preguntaId) {
+        $sql = "SELECT * FROM respuestas WHERE pregunta_id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':pregunta_id', $preguntaId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getPreguntaWithUserDetails($id) {
+        $query = "SELECT p.*, u.nombre, u.apellidos, u.foto_perfil, u.puesto 
+                  FROM $this->table p 
+                  JOIN usuarios u ON p.usuario_id = u.id 
+                  WHERE p.id = :id";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 } 
 ?>

@@ -22,6 +22,15 @@ class PreguntasController extends CheckLoginController {
         return $this->model->getPreguntasPaginated($page);
     }
 
+    public function details() {
+        $this->view = 'details';
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $pregunta = $this->model->getPreguntaWithUserDetails($id);
+//        $respuestas = $this->model->getRespuestasByPreguntaId($id);
+        return ['pregunta' => $pregunta];
+//        return ['pregunta' => $pregunta, 'respuestas' => $respuestas];
+
+    }
 
 }
 ?>

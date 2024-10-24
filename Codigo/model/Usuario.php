@@ -50,6 +50,14 @@ class Usuario
         return $stmt->fetchColumn();
     }
 
+    public function getUserDetailsById($usuario_id) {
+        $sql = "SELECT nombre, apellidos, puesto, foto_perfil FROM " . $this->table . " WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $usuario_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 //    public function register() {
 //        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 //
