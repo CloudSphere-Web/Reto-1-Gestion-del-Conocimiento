@@ -1,0 +1,166 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #338C8A; /* Color de fondo */
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* Estilo del artículo de la pregunta */
+.pregunta, .respuesta {
+    background-color: #194f50; /* Fondo oscuro para la tarjeta */
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox para alinear el header en fila */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin-bottom: 20px;
+}
+
+/* Estilo del avatar */
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc; /* Avatar por defecto */
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0; /* Evita que se reduzca el tamaño */
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*border-radius: 30px;*/
+}
+
+/* Contenido del header con flex */
+.header-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #123535; /* Adjust the color as needed */
+    width: 100%; /* Make it occupy 100% of the width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+}
+
+.headder-content p {
+    margin-right: 15px; /* Espacio entre los elementos */
+    margin-bottom: 0; /* Quitar margen inferior para alinearlo */
+}
+
+.question-user-fullname {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.question-user-subname, .question-user-job, .question-date, .question-time {
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+/* Estilo del botón de borrar */
+.borrar img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.borrar {
+    flex-shrink: 0; /* Evita que el botón de borrar cambie de tamaño */
+}
+
+/* Sección del contenido de la pregunta */
+.container h1 {
+    font-size: 2.0em;
+    margin-bottom: 10px;
+    /*text-align: center;*/
+}
+
+.container p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin-right: 10px;
+}
+
+/* Iconos de interacción (like, compartir, favoritos) */
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.question-footer .izquierda {
+    display: flex;
+}
+
+.question-footer .izquierda div, .question-footer .fav {
+    margin-right: 15px;
+}
+
+.question-footer img {
+    width: 30px;
+    cursor: pointer;
+}
+
+/* Sección de respuestas */
+.respuestas {
+    margin-top: 30px;
+}
+
+.respuesta .header {
+    margin-bottom: 10px;
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Scrollable section for large content */
+.respuestas {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-top: 10px;
+    border-top: 2px solid #3a7f7c;
+}
