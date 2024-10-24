@@ -28,6 +28,7 @@ class Usuario
         }
         if (isset($map[$emailParam]) && $map[$emailParam] === $contrasennaParam) {
             setcookie("email_usuario", $emailParam, 0, "/");
+            $_SESSION['is_logged_in'] = true;
             return true; // Usuario encontrado y validado
         }
         return false; // Usuario no encontrado o credenciales incorrectas
@@ -39,6 +40,14 @@ class Usuario
         $stmt = $this->connection->prepare($sql);
         $stmt->execute([$email]);
         return $stmt->fetch();
+    }
+
+    public function getUserIdByEmail($email) {
+        $sql = "SELECT id FROM $this->table WHERE email = :email";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 
 //    public function register() {

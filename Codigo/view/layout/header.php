@@ -13,7 +13,7 @@
 <body>
 <header class="header">
     <div class="header-section logo-section">
-        <a href="index.php" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
+        <a href="index.php?controller=preguntas&action=list_paginated" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
             <img src="assets/svg/logo.svg" alt="Logo" class="logo">
             <h3>AERGIBIDE</h3>
         </a>
@@ -30,7 +30,7 @@
             <img src="assets/svg/user-solid.svg" alt="User" class="header-icon profile-icon" onclick="toggleDropdown(event)">
             <div id="userDropdown" class="dropdown-content">
                 <a href="index.php?controller=usuario&action=viewProfile">Ver Perfil</a>
-                <a href="index.php?controller=settings&action=view">Configuración</a>
+                <a href="index.php?controller=ajustes&action=viewSettings">Configuración</a>
                 <a href="index.php?controller=help&action=view">Ayuda</a>
                 <a href="index.php?controller=usuario&action=logout">Cerrar Sesión</a>
             </div>

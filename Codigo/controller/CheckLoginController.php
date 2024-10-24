@@ -6,8 +6,10 @@ class CheckLoginController {
 
     public function checkLogin() {
         if (!isset($_COOKIE['email_usuario'])) {
-            header('Location: index.php?controller=usuario&action=login');
-            exit();
+            if ($_GET['controller'] !== 'usuario' || $_GET['action'] !== 'login') {
+                header('Location: index.php?controller=usuario&action=login');
+                exit();
+            }
         }
     }
 }

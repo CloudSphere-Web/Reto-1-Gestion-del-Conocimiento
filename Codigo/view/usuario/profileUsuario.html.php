@@ -27,31 +27,18 @@
 
     <!-- Botones de pestañas -->
     <div class="tabs">
-        <button class="tab tab-inicio" onclick="openTab(event, 'publicaciones'); loadPublicaciones();">PUBLICACIONES</button>
-        <button class="tab" onclick="openTab(event, 'respuestas')">RESPUESTAS</button>
-        <button class="tab" onclick="openTab(event, 'favoritos')">FAVORITOS</button>
-        <button class="tab tab-final" onclick="openTab(event, 'multimedia')">MULTIMEDIA</button>
+        <button class="tab tab-inicio" onclick="cargarContenido('viewPreguntasUsuario')">PUBLICACIONES</button>
+        <button class="tab" onclick="cargarContenido('respuestas')">RESPUESTAS</button>
+        <button class="tab" onclick="cargarContenido('favoritos')">FAVORITOS</button>
+        <button class="tab tab-final" onclick="cargarContenido('multimedia')">MULTIMEDIA</button>
     </div>
 
-    <!-- Contenidos de las pestañas -->
-    <div class="tab-content" id="publicaciones" style="display: none;">
-        <!-- Aquí se cargarán dinámicamente las publicaciones del usuario -->
-    </div>
-    <div class="tab-content" id="respuestas" style="display: none;">
-        <!-- Contenido para las respuestas -->
-        <p>Contenido de respuestas del usuario.</p>
-    </div>
-    <div class="tab-content" id="favoritos" style="display: none;">
-        <!-- Contenido para los favoritos -->
-        <p>Contenido de favoritos del usuario.</p>
-    </div>
-    <div class="tab-content" id="multimedia" style="display: none;">
-        <!-- Contenido multimedia -->
-        <p>Contenido multimedia del usuario.</p>
+    <div id="contenido-dinamico">
+        <!-- Aquí se cargará el contenido de cada pestaña -->
     </div>
 </div>
 
 <!-- Enlace al archivo JavaScript -->
-<script src="/Codigo/assets/js/tabs.js"></script>
+<script src="assets/js/tabs.js"></script>
 </body>
 </html>
