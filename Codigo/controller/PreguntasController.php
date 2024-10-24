@@ -21,5 +21,7 @@ class PreguntasController extends CheckLoginController {
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         return $this->model->getPreguntasPaginated($page);
     }
+
+
 }
 ?>

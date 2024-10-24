@@ -1,13 +1,15 @@
 <?php
 require_once "model/Usuario.php";
+require_once "model/Pregunta.php";
+require_once 'CheckLoginController.php';
 
-class UsuarioController
-{
+class UsuarioController extends CheckLoginController {
     public $page_title;
     public $view;
     public $model;
 
     public function __construct() {
+        parent::__construct();
         $this->view = "";
         $this->page_title = "";
         $this->model = new Usuario();
@@ -36,15 +38,28 @@ class UsuarioController
         $this->view = "profileUsuario";
         $this->page_title = "Profile";
         $userData = $this->model->getUserDataByEmail($_COOKIE["email_usuario"]);
-//        if ($userData) {
-//            require_once "view/usuario/profileUsuario.html.php";
-//        } else {
-//            header('Location: index.php?controller=usuario&action=login');
-//            exit();
-//        }
         return $userData;
     }
 
+    public function viewPreguntasUsuario() {
+        $this->view = "preguntasUsuario";
+        $this->page_title = "Preguntas";
+
+        $email = $_COOKIE["email_usuario"];
+        $userId = $this->model->getUserIdByEmail($email);
+//        print_r($email);
+//        print_r($userId);
+
+        if ($userId) {
+            $preguntasModel = new Pregunta();
+            $preguntas = $preguntasModel->getPreguntasByUserId($userId);
+//            print_r($preguntas);
+        } else {
+            $preguntas = [];
+        }
+
+        return $preguntas;
+    }
 
 //    public function login() {
 //        $this -> page_title = 'Login';
