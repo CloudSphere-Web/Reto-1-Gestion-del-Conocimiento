@@ -11,7 +11,13 @@
 ?>
 <div class="container">
     <div class="profile-section">
-        <div class="profile-pic"><?php echo substr($userData['nombre'], 0, 1) . substr($userData['apellidos'], 0, 1); ?></div>
+        <div class="profile-pic">
+            <?php if ($userData['foto_perfil']) { ?>
+                <img src="<?php echo $userData['foto_perfil']; ?>" alt="Avatar del usuario">
+            <?php } else { ?>
+                <?php echo substr($userData['nombre'], 0, 1) . substr($userData['apellidos'], 0, 1); ?>
+            <?php } ?>
+        </div>
         <div class="profile-info">
             <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
             <div class="email"><?php echo $userData['email']; ?></div>
@@ -28,7 +34,7 @@
     <!-- Botones de pestañas -->
     <div class="tabs">
         <button class="tab tab-inicio" onclick="cargarContenido('viewPreguntasUsuario')">PUBLICACIONES</button>
-        <button class="tab" onclick="cargarContenido('respuestas')">RESPUESTAS</button>
+        <button class="tab" onclick="cargarContenido('viewRespuestasUsuario')">RESPUESTAS</button>
         <button class="tab" onclick="cargarContenido('favoritos')">FAVORITOS</button>
         <button class="tab tab-final" onclick="cargarContenido('multimedia')">MULTIMEDIA</button>
     </div>

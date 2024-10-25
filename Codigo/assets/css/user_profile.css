@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Lato, sans-serif;
+    font-family: Lato, Montserrat, sans-serif;
     background-color: #2a7a78;
     color: white;
     height: 100%;
@@ -26,6 +26,17 @@ body, html {
     align-items: center;
 }
 .profile-pic {
+    width: 80px;
+    height: 80px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #333;
+}
+.profile-pic img {
     width: 80px;
     height: 80px;
     background-color: #d9d9d9;

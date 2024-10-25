@@ -14,10 +14,27 @@ class Categoria
     }
 
     public function getCategoria(){
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT id, nombre FROM $this->table";
         $stmt = $this -> connection -> prepare($sql);
         $stmt -> execute();
         return $stmt -> fetchAll();
     }
+
+    public function getCategoriaById($id) {
+        $sql = "SELECT * FROM categorias WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getCategoriaByNombre($nombre) {
+        $sql = "SELECT * FROM categorias WHERE nombre = :nombre";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
 }

@@ -14,7 +14,7 @@
         <p class="no-questions">No has realizado ninguna pregunta aún.</p>
     <?php else: ?>
         <?php foreach ($dataToView["data"] as $pregunta): ?>
-            <article class='question-card'>
+            <a href="index.php?controller=preguntas&action=details&id=<?php echo $pregunta['id']; ?>" class='question-card'>
                 <div class='avatar'></div>
                 <div class='question-content'>
                     <h2 class='question-title'><?php echo htmlspecialchars($pregunta['titulo']); ?></h2>
@@ -22,7 +22,7 @@
                     <p class='question-date'><?php echo htmlspecialchars($pregunta['fecha_publicacion']); ?></p>
                     <p class='question-time'><?php echo htmlspecialchars($pregunta['hora_publicacion']); ?></p>
                 </div>
-            </article>
+            </a>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

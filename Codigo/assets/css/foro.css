@@ -2,16 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Lato, Montserrat, sans-serif;
 }
 html, body {
     height: 100%;
-    font-family: Arial, sans-serif;
     background-color: #2a5b5b;
     color: white;
 }
 .container {
     display: flex;
-    height: 100%;
     max-width: 100%;
     padding: 20px;
 }
@@ -32,14 +31,34 @@ html, body {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
+
 .search-bar input {
-    width: 100%;
+    flex: 1;
     padding: 10px;
     border: none;
     background-color: #2a5b5b;
     color: white;
     border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button, .search-bar a {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2a5b5b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    height: 40px;
+    margin-left: auto;
+}
+
+.search-bar button:hover, .search-bar a:hover {
+    background-color: #38A9A8;
 }
 .question-list {
     flex-grow: 1;
@@ -59,6 +78,13 @@ html, body {
     background-color: #38A9A8;
 }
 .avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #2a5b5b;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.avatar img{
     width: 50px;
     height: 50px;
     background-color: #2a5b5b;
@@ -160,8 +186,16 @@ html, body {
 .page-item.active .page-link:hover {
     background-color: #2a5b5b;
 }
-
-@media (max-width: 768px) {
+.category-description {
+    background-color: #38A9A8;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+    @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
