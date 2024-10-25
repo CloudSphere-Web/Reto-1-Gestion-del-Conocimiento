@@ -1,6 +1,7 @@
 <?php
 require_once "model/Usuario.php";
 require_once "model/Pregunta.php";
+require_once "model/Respuesta.php";
 require_once 'CheckLoginController.php';
 
 class UsuarioController extends CheckLoginController {
@@ -60,6 +61,23 @@ class UsuarioController extends CheckLoginController {
 
         return $preguntas;
     }
+    public function viewRespuestasUsuario() {
+        $this->view = "respuestasUsuario";
+        $this->page_title = "Respuestas";
+
+        $email = $_COOKIE["email_usuario"];
+        $userId = $this->model->getUserIdByEmail($email);
+
+        if ($userId) {
+            $respuestasModel = new Respuesta();
+            $respuestas = $respuestasModel->getRespuestasByUserId($userId);
+        } else {
+            $respuestas = [];
+        }
+
+        return $respuestas;
+    }
+
 
 //    public function login() {
 //        $this -> page_title = 'Login';

@@ -1,3 +1,6 @@
+* {
+    font-family: Lato, Montserrat, sans-serif;
+}
 .question-list {
     flex-grow: 1;
     overflow-y: auto;
@@ -10,6 +13,11 @@
     margin-bottom: 20px;
     display: flex;
     align-items: flex-start;
+    text-decoration: none;
+    color: white;
+}
+.question-card:hover {
+    background-color: #38A9A8;
 }
 .avatar {
     width: 50px;

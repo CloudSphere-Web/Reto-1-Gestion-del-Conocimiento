@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Lato, Montserrat, sans-serif;
 }
 
 /* Estilos generales */
@@ -18,11 +19,22 @@ body {
 }
 
 /* Estilo del artículo de la pregunta */
-.pregunta, .respuesta {
+.pregunta {
     background-color: #194f50; /* Fondo oscuro para la tarjeta */
     border-radius: 30px;
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.respuesta {
+    background-color: #194f50;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    width: 90%;
+    margin-left: auto; /* Añadir esta línea */
 }
 
 /* Flexbox para alinear el header en fila */
@@ -56,9 +68,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #123535; /* Adjust the color as needed */
-    width: 100%; /* Make it occupy 100% of the width */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    background-color: #123535;
+    width: 100%;
+    box-sizing: border-box;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
@@ -114,29 +126,33 @@ body {
 }
 
 /* Iconos de interacción (like, compartir, favoritos) */
-.question-footer {
+.question-footer, .answer-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     padding: 20px;
 }
 
-.question-footer .izquierda {
+.question-footer .izquierda, .answer-footer .izquierda {
     display: flex;
 }
 
-.question-footer .izquierda div, .question-footer .fav {
+.question-footer .izquierda div, .question-footer .fav, .question-footer .compartir, .answer-footer .izquierda div, .answer-footer .fav, .answer-footer .compartir {
     margin-right: 15px;
 }
 
-.question-footer img {
+.question-footer img, .answer-footer img {
     width: 30px;
     cursor: pointer;
 }
 
 /* Sección de respuestas */
 .respuestas {
+    display: flex;
+    flex-direction: column;
     margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid #3a7f7c;
 }
 
 .respuesta .header {
@@ -155,12 +171,4 @@ body {
 .alert-info {
     background-color: #d1ecf1;
     color: #0c5460;
-}
-
-/* Scrollable section for large content */
-.respuestas {
-    max-height: 300px;
-    overflow-y: auto;
-    padding-top: 10px;
-    border-top: 2px solid #3a7f7c;
 }

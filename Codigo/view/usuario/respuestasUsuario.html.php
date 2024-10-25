@@ -13,16 +13,15 @@
     <?php elseif (empty($dataToView['data'])): ?>
         <p class="no-questions">No has realizado ninguna pregunta aún.</p>
     <?php else: ?>
-        <?php foreach ($dataToView["data"] as $pregunta): ?>
-            <article class='question-card'>
+        <?php foreach ($dataToView["data"] as $respuestas): ?>
+            <a href="index.php?controller=preguntas&action=details&id=<?php echo $respuestas['id']; ?>" class='question-card'>
                 <div class='avatar'></div>
                 <div class='question-content'>
-                    <h2 class='question-title'><?php echo htmlspecialchars($pregunta['titulo']); ?></h2>
-                    <p class='question-description'><?php echo htmlspecialchars($pregunta['descripcion']); ?></p>
-                    <p class='question-date'><?php echo htmlspecialchars($pregunta['fecha_publicacion']); ?></p>
-                    <p class='question-time'><?php echo htmlspecialchars($pregunta['hora_publicacion']); ?></p>
+                    <p class='question-description'><?php echo htmlspecialchars($respuestas['contenido']); ?></p>
+                    <p class='question-date'><?php echo htmlspecialchars($respuestas['fecha_publicacion']); ?></p>
+                    <p class='question-time'><?php echo htmlspecialchars($respuestas['hora_publicacion']); ?></p>
                 </div>
-            </article>
+            </a>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

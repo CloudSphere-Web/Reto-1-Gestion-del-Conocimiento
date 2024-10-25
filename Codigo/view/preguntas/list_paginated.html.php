@@ -10,8 +10,15 @@
 <div class="container">
     <main class="main-content">
         <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
+            <form action="index.php" method="get">
+                <input type="hidden" name="controller" value="preguntas">
+                <input type="hidden" name="action" value="search">
+                <input type="text" name="keyword" placeholder="Buscar..." value="<?php echo isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : ''; ?>">
+                <button type="submit">Buscar</button>
+            </form>
+            <a href="index.php?controller=preguntas&action=loadForm">Publicar pregunta</a>
         </div>
+
         <?php
         if(count($dataToView["data"][0]) > 0){
             foreach ($dataToView["data"][0] as $pregunta){
@@ -21,7 +28,9 @@
                 $hora_publicacion = isset($pregunta['hora_publicacion']) ? $pregunta['hora_publicacion'] : '';
                 ?>
                 <a href="index.php?controller=preguntas&action=details&id=<?php echo $pregunta['id']; ?>" class='question-card'>
-                    <div class='avatar'></div>
+                    <div class='avatar'>
+                        <img src="<?php echo $pregunta['foto_perfil'] ? $pregunta['foto_perfil'] : 'default.png'; ?>" alt="Avatar del usuario">
+                    </div>
                     <div class='question-content'>
                         <h2 class='question-title'><?php echo htmlspecialchars($pregunta['titulo']); ?></h2>
                         <p class='question-description'><?php echo htmlspecialchars($pregunta['descripcion']); ?></p>
@@ -71,11 +80,11 @@
         ?>
     </main>
     <aside class="sidebar">
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=modelos">Modelos</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=motorizacion">Motorización</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=sistema">Sistema</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=especificaciones">Especificaciones</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=componentes">Componentes</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=modelos">Modelos</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=motorizacion">Motorización</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=sistema">Sistema</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=especificaciones">Especificaciones</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=componentes">Componentes</a>
     </aside>
 </div>
 </body>
