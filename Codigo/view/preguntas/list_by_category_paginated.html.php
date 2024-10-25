@@ -46,7 +46,15 @@
         <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=sistema">Sistema</a>
         <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=especificaciones">Especificaciones</a>
         <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=componentes">Componentes</a>
+
+        <?php if (isset($dataToView["data"]["categoria"])): ?>
+            <div class="category-description">
+                <p><?php echo htmlspecialchars($dataToView["data"]["categoria"]["descripcion"]); ?></p>
+            </div>
+        <?php endif; ?>
     </aside>
+
+
 </div>
 </body>
 </html>

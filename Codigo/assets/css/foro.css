@@ -186,8 +186,16 @@ html, body {
 .page-item.active .page-link:hover {
     background-color: #2a5b5b;
 }
-
-@media (max-width: 768px) {
+.category-description {
+    background-color: #38A9A8;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+    @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
