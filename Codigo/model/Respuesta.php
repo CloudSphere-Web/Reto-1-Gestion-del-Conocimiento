@@ -37,5 +37,37 @@ class Respuesta {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function save($param) {
+        // Sanitize input parameters
+        $param = filter_var_array($param, FILTER_SANITIZE_SPECIAL_CHARS);
+
+        // Extract parameters
+        $contenido = $param['contenido'] ?? null;
+        $fecha_publicacion = $param['fecha_publicacion'] ?? null;
+        $hora_publicacion = $param['hora_publicacion'] ?? null;
+        $pregunta_id = $param['pregunta_id'] ?? null;
+        $usuario_id = $param['usuario_id'] ?? null;
+        $archivo = $param['archivo'] ?? null;
+
+        // Prepare SQL statement
+        $sql = "INSERT INTO " . $this->table . " (contenido, fecha_publicacion, hora_publicacion, pregunta_id, usuario_id, archivo) 
+            VALUES (:contenido, :fecha_publicacion, :hora_publicacion, :pregunta_id, :usuario_id, :archivo)";
+        $stmt = $this->connection->prepare($sql);
+
+        // Bind parameters
+        $stmt->bindParam(':contenido', $contenido);
+        $stmt->bindParam(':fecha_publicacion', $fecha_publicacion);
+        $stmt->bindParam(':hora_publicacion', $hora_publicacion);
+        $stmt->bindParam(':pregunta_id', $pregunta_id);
+        $stmt->bindParam(':usuario_id', $usuario_id);
+        $stmt->bindParam(':archivo', $archivo);
+
+        // Execute statement
+        $stmt->execute();
+
+        // Return the ID of the last inserted row
+        return $this->connection->lastInsertId();
+    }
 }
 ?>
