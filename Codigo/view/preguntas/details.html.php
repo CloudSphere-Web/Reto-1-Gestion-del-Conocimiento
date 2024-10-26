@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +35,9 @@
                         <div class="question-footer">
                             <div class="izquierda">
                                 <div class="like"><img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like"></div>
-                                <div class="compartir"><img src="assets/svg/share-white.svg" alt="Share"></div>
+                                <a href="index.php?controller=preguntas&action=responder&id=<?php echo $pregunta['id']; ?>" class="comentar">
+                                    <img src="assets/svg/share-white.svg" alt="Comentar">
+                                </a>
                             </div>
                             <div class="fav"><img src="assets/svg/star-regular.svg" alt="Favorite"></div>
                         </div>

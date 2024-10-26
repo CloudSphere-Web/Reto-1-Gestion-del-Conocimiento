@@ -143,6 +143,87 @@ class PreguntasController extends CheckLoginController
         return ['preguntas' => $preguntas, 'categoria' => $categoria];
     }
 
+    public function responder() {
+        $this->view = 'responder';
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $pregunta = $this->getPreguntaDetails($id);
+        return ['pregunta' => $pregunta];
+    }
+
+    public function saveRespuesta() {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        $dataToView = ['error' => false];
+        $filePath = null;
+
+        if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['archivo']['tmp_name'];
+            $fileName = $_FILES['archivo']['name'];
+            $uploadFileDir = './uploads/';
+            $destPath = $uploadFileDir . $fileName;
+
+            if (!is_dir($uploadFileDir)) {
+                mkdir($uploadFileDir, 0777, true);
+            }
+
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+                $filePath = $destPath;
+            } else {
+                $dataToView['error'] = 'Error al subir el archivo';
+                return $dataToView;
+            }
+        }
+
+        if (!isset($_POST['contenido'])) {
+            $dataToView['error'] = 'El contenido es requerido';
+            return $dataToView;
+        }
+
+        $contenido = $_POST['contenido'];
+        $fecha_publicacion = date('Y-m-d');
+        $hora_publicacion = date('H:i:s');
+        $pregunta_id = $id;
+        $archivo = $filePath;
+
+        $email = $_COOKIE["email_usuario"];
+        $usuarioModel = new Usuario();
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        $param = [
+            'contenido' => $contenido,
+            'fecha_publicacion' => $fecha_publicacion,
+            'hora_publicacion' => $hora_publicacion,
+            'usuario_id' => $usuario_id,
+            'pregunta_id' => $pregunta_id,
+            'archivo' => $archivo
+        ];
+
+        var_dump($param);
+
+        try {
+            $respuestaModel = new Respuesta();
+            $respuestaModel->save($param);
+            header("Location: index.php?controller=preguntas&action=details&id=" . $id);
+            exit();
+        } catch (PDOException $e) {
+            $dataToView['error'] = "Error al guardar la respuesta: " . $e->getMessage();
+            return $dataToView;
+        }
+    }
+
+//    public function loadFormRespuesta() {
+//        $this->view = 'responder';
+//        $preguntaId = isset($_GET['id']) ? $_GET['id'] : 0;
+//
+//        $categoriaObj = new Categoria();
+//        $categorias = $categoriaObj->getCategoria();
+//
+//        return ['preguntaId' => $preguntaId, 'categorias' => $categorias];
+//    }
 
 
 //    public function create() {

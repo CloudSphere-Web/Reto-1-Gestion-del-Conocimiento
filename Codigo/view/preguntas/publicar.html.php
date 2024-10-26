@@ -13,7 +13,7 @@
             <input type="text" id="titulo" name="titulo" placeholder="TITULO" required>
         </div>
         <div class="form-group">
-            <textarea id="pregunta" name="descripcion" placeholder="Este es el lugar para que cada uno escriba la duda o pregunta correspondiente que tenga, y así otro usuario o administrador pueda contestar y solucionar la cuestión que tenga." required></textarea>
+            <textarea id="text" name="descripcion" placeholder="Este es el lugar para que cada uno escriba la duda o pregunta correspondiente que tenga, y así otro usuario o administrador pueda contestar y solucionar la cuestión que tenga." required></textarea>
         </div>
         <div class="form-group">
             <select id="categoria" name="categoria_id" required>
@@ -35,6 +35,6 @@
         </div>
     </form>
 </main>
-<script src="assets/js/pregunta_autoscroll.js"></script>
+<script src="assets/js/textarea_autoscroll.js"></script>
 </body>
 </html>
