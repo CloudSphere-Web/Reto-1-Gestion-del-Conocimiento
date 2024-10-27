@@ -29,6 +29,7 @@ class UsuarioController extends CheckLoginController {
     public function logout() {
         // Unset the cookie by setting its expiration time to the past
         setcookie("email_usuario", "", time() - 3600, "/");
+        setcookie("puesto_usuario", "", time() - 3600, "/");
 
         // Redirect to the login page
         header('Location: index.php?controller=usuario&action=login');
@@ -77,6 +78,8 @@ class UsuarioController extends CheckLoginController {
 
         return $respuestas;
     }
+
+
 
 
 //    public function login() {
