@@ -15,24 +15,57 @@ class Usuario
         $this->connection = $dbObj->conection;
     }
 
-    public function getUserIntoArray($param){
+//    public function getUserIntoArray($param){
+//        $map = array();
+//        $emailParam = $param["email"] ?? null;
+//        $contrasennaParam = $param["contrasenna"] ?? null;
+//        $sql = "SELECT email, contrasenna FROM " . $this->table;
+//        $stmt = $this->connection->prepare($sql);
+//        $stmt->execute();
+//        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//        foreach ($resultados as $resultado) {
+//            $map[$resultado['email']] = $resultado['contrasenna'];
+//        }
+//        if (isset($map[$emailParam]) && $map[$emailParam] === $contrasennaParam) {
+////            setcookie("email_usuario", $emailParam, 0, "/");
+//            setcookie("email_usuario", $emailParam, time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
+//
+//            $_SESSION['is_logged_in'] = true;
+//            return true; // Usuario encontrado y validado
+//        }
+//        return false; // Usuario no encontrado o credenciales incorrectas
+//    }
+
+    public function getUserIntoArray($param) {
         $map = array();
         $emailParam = $param["email"] ?? null;
         $contrasennaParam = $param["contrasenna"] ?? null;
-        $sql = "SELECT email, contrasenna FROM " . $this->table;
+
+        // Incluye 'puesto' en la consulta SQL
+        $sql = "SELECT email, contrasenna, puesto FROM " . $this->table;
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($resultados as $resultado) {
-            $map[$resultado['email']] = $resultado['contrasenna'];
+            $map[$resultado['email']] = [
+                'contrasenna' => $resultado['contrasenna'],
+                'puesto' => $resultado['puesto']
+            ];
         }
-        if (isset($map[$emailParam]) && $map[$emailParam] === $contrasennaParam) {
-            setcookie("email_usuario", $emailParam, 0, "/");
+
+        if (isset($map[$emailParam]) && $map[$emailParam]['contrasenna'] === $contrasennaParam) {
+            // Establece las cookies si el usuario es validado
+            setcookie("email_usuario", $emailParam, time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
+            setcookie("puesto_usuario", $map[$emailParam]['puesto'], time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
+
             $_SESSION['is_logged_in'] = true;
             return true; // Usuario encontrado y validado
         }
+
         return false; // Usuario no encontrado o credenciales incorrectas
     }
+
 
     public function getUserDataByEmail($email) {
         if (is_null($email)) return false;
@@ -57,6 +90,7 @@ class Usuario
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 
 //    public function register() {
 //        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

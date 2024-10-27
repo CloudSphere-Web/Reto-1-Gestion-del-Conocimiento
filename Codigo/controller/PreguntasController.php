@@ -5,13 +5,11 @@ require_once "model/Usuario.php";
 require_once "model/Categoria.php";
 require_once 'CheckLoginController.php';
 
-class PreguntasController extends CheckLoginController
-{
+class PreguntasController extends CheckLoginController {
     public $view;
     public $model;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->view = "list";
         $this->model = new Pregunta();

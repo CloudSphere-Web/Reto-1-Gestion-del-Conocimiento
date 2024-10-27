@@ -7,37 +7,41 @@
     <link rel="stylesheet" href="/Codigo/assets/css/admin_profile.css">
 </head>
 <body>
+
+<?php $userData = $dataToView['data'];
+?>
 <div class="container">
     <div class="profile-section">
-        <div class="profile-pic">ZA</div>
+        <div class="profile-pic">
+            <?php if ($userData['foto_perfil']) { ?>
+                <img src="<?php echo $userData['foto_perfil']; ?>" alt="Avatar del usuario">
+            <?php } else { ?>
+                <?php echo substr($userData['nombre'], 0, 1) . substr($userData['apellidos'], 0, 1); ?>
+            <?php } ?>
+        </div>
         <div class="profile-info">
-            <div class="name">Zahir Allonso Rivera Chacon</div>
-            <div class="email">zahirallonso.rivera@ikasle.egibide.com</div>
-            <div class="position">Administrador</div>
+            <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
+            <div class="email"><?php echo $userData['email']; ?></div>
+            <div class="position"><?php echo $userData['puesto']; ?></div>
+            <div class="stats">
+                <div class="stat-item"><img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">1</div>
+                <div class="stat-item"><img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">1</div>
+                <div class="stat-item"><img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">1</div>
+            </div>
         </div>
+        <div class="Ranking">2</div>
     </div>
+
     <div class="tabs">
-        <button class="tab-inicio">USUARIOS</button>
-        <button class="tab">RESGISTRAR</button>
-        <button class="tab-final">PROBLEMAS</button>
+        <button class="tab tab-inicio" onclick="cargarContenido('viewPreguntasUsuario')">USUARIOS</button>
+        <button class="tab" onclick="cargarContenido('viewRespuestasUsuario')">REGISTRAR</button>
+        <button class="tab" onclick="cargarContenido('favoritos')">PROBLEMAS</button>
     </div>
-    <div class="content">
-        <div class="post">
-            <div class="post-title">Descompresión en cabina</div>
-            <div class="post-content">Como podría solucionar la descompresión de la cabina al despegar el avión ........</div>
-            <div class="post-date">18/07/2024</div>
-        </div>
-        <div class="post">
-            <div class="post-title">Descompresión en cabina</div>
-            <div class="post-content">Como podría solucionar la descompresión de la cabina al despegar el avión ........</div>
-            <div class="post-date">18/07/2024</div>
-        </div>
-        <div class="post">
-            <div class="post-title">Descompresión en cabina</div>
-            <div class="post-content">Como podría solucionar la descompresión de la cabina al despegar el avión ........</div>
-            <div class="post-date">18/07/2024</div>
-        </div>
+
+    <div id="contenido-dinamico">
+        <!-- Aquí se cargará el contenido de cada pestaña -->
     </div>
+
 </div>
 </body>
 </html>

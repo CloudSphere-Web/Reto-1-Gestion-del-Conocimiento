@@ -9,7 +9,7 @@ class AjustesController extends CheckLoginController {
 
     public function __construct() {
         parent::__construct();
-        $this->view = "config";
+        $this->view = "";
     }
 
     public function viewSettings() {
