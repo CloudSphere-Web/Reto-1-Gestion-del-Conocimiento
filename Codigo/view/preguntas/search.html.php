@@ -48,11 +48,11 @@
         ?>
     </main>
     <aside class="sidebar">
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=modelos">Modelos</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=motorizacion">Motorización</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=sistema">Sistema</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=especificaciones">Especificaciones</a>
-        <a class="sidebar-button" href="index.php?controller=preguntas&action=list_by_category&category=componentes">Componentes</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=modelos">Modelos</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=motorizacion">Motorización</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=sistema">Sistema</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=especificaciones">Especificaciones</a>
+        <a class="sidebar-button" href="index.php?controller=preguntas&action=listByCategory&category=componentes">Componentes</a>
     </aside>
 </div>
 </body>
