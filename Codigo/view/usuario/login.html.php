@@ -22,5 +22,6 @@
         <input class="login-button" type="submit" value="Login" />
     </form>
 </div>
+<script src="assets/js/lightMode.js"></script>
 </body>
 </html>

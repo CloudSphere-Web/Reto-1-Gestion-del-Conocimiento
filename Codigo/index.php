@@ -14,7 +14,7 @@ if ($_GET["controller"] !== "usuario" || $_GET["action"] !== "login") {
 
 $controller_path = 'controller/' . $_GET["controller"] . 'Controller.php';
 
-if (!file_exists($controller_path)) $controller_path = 'controller/' . constant("DEFAULT_CONTROLLER") . '.php';
+if (!file_exists($controller_path)) $controller_path = 'controller/' . constant("DEFAULT_CONTROLLER") . 'Controller.php';
 
 require_once $controller_path;
 $controllerName = $_GET["controller"] . 'Controller';
@@ -29,6 +29,7 @@ if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login" && $_GET["a
     require_once 'view/layout/header.php';
 }
 require_once 'view/' . $_GET["controller"] . '/' . $controller->view . '.html.php';
+
 if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login" && $_GET["action"] !== "viewPreguntasUsuario"
     && $_GET["action"] !== "viewRespuestasUsuario") {
     require_once 'view/layout/footer.php';
