@@ -84,13 +84,33 @@ class Usuario
     }
 
     public function getUserDetailsById($usuario_id) {
-        $sql = "SELECT nombre, apellidos, puesto, foto_perfil FROM " . $this->table . " WHERE id = :id";
+        $sql = "SELECT * FROM " . $this->table . " WHERE id = :id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $usuario_id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // In `model/Usuario.php`
+    public function getAllUsuarios() {
+        $query = "SELECT * FROM $this->table";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // In `model/Usuario.php`
+    public function updateUserDataByEmail($email, $userData) {
+        $query = "UPDATE $this->table SET nombre = :nombre, apellidos = :apellidos, puesto = :puesto, email_contacto = :email_contacto, foto_perfil = :foto_perfil WHERE email = :email";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':nombre', $userData['nombre']);
+        $stmt->bindParam(':apellidos', $userData['apellidos']);
+        $stmt->bindParam(':puesto', $userData['puesto']);
+        $stmt->bindParam(':email_contacto', $userData['email_contacto']);
+        $stmt->bindParam(':foto_perfil', $userData['foto_perfil']);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+    }
 
 //    public function register() {
 //        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
