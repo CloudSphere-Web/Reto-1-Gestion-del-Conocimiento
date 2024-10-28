@@ -6,7 +6,7 @@
 }
 
 .header {
-    background-color: #66C6CC;
+    background-color: #66C6CC !important;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -128,6 +128,30 @@ class Pregunta{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getPreguntasByFavoriteUser($userId) {
+        // Selecciona preguntas de los usuarios favoritos del usuario actual
+        $sql = "SELECT p.*, u.foto_perfil 
+            FROM " . $this->table . " p
+            JOIN usuarios u ON p.usuario_id = u.id
+            JOIN favoritos f ON f.usuario_id = :userId AND f.pregunta_id = p.id
+            ORDER BY p.fecha_publicacion DESC, p.hora_publicacion DESC";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getPreguntasByMultimediaByUser($userId) {
+        $sql = "SELECT * FROM " . $this->table . " 
+            WHERE usuario_id = :userId AND archivo IS NOT NULL
+            ORDER BY fecha_publicacion DESC, hora_publicacion DESC";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 
 
 }

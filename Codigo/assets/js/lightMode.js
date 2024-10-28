@@ -42,10 +42,21 @@ document.addEventListener('DOMContentLoaded', function () {
     lightResponderLink.href = 'assets/css/lightResponder.css'; // Estilos específicos para la página de Responder
     lightResponderLink.id = 'lightResponderStyle';
 
+    let lightPerfilUsuarioLink = document.createElement('link');
+    lightPerfilUsuarioLink.rel = 'stylesheet';
+    lightPerfilUsuarioLink.href = 'assets/css/lightPerfilUsuario.css'; // Estilos específicos para la página de Perfil del Usuario
+    lightPerfilUsuarioLink.id = 'lightResponderStyle';
+
+    let lightPreguntaUsuarioLink = document.createElement('link');
+    lightPreguntaUsuarioLink.rel = 'stylesheet';
+    lightPreguntaUsuarioLink.href = 'assets/css/lightPreguntaUsuario.css'; // Estilos específicos para la página de Preguntas de Usuario
+    lightPreguntaUsuarioLink.id = 'lightResponderStyle';
+
     // Verifica si el modo claro está activado en las cookies
     if (getCookie('lightMode') === 'enabled') {
         document.head.appendChild(lightHeaderLink);
         document.head.appendChild(lightFooterLink);
+        document.head.appendChild(lightPreguntaUsuarioLink);
 
         // Aplica lightLogin.css solo en la página de login
         if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=login')) {
@@ -86,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (window.location.search.includes('controller=preguntas') && window.location.search.includes('action=responder') ) {
             document.head.appendChild(lightResponderLink);
+        }
+        if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile') ) {
+            document.head.appendChild(lightPerfilUsuarioLink);
         }
 
         isLightMode = true;
@@ -139,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (window.location.search.includes('controller=preguntas') && window.location.search.includes('action=responder')) {
                     document.head.appendChild(lightResponderLink);
                 }
+                if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile')) {
+                    document.head.appendChild(lightResponderLink);
+                }
 
 
                 setCookie('lightMode', 'enabled', 7);
@@ -185,6 +202,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (window.location.search.includes('controller=preguntas') && window.location.search.includes('action=responder') ) {
                     document.getElementById('lightResponderStyle')?.remove();
                 }
+                if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile') ) {
+                    document.getElementById('lightResponderStyle')?.remove();
+                }
 
                 setCookie('lightMode', 'disabled', 7);
             }
@@ -215,7 +235,3 @@ function getCookie(cname) {
     }
     return "";
 }
-
-
-
-
