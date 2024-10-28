@@ -25,10 +25,11 @@
             <span>Tema</span>
         </div>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="LightModeIcon">
             <span class="slider round"></span>
         </label>
     </div>
 </div>
+<script src="assets/js/lightMode.js"></script>
 </body>
 </html>

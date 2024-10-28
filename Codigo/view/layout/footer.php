@@ -43,5 +43,6 @@
         </div>
     </div>
 </footer>
+<script src="assets/js/lightMode.js"></script>
 </body>
 </html>

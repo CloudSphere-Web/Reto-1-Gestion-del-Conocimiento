@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ba5929-a2f8-4ae3-95c3-00619f5a4767" name="Changes" comment="" />
+    <list default="true" id="37ba5929-a2f8-4ae3-95c3-00619f5a4767" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/lightPregunta.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/lightPublicar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/lightResponder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ajustes/ajustes.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/ajustes/ajustes.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layout/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/usuario/login.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/usuario/login.html.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,7 +49,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/Codigo/assets/css",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/xampp/htdocs/Codigo/view/preguntas",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -54,8 +68,6 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Codigo\assets\css" />
-      <recent name="C:\xampp\htdocs\Codigo\assets\js" />
       <recent name="C:\xampp\htdocs\Codigo\view\preguntas" />
       <recent name="C:\xampp\htdocs\Codigo\view\usuario" />
       <recent name="C:\xampp\htdocs\Codigo\view\categorias" />
@@ -105,7 +117,6 @@
       <workItem from="1729890060966" duration="772000" />
       <workItem from="1729933057860" duration="9630000" />
       <workItem from="1730025558771" duration="4378000" />
-      <workItem from="1730099877905" duration="9834000" />
     </task>
     <servers />
   </component>

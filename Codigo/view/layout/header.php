@@ -42,5 +42,6 @@
     </div>
 </header>
 <script src="assets/js/header.js"></script>
+<script src="assets/js/lightMode.js"></script>
 </body>
 </html>
