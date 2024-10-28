@@ -62,6 +62,7 @@ class UsuarioController extends CheckLoginController {
 
         return $preguntas;
     }
+
     public function viewRespuestasUsuario() {
         $this->view = "respuestasUsuario";
         $this->page_title = "Respuestas";
@@ -79,8 +80,51 @@ class UsuarioController extends CheckLoginController {
         return $respuestas;
     }
 
+    public function editUser() {
+        $this->view = "editUser";
+        $this->page_title = "Editar usuario";
 
+        $email = $_COOKIE["email_usuario"];
+        $userData = $this->model->getUserDataByEmail($email);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $userData = [
+                'nombre' => $_POST['nombre'],
+                'apellidos' => $_POST['apellidos'],
+                'puesto' => $_POST['puesto'],
+                'email_contacto' => $_POST['email_contacto'],
+                'foto_perfil' => $this->handleFileUpload()
+            ];
+
+            try {
+                $this->model->updateUserDataByEmail($email, $userData);
+                header("Location: index.php?controller=usuario&action=viewProfile");
+                exit();
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
+        return $userData;
+    }
+
+    private function handleFileUpload() {
+        if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['foto_perfil']['tmp_name'];
+            $fileName = $_FILES['foto_perfil']['name'];
+            $uploadFileDir = './uploads/';
+            $destPath = $uploadFileDir . $fileName;
+
+            if (!is_dir($uploadFileDir)) {
+                mkdir($uploadFileDir, 0777, true);
+            }
+
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+                return $destPath;
+            }
+        }
+        return null;
+    }
 
 //    public function login() {
 //        $this -> page_title = 'Login';

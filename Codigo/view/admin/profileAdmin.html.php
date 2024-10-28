@@ -33,7 +33,7 @@
     </div>
 
     <div class="tabs">
-        <button class="tab tab-inicio" onclick="cargarContenido('viewPreguntasUsuario')">USUARIOS</button>
+        <button class="tab tab-inicio" onclick="cargarContenido('viewListaUsuarios')">USUARIOS</button>
         <button class="tab" onclick="cargarContenido('viewRespuestasUsuario')">REGISTRAR</button>
         <button class="tab" onclick="cargarContenido('favoritos')">PROBLEMAS</button>
     </div>
@@ -43,5 +43,6 @@
     </div>
 
 </div>
+<script src="assets/js/tabs_admin.js"></script>
 </body>
 </html>

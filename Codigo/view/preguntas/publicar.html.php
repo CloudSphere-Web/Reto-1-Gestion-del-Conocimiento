@@ -31,7 +31,7 @@
         </div>
         <div class="buttons">
             <button type="submit" class="confirm">Confirmar</button>
-            <button type="button" class="cancel">Cancelar</button>
+            <a href="index.php?controller=preguntas&action=list_paginated" class="cancel">Cancelar</a>
         </div>
     </form>
 </main>
