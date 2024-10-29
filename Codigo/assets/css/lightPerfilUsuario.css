@@ -1,0 +1,123 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, Montserrat, sans-serif;
+    background-color: #8CD5D9 !important;
+    color: black !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1; /* This ensures the container takes up available space */
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    background-color: #7fcecb;
+    border-radius: 50%;
+}
+.profile-section {
+    background-color: #B2E4E6 !important;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #333;
+}
+.profile-pic img {
+    width: 80px;
+    height: 80px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #333;
+}
+.profile-info {
+    margin-left: 20px;
+}
+.name {
+    font-size: 18px;
+    font-weight: bold;
+}
+.email, .position {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.position {
+    background-color: #7fcecb;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.stats {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.stat-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.stat-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #66C6CC !important;
+    padding: 3px;
+}
+.tab, .tab-final, .tab-inicio{
+    padding: 12px 52.5px;
+    cursor: pointer;
+    background-color: #66C6CC !important;
+    border: none;
+}
+.tab:hover {
+    background-color: #D8F2F3 !important;
+}
+.tab-inicio {
+    border: none;
+}
+.tab-inicio:hover {
+    background-color: #D8F2F3 !important;
+}
+.tab-final {
+    border: none;
+}
+.tab-final:hover {
+    background-color: #D8F2F3 !important;
+}
+.Ranking {
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid black !important;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #66C6CC !important;
+    color: white;
+}
+

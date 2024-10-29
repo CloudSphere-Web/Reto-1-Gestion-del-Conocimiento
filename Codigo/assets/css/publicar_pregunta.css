@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2a7474;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    background-color: #1f5959;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.footer {
+    background-color: #215A59;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #1f5959;
+    border-bottom: 1px solid #8cd3d3;
+    color: white;
+    font-size: 16px;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238cd3d3'%3E%3Cpath d='M6 9L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+textarea {
+    height: auto;
+    min-height: 100px;
+    overflow-y: hidden;
+    resize: none;
+}
+
+.file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8cd3d3;
+    color: #1f5959;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm {
+    background-color: #8cd3d3;
+    color: #1f5959;
+}
+
+.cancel {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #1f5959;
+    color: #8cd3d3;
+    border: 1px solid #8cd3d3;
+    text-decoration: none;
+}
