@@ -12,7 +12,7 @@
 
 <?php
 define("DB_HOST", "localhost");
-define("DB", "grupo5_2425");
+define("DB", "proyecto");
 define("DB_USER", "root");
 define("DB_PASS", "");
 

@@ -211,10 +211,21 @@ button {
     color: #1f5959;
 }
 
-.cancel {
+/*.cancel {*/
+/*    background-color: #1f5959;*/
+/*    color: #8cd3d3;*/
+/*    border: 1px solid #8cd3d3;*/
+/*}*/
+
+.cancel{
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
     background-color: #1f5959;
     color: #8cd3d3;
     border: 1px solid #8cd3d3;
+    text-decoration: none;
 }
 
 /* Alertas */
