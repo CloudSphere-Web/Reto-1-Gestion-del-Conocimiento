@@ -25,13 +25,15 @@ if (method_exists($controller, $_GET["action"])) $dataToView["data"] = $controll
 
 // Esto es para que el header no salga en el Login ya que no tiene sentido
 if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login" && $_GET["action"] !== "viewPreguntasUsuario"
-    && $_GET["action"] !== "viewRespuestasUsuario" && $_GET["action"] !== "viewListaUsuarios") {
+    && $_GET["action"] !== "viewRespuestasUsuario" && $_GET["action"] !== "viewListaUsuarios"
+    && $_GET["action"] !== "viewFavoritosUsuario" && $_GET["action"] !== "viewMultimediaUsuario") {
     require_once 'view/layout/header.php';
 }
 require_once 'view/' . $_GET["controller"] . '/' . $controller->view . '.html.php';
 
 if ($_GET["controller"] !== "Usuario" && $_GET["action"] !== "login" && $_GET["action"] !== "viewPreguntasUsuario"
-    && $_GET["action"] !== "viewRespuestasUsuario" && $_GET["action"] !== "viewListaUsuarios") {
+    && $_GET["action"] !== "viewRespuestasUsuario" && $_GET["action"] !== "viewListaUsuarios"
+    && $_GET["action"] !== "viewFavoritosUsuario" && $_GET["action"] !== "viewMultimediaUsuario") {
     require_once 'view/layout/footer.php';
 }
 ?>

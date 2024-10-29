@@ -35,8 +35,8 @@
     <div class="tabs">
         <button class="tab tab-inicio" onclick="cargarContenido('viewPreguntasUsuario')">PUBLICACIONES</button>
         <button class="tab" onclick="cargarContenido('viewRespuestasUsuario')">RESPUESTAS</button>
-        <button class="tab" onclick="cargarContenido('favoritos')">FAVORITOS</button>
-        <button class="tab tab-final" onclick="cargarContenido('multimedia')">MULTIMEDIA</button>
+        <button class="tab" onclick="cargarContenido('viewFavoritosUsuario')">FAVORITOS</button>
+        <button class="tab tab-final" onclick="cargarContenido('viewMultimediaUsuario')">MULTIMEDIA</button>
     </div>
 
     <div id="contenido-dinamico">

@@ -80,6 +80,23 @@ class UsuarioController extends CheckLoginController {
         return $respuestas;
     }
 
+    public function viewMultimediaUsuario() {
+        $this->view = "multimediaUsuario";
+        $this->page_title = "Multimedia";
+
+        $email = $_COOKIE["email_usuario"];
+        $userId = $this->model->getUserIdByEmail($email);
+
+        if ($userId) {
+            $preguntasModel = new Pregunta();
+            $preguntasConMultimedia = $preguntasModel->getPreguntasConMultimedia($userId);
+        } else {
+            $preguntasConMultimedia = [];
+        }
+
+        return $preguntasConMultimedia;
+    }
+
 //    public function login() {
 //        $this -> page_title = 'Login';
 //        $this -> view = 'login';
