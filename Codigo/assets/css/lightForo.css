@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato, Montserrat, sans-serif;
+}
+html, body {
+    height: 100%;
+    background-color: #8CD5D9 !important;
+    color: white;
+}
+.container {
+    display: flex;
+    max-width: 100%;
+    padding: 20px;
+}
+.main-content {
+    flex: 3;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.search-bar {
+    background-color: #D8F2F3 !important;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #8CD5D9 !important;
+    color: black !important;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button, .search-bar a {
+    padding: 10px 20px;
+    border: none;
+    background-color: #8CD5D9 !important;
+    color: black !important;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    height: 40px;
+    margin-left: auto;
+}
+
+.search-bar button:hover, .search-bar a:hover {
+    background-color: #38A9A8;
+}
+.question-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.question-card {
+    background-color: #D8F2F3 !important;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    color: black !important;
+}
+.question-card:hover {
+    background-color: #66C6CC !important;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #8CD5D9 !important;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.avatar img{
+    width: 50px;
+    height: 50px;
+    background-color: #8CD5D9 !important;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.question-content {
+    flex: 1;
+}
+.question-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+.question-description {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+.question-date {
+    font-size: 12px;
+    text-align: right;
+}
+.question-time {
+    font-size: 12px;
+    text-align: right;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination button {
+    background-color: #3a7c7c;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.sidebar-button {
+    background-color: #D8F2F3 !important;
+    border: none;
+    color: black !important;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 75px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    background-color: #D8F2F3 !important;
+    color: black !important;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #66C6CC !important;
+}
+
+.page-item.disabled .page-link {
+    background-color: #a6a6a6 !important;
+    color: #6c757d !important;
+    cursor: not-allowed;
+}
+
+.page-item.active .page-link {
+    background-color: #66C6CC !important;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+.page-item.disabled .page-link:hover {
+    background-color: #ccc;
+}
+
+.page-item.active .page-link:hover {
+    background-color: #2a5b5b !important;
+}
+.category-description {
+    background-color: #38A9A8;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .main-content {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
