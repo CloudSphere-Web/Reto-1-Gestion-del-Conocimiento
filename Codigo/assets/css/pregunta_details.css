@@ -265,3 +265,21 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.like, .fav {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.counter {
+    margin-left: 5px;
+    font-size: 1em;
+    color: #ccc; /* Color del contador */
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+

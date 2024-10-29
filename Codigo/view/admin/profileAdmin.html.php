@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AERGIBIDE Profile</title>
-    <link rel="stylesheet" href="/Codigo/assets/css/admin_profile.css">
+    <link rel="stylesheet" href="assets/css/admin_profile.css">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
 
     <div class="tabs">
         <button class="tab tab-inicio" onclick="cargarContenido('viewListaUsuarios')">USUARIOS</button>
-        <button class="tab" onclick="cargarContenido('viewRespuestasUsuario')">REGISTRAR</button>
+        <button class="tab" onclick="cargarContenido('viewRegisterUsuarios')">REGISTRAR</button>
         <button class="tab" onclick="cargarContenido('favoritos')">PROBLEMAS</button>
     </div>
 

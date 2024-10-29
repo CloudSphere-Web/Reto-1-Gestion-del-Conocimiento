@@ -27,7 +27,11 @@
     margin-right: 20px;
 }
 .question-content {
-    flex: 1;
+    flex: 1; /* Ocupa el espacio restante */
+    overflow: hidden; /* Oculta el texto que exceda el contenedor */
+    white-space: nowrap; /* Impide que el texto se divida en varias líneas */
+    margin-right: 30px;
+
 }
 .question-title {
     font-size: 18px;
