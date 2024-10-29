@@ -37,10 +37,52 @@ class AdminController Extends CheckLoginController {
     public function editUsuarios() {
         $this->view = "editUsuarios";
         $this->page_title = "Editar Usuario";
-
         $this->model = new Usuario();
-        $usuario = $this->model->getUserDetailsById($_GET['id']);
 
-        return $usuario;
+        if (isset($_GET['id'])) {
+            $usuario = $this->model->getUserDetailsById($_GET['id']);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $fotoPerfil = $this->fileUpload();
+                if (!$fotoPerfil) {
+                    $fotoPerfil = $usuario['foto_perfil']; // Si no se ha cargado una nueva, mantiene la actual
+                }
+
+                $userData = [
+                    'nombre' => $_POST['nombre'],
+                    'apellidos' => $_POST['apellidos'],
+                    'puesto' => $_POST['puesto'],
+                    'email_contacto' => $_POST['email-contacto'],
+                    'foto_perfil' => $fotoPerfil
+                ];
+
+                $this->model->updateUserDataById($_GET['id'], $userData); // Actualizar usando ID
+                header("Location: index.php?controller=admin&action=viewProfile");
+                exit();
+            }
+
+            return $usuario;
+        } else {
+            echo "Error: ID not provided.";
+            exit();
+        }
+    }
+
+    private function fileUpload() {
+        if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['foto_perfil']['tmp_name'];
+            $fileName = $_FILES['foto_perfil']['name'];
+            $uploadFileDir = './uploads/';
+            $destPath = $uploadFileDir . $fileName;
+
+            if (!is_dir($uploadFileDir)) {
+                mkdir($uploadFileDir, 0777, true);
+            }
+
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+                return $destPath;
+            }
+        }
+        return null;
     }
 }

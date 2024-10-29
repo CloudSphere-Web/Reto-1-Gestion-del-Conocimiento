@@ -91,7 +91,6 @@ class Usuario
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // In `model/Usuario.php`
     public function getAllUsuarios() {
         $query = "SELECT * FROM $this->table";
         $stmt = $this->connection->prepare($query);
@@ -99,16 +98,15 @@ class Usuario
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // In `model/Usuario.php`
-    public function updateUserDataByEmail($email, $userData) {
-        $query = "UPDATE $this->table SET nombre = :nombre, apellidos = :apellidos, puesto = :puesto, email_contacto = :email_contacto, foto_perfil = :foto_perfil WHERE email = :email";
+    public function updateUserDataById($id, $userData) {
+        $query = "UPDATE $this->table SET nombre = :nombre, apellidos = :apellidos, puesto = :puesto, email_contacto = :email_contacto, foto_perfil = :foto_perfil WHERE id = :id";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':nombre', $userData['nombre']);
         $stmt->bindParam(':apellidos', $userData['apellidos']);
         $stmt->bindParam(':puesto', $userData['puesto']);
         $stmt->bindParam(':email_contacto', $userData['email_contacto']);
         $stmt->bindParam(':foto_perfil', $userData['foto_perfil']);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
 

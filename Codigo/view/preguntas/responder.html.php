@@ -63,7 +63,8 @@
                     </div>
                     <div class="buttons">
                         <button type="submit" class="confirm">Confirmar</button>
-                        <button type="button" class="cancel">Cancelar</button>
+<!--                        <button type="button" class="cancel">Cancelar</button>-->
+                        <a href="index.php?controller=preguntas&action=details&id=<?php echo $pregunta['id']; ?>" class="cancel">Cancelar</a>
                     </div>
                 </form>
             </main>
