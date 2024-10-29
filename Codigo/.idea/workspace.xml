@@ -16,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -37,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "C:/xampp/htdocs/Codigo/view/admin",
+    "last_opened_file_path": "C:/xampp/htdocs/Codigo - Copia Seguridad 2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,6 +55,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Codigo\assets\css" />
       <recent name="C:\xampp\htdocs\Codigo\view\admin" />
       <recent name="C:\xampp\htdocs\Codigo\view\preguntas" />
       <recent name="C:\xampp\htdocs\Codigo\view\usuario" />
@@ -106,7 +107,8 @@
       <workItem from="1729933057860" duration="9630000" />
       <workItem from="1730025558771" duration="4378000" />
       <workItem from="1730143701552" duration="39000" />
-      <workItem from="1730186338282" duration="4534000" />
+      <workItem from="1730186338282" duration="10795000" />
+      <workItem from="1730221736067" duration="8613000" />
     </task>
     <servers />
   </component>

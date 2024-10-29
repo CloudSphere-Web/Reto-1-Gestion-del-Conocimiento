@@ -85,4 +85,32 @@ class AdminController Extends CheckLoginController {
         }
         return null;
     }
+
+    public function viewRegisterUsuarios() {
+        $this->view = "registerUsuarios";
+        $this->page_title = "Lista de Usuarios";
+
+        $this->model = new Usuario();
+        $usuarios = $this->model->getAllUsuarios();
+
+        return $usuarios;
+    }
+
+    public function registerUsuario() {
+        $this->model = new Usuario();
+        $fotoPerfil = $this->fileUpload();
+        $userData = [
+            'nombre' => $_POST['nombre'],
+            'apellidos' => $_POST['apellidos'],
+            'email' => $_POST['email'],
+            'contrasenna' => password_hash($_POST['contrasenna'], PASSWORD_DEFAULT),
+            'puesto' => $_POST['puesto'],
+            'email_contacto' => $_POST['email-contacto'],
+            'foto_perfil' => $fotoPerfil
+        ];
+        $this->model->insertUserData($userData);
+        header("Location: index.php?controller=admin&action=viewProfile");
+        exit();
+    }
+
 }

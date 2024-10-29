@@ -54,7 +54,7 @@ class Usuario
             ];
         }
 
-        if (isset($map[$emailParam]) && $map[$emailParam]['contrasenna'] === $contrasennaParam) {
+        if (isset($map[$emailParam]) && password_verify($contrasennaParam, $map[$emailParam]['contrasenna'])) {
             // Establece las cookies si el usuario es validado
             setcookie("email_usuario", $emailParam, time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
             setcookie("puesto_usuario", $map[$emailParam]['puesto'], time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
@@ -157,5 +157,18 @@ class Usuario
 //        }
 //        return;
 //    }
+
+    public function insertUserData($userData) {
+        $sql = "INSERT INTO usuarios (nombre, apellidos, email, contrasenna, puesto, email_contacto, foto_perfil) VALUES (:nombre, :apellidos, :email, :contrasenna, :puesto, :email_contacto, :foto_perfil)";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':nombre', $userData['nombre']);
+        $stmt->bindParam(':apellidos', $userData['apellidos']);
+        $stmt->bindParam(':email', $userData['email']);
+        $stmt->bindParam(':contrasenna', $userData['contrasenna']);
+        $stmt->bindParam(':puesto', $userData['puesto']);
+        $stmt->bindParam(':email_contacto', $userData['email_contacto']);
+        $stmt->bindParam(':foto_perfil', $userData['foto_perfil']);
+        $stmt->execute();
+    }
 }
 ?>

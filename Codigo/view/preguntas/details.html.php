@@ -44,13 +44,24 @@
                     </div>
                     <div class="question-footer">
                         <div class="izquierda">
-                            <div class="like"><img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like"></div>
+                            <a href="index.php?controller=preguntas&action=questionLikeActions&id=<?php echo $pregunta['id']; ?>">
+                                <div class="like">
+                                    <img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like">
+                                    <span class="counter"><?php echo $pregunta['likes']; ?></span>
+                                </div>
+                            </a>
                             <a href="index.php?controller=preguntas&action=responder&id=<?php echo $pregunta['id']; ?>" class="comentar">
                                 <img src="assets/svg/share-white.svg" alt="Comentar">
                             </a>
                         </div>
-                        <div class="fav"><img src="assets/svg/star-regular.svg" alt="Favorite"></div>
+                        <a href="index.php?controller=preguntas&action=questionFavoriteActions&id=<?php echo $pregunta['id']; ?>">
+                            <div class="fav">
+                                <img src="assets/svg/star-regular.svg" alt="Favorite">
+                                <span class="counter"><?php echo $pregunta['favoritos']; ?></span>
+                            </div>
+                        </a>
                     </div>
+
                 </article>
             </div>
             <?php
@@ -83,10 +94,22 @@
                             </div>
                             <div class="answer-footer">
                                 <div class="izquierda">
-                                    <div class="like"><img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like"></div>
-                                    <div class="compartir"><img src="assets/svg/share-white.svg" alt="Share"></div>
+                                    <a href="index.php?controller=preguntas&action=answerLikeActions&id=<?php echo $respuesta['id']; ?>&pregunta_id=<?php echo $pregunta['id']; ?>">
+                                        <div class="like">
+                                            <img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like">
+                                            <span class="counter"><?php echo $respuesta['likes']; ?></span>
+                                        </div>
+                                    </a>
+                                    <a href="index.php?controller=preguntas&action=responder&id=<?php echo $pregunta['id']; ?>" class="comentar">
+                                        <img src="assets/svg/share-white.svg" alt="Comentar">
+                                    </a>
                                 </div>
-                                <div class="fav"><img src="assets/svg/star-regular.svg" alt="Favorite"></div>
+                                <a href="index.php?controller=preguntas&action=answerFavoriteActions&id=<?php echo $respuesta['id']; ?>&pregunta_id=<?php echo $pregunta['id']; ?>">
+                                    <div class="fav">
+                                        <img src="assets/svg/star-regular.svg" alt="Favorite">
+                                        <span class="counter"><?php echo $respuesta['favoritos']; ?></span>
+                                    </div>
+                                </a>
                             </div>
                         </article>
                         <?php

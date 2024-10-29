@@ -216,6 +216,94 @@ class PreguntasController extends CheckLoginController {
         }
     }
 
+    public function questionFavoriteActions() {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        $pregunta = $this->getPreguntaDetails($id);
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE["email_usuario"];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        $param = [
+            'usuario_id' => $usuario_id,
+            'pregunta_id' => $id
+        ];
+
+        $this->model->toggleQuestionFavorite($param);
+        header("Location: index.php?controller=preguntas&action=details&id=" . $id);
+        exit();
+    }
+
+    public function questionLikeActions() {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        $pregunta = $this->getPreguntaDetails($id);
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE["email_usuario"];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        $param = [
+            'usuario_id' => $usuario_id,
+            'pregunta_id' => $id
+        ];
+
+        $this->model->toggleQuestionLike($param);
+        header("Location: index.php?controller=preguntas&action=details&id=" . $id);
+        exit();
+    }
+
+    public function answerFavoriteActions() {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $pregunta_id = isset($_GET['pregunta_id']) ? $_GET['pregunta_id'] : 0;
+        if ($id == 0 || $pregunta_id == 0) {
+            echo "Error: respuesta_id o pregunta_id no válido.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE["email_usuario"];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        $param = [
+            'usuario_id' => $usuario_id,
+            'respuesta_id' => $id
+        ];
+
+        $this->model->toggleAnswerFavorite($param);
+        header("Location: index.php?controller=preguntas&action=details&id=" . $pregunta_id);
+        exit();
+    }
+
+    public function answerLikeActions() {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $pregunta_id = isset($_GET['pregunta_id']) ? $_GET['pregunta_id'] : 0;
+        if ($id == 0 || $pregunta_id == 0) {
+            echo "Error: respuesta_id o pregunta_id no válido.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE["email_usuario"];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        $param = [
+            'usuario_id' => $usuario_id,
+            'respuesta_id' => $id
+        ];
+
+        $this->model->toggleAnswerLike($param);
+        header("Location: index.php?controller=preguntas&action=details&id=" . $pregunta_id);
+        exit();
+    }
+
 //    public function loadFormRespuesta() {
 //        $this->view = 'responder';
 //        $preguntaId = isset($_GET['id']) ? $_GET['id'] : 0;

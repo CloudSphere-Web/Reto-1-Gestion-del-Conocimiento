@@ -158,5 +158,186 @@ class Pregunta{
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function toggleQuestionFavorite($param) {
+        $usuario_id = $param['usuario_id'];
+        $pregunta_id = $param['pregunta_id'];
+
+        $sql = "SELECT * FROM favoritos WHERE usuario_id = :usuario_id AND pregunta_id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $favorite = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($favorite) {
+            $sql = "DELETE FROM favoritos WHERE usuario_id = :usuario_id AND pregunta_id = :pregunta_id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            $sql = "INSERT INTO favoritos (usuario_id, pregunta_id) VALUES (:usuario_id, :pregunta_id)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Actualizar el conteo de favoritos
+        $this->updateQuestionFavoriteCount($pregunta_id);
+    }
+
+    public function updateQuestionFavoriteCount($pregunta_id) {
+        // Contar el número de favoritos para la pregunta
+        $sql = "SELECT COUNT(*) as count FROM favoritos WHERE pregunta_id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $count = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+        // Actualizar el valor en la tabla preguntas
+        $sql = "UPDATE preguntas SET favoritos = :count WHERE id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':count', $count, PDO::PARAM_INT);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function toggleQuestionLike($param) {
+        $usuario_id = $param['usuario_id'];
+        $pregunta_id = $param['pregunta_id'];
+
+        $sql = "SELECT * FROM likes WHERE usuario_id = :usuario_id AND pregunta_id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $like = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($like) {
+            $sql = "DELETE FROM likes WHERE usuario_id = :usuario_id AND pregunta_id = :pregunta_id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            $sql = "INSERT INTO likes (usuario_id, pregunta_id) VALUES (:usuario_id, :pregunta_id)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Actualizar el conteo de favoritos
+        $this->updateQuestionLikeCount($pregunta_id);
+    }
+
+    public function updateQuestionLikeCount($pregunta_id) {
+        // Contar el número de favoritos para la pregunta
+        $sql = "SELECT COUNT(*) as count FROM likes WHERE pregunta_id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $count = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+        // Actualizar el valor en la tabla preguntas
+        $sql = "UPDATE preguntas SET likes = :count WHERE id = :pregunta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':count', $count, PDO::PARAM_INT);
+        $stmt->bindParam(':pregunta_id', $pregunta_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function toggleAnswerFavorite($param) {
+        $usuario_id = $param['usuario_id'];
+        $respuesta_id = $param['respuesta_id'];
+
+        $sql = "SELECT * FROM favoritos WHERE usuario_id = :usuario_id AND respuesta_id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $favorite = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($favorite) {
+            $sql = "DELETE FROM favoritos WHERE usuario_id = :usuario_id AND respuesta_id = :respuesta_id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            $sql = "INSERT INTO favoritos (usuario_id, respuesta_id) VALUES (:usuario_id, :respuesta_id)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Actualizar el conteo de favoritos
+        $this->updateAnswerFavoriteCount($respuesta_id);
+    }
+
+    public function updateAnswerFavoriteCount($respuesta_id) {
+        // Contar el número de favoritos para la pregunta
+        $sql = "SELECT COUNT(*) as count FROM favoritos WHERE respuesta_id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $count = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+        // Actualizar el valor en la tabla preguntas
+        $sql = "UPDATE respuestas SET favoritos = :count WHERE id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':count', $count, PDO::PARAM_INT);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function toggleAnswerLike($param) {
+        $usuario_id = $param['usuario_id'];
+        $respuesta_id = $param['respuesta_id'];
+
+        $sql = "SELECT * FROM likes WHERE usuario_id = :usuario_id AND respuesta_id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $favorite = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($favorite) {
+            $sql = "DELETE FROM likes WHERE usuario_id = :usuario_id AND respuesta_id = :respuesta_id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            $sql = "INSERT INTO likes (usuario_id, respuesta_id) VALUES (:usuario_id, :respuesta_id)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+            $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Actualizar el conteo de favoritos
+        $this->updateAnswerLikeCount($respuesta_id);
+    }
+
+    public function updateAnswerLikeCount($respuesta_id) {
+        // Contar el número de favoritos para la pregunta
+        $sql = "SELECT COUNT(*) as count FROM likes WHERE respuesta_id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $count = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+        // Actualizar el valor en la tabla preguntas
+        $sql = "UPDATE respuestas SET likes = :count WHERE id = :respuesta_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':count', $count, PDO::PARAM_INT);
+        $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 }
 ?>

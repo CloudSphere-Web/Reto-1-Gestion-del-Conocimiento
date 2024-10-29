@@ -31,7 +31,7 @@
             <div id="userDropdown" class="dropdown-content">
                 <a href="index.php?controller=usuario&action=viewProfile">Ver Perfil</a>
                 <a href="index.php?controller=ajustes&action=viewSettings">Configuración</a>
-                <a href="index.php?controller=help&action=view">Ayuda</a>
+                <a href="index.php?controller=ayuda&action=viewAyuda">Ayuda</a>
                 <?php if (isset($_COOKIE['puesto_usuario']) && $_COOKIE['puesto_usuario'] === 'Admin'): ?>
                     <a href="index.php?controller=admin&action=viewProfile">Panel Administrador</a>
                 <?php endif; ?>

@@ -21,9 +21,6 @@
                     <p class='question-description'><?php echo htmlspecialchars($multimedia['descripcion']); ?></p>
                     <p class='question-date'><?php echo htmlspecialchars($multimedia['fecha_publicacion']); ?></p>
                     <p class='question-time'><?php echo htmlspecialchars($multimedia['hora_publicacion']); ?></p>
-                    <div class="Multimedia-icon">
-                        <img src="assets/img/userImagenes/multimediaIcono.png" alt="Multimedia" class="imagen-fav">
-                    </div>
                 </div>
             </a>
         <?php endforeach; ?>
