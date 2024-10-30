@@ -3,6 +3,7 @@ require_once "model/Pregunta.php";
 require_once "model/Respuesta.php";
 require_once "model/Usuario.php";
 require_once "model/Categoria.php";
+require_once "model/Notificacion.php";
 require_once 'CheckLoginController.php';
 
 class PreguntasController extends CheckLoginController {

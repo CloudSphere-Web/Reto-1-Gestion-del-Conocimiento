@@ -1,7 +1,7 @@
 <?php
-require_once "model/Usuario.php"; // Asegúrate de que esta ruta sea correcta
-require_once "model/Notificacion.php"; // Asegúrate de tener la ruta correcta
-require_once 'CheckLoginController.php'; // Controlador para verificar sesión
+require_once "model/Usuario.php";
+require_once "model/Notificacion.php";
+require_once 'CheckLoginController.php';
 
 class NotificacionesController extends CheckLoginController {
     public $page_title;
@@ -12,26 +12,22 @@ class NotificacionesController extends CheckLoginController {
         parent::__construct();
         $this->view = "";
         $this->page_title = "";
-        $this->model = new Notificacion(); // Modelo de notificaciones
-        $this->usuarioModel = new Usuario(); // Agrega el modelo de usuario
+        $this->model = new Notificacion();
+        $this->usuarioModel = new Usuario();
     }
 
     public function viewNotifications() {
-        $this->view = "notificationList"; // La vista que muestra la lista de notificaciones
+        $this->view = "notificationList";
         $email = $_COOKIE["email_usuario"];
-        $userId = $this->usuarioModel->getUserIdByEmail($email); // Llama al metodo desde el modelo de Usuario
+        $userId = $this->usuarioModel->getUserIdByEmail($email);
 
         if ($userId) {
-            $notifications = $this->model->getUserNotifications($userId); // Obtiene las notificaciones del usuario
-            // Cargar la vista y pasarle las notificaciones
-            include 'view/notificaciones/notificationList.html.php'; // Asegúrate de la ruta correcta
+            $notifications = $this->model->getUserNotifications($userId);
         } else {
-            // Manejar el caso donde no se encuentra el ID del usuario
             echo "Usuario no encontrado.";
         }
     }
 
-    // Metodo para agregar una nueva notificación (opcional)
     public function addNotification($usuario_id, $tipo, $mensaje) {
         $success = $this->model->createNotification($usuario_id, $tipo, $mensaje);
         if ($success) {
@@ -41,7 +37,6 @@ class NotificacionesController extends CheckLoginController {
         }
     }
 
-    // Metodo para marcar una notificación como leída
     public function markNotificationAsRead($notification_id) {
         $success = $this->model->markAsRead($notification_id);
         if ($success) {
