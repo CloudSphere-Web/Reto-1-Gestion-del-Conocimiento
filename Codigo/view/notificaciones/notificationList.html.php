@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificaciones</title>
-    <link rel="stylesheet" href="assets/css/styles.css"> <!-- Asegúrate de tener tu CSS vinculado -->
+    <link rel="stylesheet" href="assets/css/notificaciones.css">
 </head>
 <body>
 <h1>Mis Notificaciones</h1>
