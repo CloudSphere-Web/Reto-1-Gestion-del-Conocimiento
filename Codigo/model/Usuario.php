@@ -1,7 +1,7 @@
 <?php
 class Usuario
 {
-    private $table = 'Usuarios';
+    private $table = 'usuarios';
     private $connection;
 
     public function __construct()
@@ -159,7 +159,7 @@ class Usuario
 //    }
 
     public function insertUserData($userData) {
-        $sql = "INSERT INTO usuarios (nombre, apellidos, email, contrasenna, puesto, email_contacto, foto_perfil) VALUES (:nombre, :apellidos, :email, :contrasenna, :puesto, :email_contacto, :foto_perfil)";
+        $sql = "INSERT INTO $this->table (nombre, apellidos, email, contrasenna, puesto, email_contacto, foto_perfil) VALUES (:nombre, :apellidos, :email, :contrasenna, :puesto, :email_contacto, :foto_perfil)";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':nombre', $userData['nombre']);
         $stmt->bindParam(':apellidos', $userData['apellidos']);
