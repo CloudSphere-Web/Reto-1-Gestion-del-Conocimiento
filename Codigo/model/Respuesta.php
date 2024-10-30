@@ -1,6 +1,6 @@
 <?php
 class Respuesta {
-    private $table = 'Respuestas';
+    private $table = 'respuestas';
     private $connection;
 
     public function __construct() {
@@ -21,7 +21,7 @@ class Respuesta {
                     u.foto_perfil, 
                     u.puesto 
                 FROM $this->table r
-                JOIN Usuarios u ON r.usuario_id = u.id
+                JOIN usuarios u ON r.usuario_id = u.id
                 WHERE r.pregunta_id = :pregunta_id";
 
         $stmt = $this->connection->prepare($sql);
@@ -62,7 +62,7 @@ class Respuesta {
         $stmt->bindParam(':pregunta_id', $pregunta_id);
         $stmt->bindParam(':usuario_id', $usuario_id);
         $stmt->bindParam(':archivo', $archivo);
-
+        print_r($stmt);
         // Execute statement
         $stmt->execute();
 

@@ -97,6 +97,23 @@ class UsuarioController extends CheckLoginController {
         return $preguntasConMultimedia;
     }
 
+    public function viewFavoritosUsuario() {
+        $this->view = "favoritoUsuario";
+        $this->page_title = "Favoritos";
+
+        $email = $_COOKIE["email_usuario"];
+        $userId = $this->model->getUserIdByEmail($email);
+
+        if ($userId) {
+            $preguntasModel = new Pregunta();
+            $preguntasFavoritas = $preguntasModel->getPreguntasFavoritas($userId);
+        } else {
+            $preguntasFavoritas = [];
+        }
+
+        return $preguntasFavoritas;
+    }
+
 //    public function login() {
 //        $this -> page_title = 'Login';
 //        $this -> view = 'login';
