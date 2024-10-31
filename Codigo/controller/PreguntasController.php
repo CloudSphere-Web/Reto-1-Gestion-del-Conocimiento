@@ -3,6 +3,7 @@ require_once "model/Pregunta.php";
 require_once "model/Respuesta.php";
 require_once "model/Usuario.php";
 require_once "model/Categoria.php";
+require_once "model/Notificacion.php";
 require_once 'CheckLoginController.php';
 
 class PreguntasController extends CheckLoginController {
@@ -203,15 +204,28 @@ class PreguntasController extends CheckLoginController {
             'archivo' => $archivo
         ];
 
-        var_dump($param);
-
         try {
             $respuestaModel = new Respuesta();
             $respuestaModel->save($param);
+
+            // Crear la notificación para el autor de la pregunta
+            $pregunta = $this->getPreguntaDetails($pregunta_id);
+            $autorPreguntaId = $pregunta['usuario_id']; // ID del autor de la pregunta
+
+            if ($autorPreguntaId != $usuario_id) { // No notificar al mismo usuario
+                $notificacionModel = new Notificacion();
+                $mensaje = "Tu pregunta ha recibido una nueva respuesta de ";
+
+                // Aquí pasamos los IDs correctos
+                $notificacionModel->createNotification($usuario_id, $autorPreguntaId, 'respuesta', $mensaje);
+            }
+
             header("Location: index.php?controller=preguntas&action=details&id=" . $id);
             exit();
         } catch (PDOException $e) {
             $dataToView['error'] = "Error al guardar la respuesta: " . $e->getMessage();
+            print_r($dataToView['error']);
+            die();
             return $dataToView;
         }
     }
@@ -256,6 +270,15 @@ class PreguntasController extends CheckLoginController {
         ];
 
         $this->model->toggleQuestionLike($param);
+
+        // Crear notificación para el autor de la pregunta
+        $autorPreguntaId = $pregunta['usuario_id']; // Obtén el ID del autor de la pregunta
+        if ($autorPreguntaId != $usuario_id) { // No notificar al mismo usuario
+            $notificacionModel = new Notificacion();
+            $mensaje = "Tu pregunta ha recibido un nuevo like de ";
+            $notificacionModel->createNotification($usuario_id,$autorPreguntaId, 'like', $mensaje);
+        }
+
         header("Location: index.php?controller=preguntas&action=details&id=" . $id);
         exit();
     }
