@@ -36,5 +36,6 @@
     </form>
 </main>
 <script src="assets/js/textarea_autoscroll.js"></script>
+<script src="assets/js/validacionPublicar.js"></script>
 </body>
 </html>

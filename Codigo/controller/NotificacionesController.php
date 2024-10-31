@@ -23,13 +23,17 @@ class NotificacionesController extends CheckLoginController {
 
         if ($userId) {
             $notifications = $this->model->getUserNotifications($userId); // Obtiene las notificaciones del usuario
-            // Cargar la vista y pasarle las notificaciones
-            include 'view/notificaciones/notificationList.html.php'; // Asegúrate de la ruta correcta
+            // Cargar datos para la vista
+            $dataToView = [
+                'notifications' => $notifications
+            ];
+            return $dataToView; // Devuelve los datos para que la vista los maneje
         } else {
             // Manejar el caso donde no se encuentra el ID del usuario
-            echo "Usuario no encontrado.";
+            return ['error' => 'Usuario no encontrado.']; // Puedes manejar este error en la vista
         }
     }
+
 
     // Metodo para agregar una nueva notificación (opcional)
     public function addNotification($usuario_id, $tipo, $mensaje) {
