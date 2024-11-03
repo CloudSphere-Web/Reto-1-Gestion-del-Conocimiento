@@ -17,7 +17,7 @@
                 foreach ($dataToView['data']['notifications'] as $notification) {
                     ?>
                     <li class="notification-item">
-                        <a href="index.php?controller=notificaciones&action=viewNotification&id=<?php echo htmlspecialchars($notification['id']); ?>">
+                        <a href="index.php?controller=preguntas&action=details&id=<?php echo htmlspecialchars($notification['pregunta_id']); ?>">
                             <p>
                                 <?php echo htmlspecialchars($notification['mensaje']); ?>
                                 <strong><?php echo htmlspecialchars($notification['autor_nombre']); ?></strong>
