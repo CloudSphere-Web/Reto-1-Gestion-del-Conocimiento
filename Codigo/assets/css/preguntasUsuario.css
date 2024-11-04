@@ -3,7 +3,6 @@
 }
 .question-list {
     flex-grow: 1;
-    overflow-y: auto;
     margin-top: 20px;
 }
 .question-card {
@@ -28,10 +27,12 @@
 }
 .question-content {
     flex: 1; /* Ocupa el espacio restante */
-    overflow: hidden; /* Oculta el texto que exceda el contenedor */
-    white-space: nowrap; /* Impide que el texto se divida en varias líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-right: 30px;
-
 }
 .question-title {
     font-size: 18px;
