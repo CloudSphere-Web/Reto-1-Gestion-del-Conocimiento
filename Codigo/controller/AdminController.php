@@ -15,7 +15,7 @@ class AdminController Extends CheckLoginController {
         $this->page_title = "";
     }
 
-    public function viewProfile() {
+    public function viewProfileAdmin() {
         $this->view = "profileAdmin";
         $this->page_title = "Admin Profile";
 
