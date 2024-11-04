@@ -152,7 +152,8 @@ class Pregunta{
 //    }
 
     public function getPreguntasConMultimedia($userId) {
-        $stmt = $this->connection->prepare("SELECT * FROM $this->table WHERE usuario_id = :user_id AND archivo IS NOT NULL AND archivo != ''");
+        $stmt = $this->connection->prepare("SELECT * FROM $this->table WHERE usuario_id = :user_id AND archivo IS NOT NULL");
+
         $stmt->execute([':user_id' => $userId]);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
