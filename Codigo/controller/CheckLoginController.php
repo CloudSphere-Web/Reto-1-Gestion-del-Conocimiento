@@ -10,12 +10,6 @@ class CheckLoginController {
                 header('Location: index.php?controller=usuario&action=login');
                 exit();
             }
-        } else {
-            $restrictedActions = ['viewProfileAdmin','viewListaUsuarios', 'editUsuarios', 'registerUsuario'];
-            if (in_array($_GET['action'], $restrictedActions) && strtolower($_COOKIE['puesto_usuario']) !== 'admin') {
-                header('Location: index.php?controller=preguntas&action=list_paginated');
-                exit();
-            }
         }
     }
 }

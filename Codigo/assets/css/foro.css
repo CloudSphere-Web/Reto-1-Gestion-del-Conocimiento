@@ -102,11 +102,6 @@ html, body {
 .question-description {
     font-size: 14px;
     margin: 0 0 10px 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limita a 3 líneas */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .question-date {
     font-size: 12px;
