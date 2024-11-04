@@ -33,7 +33,7 @@
                 <a href="index.php?controller=ajustes&action=viewSettings">Configuración</a>
                 <a href="index.php?controller=ayuda&action=viewAyuda">Ayuda</a>
                 <?php if (isset($_COOKIE['puesto_usuario']) && $_COOKIE['puesto_usuario'] === 'Admin'): ?>
-                    <a href="index.php?controller=admin&action=viewProfile">Panel Administrador</a>
+                    <a href="index.php?controller=admin&action=viewProfileAdmin">Panel Administrador</a>
                 <?php endif; ?>
 
                 <a href="index.php?controller=usuario&action=logout">Cerrar Sesión</a>
