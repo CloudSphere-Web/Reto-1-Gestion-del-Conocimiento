@@ -1,7 +1,7 @@
 <?php
 class Categoria
 {
-    private $table = 'Categorias';
+    private $table = 'categorias';
     private $connection;
 
     public function __construct() {
@@ -21,7 +21,7 @@ class Categoria
     }
 
     public function getCategoriaById($id) {
-        $sql = "SELECT * FROM categorias WHERE id = :id";
+        $sql = "SELECT * FROM $this->table WHERE id = :id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -29,7 +29,7 @@ class Categoria
     }
 
     public function getCategoriaByNombre($nombre) {
-        $sql = "SELECT * FROM categorias WHERE nombre = :nombre";
+        $sql = "SELECT * FROM $this->table WHERE nombre = :nombre";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $stmt->execute();

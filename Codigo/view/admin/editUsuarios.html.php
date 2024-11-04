@@ -42,5 +42,6 @@
         </div>
     </form>
 </div>
+<script src="assets/js/validacionEditarUsuario.js"></script>
 </body>
 </html>

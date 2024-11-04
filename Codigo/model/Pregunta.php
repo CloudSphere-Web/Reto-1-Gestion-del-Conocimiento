@@ -1,6 +1,6 @@
 <?php
 class Pregunta{
-    private $table = 'Preguntas';
+    private $table = 'preguntas';
     private $connection;
 
     public function __construct() {
@@ -215,6 +215,7 @@ class Pregunta{
         $stmt->execute();
         $like = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
         if ($like) {
             $sql = "DELETE FROM likes WHERE usuario_id = :usuario_id AND pregunta_id = :pregunta_id";
             $stmt = $this->connection->prepare($sql);
@@ -337,6 +338,16 @@ class Pregunta{
         $stmt->bindParam(':count', $count, PDO::PARAM_INT);
         $stmt->bindParam(':respuesta_id', $respuesta_id, PDO::PARAM_INT);
         $stmt->execute();
+    }
+
+    public function getPreguntasFavoritas($userId) {
+        $sql = "SELECT * FROM $this->table 
+            INNER JOIN favoritos ON preguntas.id = favoritos.pregunta_id 
+            WHERE favoritos.usuario_id = :userId";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

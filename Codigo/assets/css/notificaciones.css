@@ -1,0 +1,86 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, Montserrat, sans-serif;
+    background-color: #123535;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: #4EC6C5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.notification-item {
+    background-color: #215A59;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.notification-item:hover {
+    transform: translateY(-3px);
+}
+
+.notification-item a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.notification-item p {
+    margin: 0 0 5px 0;
+}
+
+.notification-item strong {
+    color: #4EC6C5;
+}
+
+.notification-item small {
+    display: block;
+    color: #38A9A8;
+    font-size: 0.8em;
+}
+
+.unread {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4EC6C5;
+    color: #123535;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+/* Estilos para cuando no hay notificaciones */
+.notification-list > p {
+    text-align: center;
+    color: #38A9A8;
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .notification-list {
+        max-width: 100%;
+    }
+}
