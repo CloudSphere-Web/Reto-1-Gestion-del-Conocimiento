@@ -216,12 +216,13 @@ class PreguntasController extends CheckLoginController {
                 $notificacionModel = new Notificacion();
                 $mensaje = "Tu pregunta ha recibido una nueva respuesta de ";
 
-                // Aquí pasamos los IDs correctos
-                $notificacionModel->createNotification($usuario_id, $autorPreguntaId, 'respuesta', $mensaje);
+                // Ahora incluimos el pregunta_id
+                $notificacionModel->createNotification($usuario_id, $autorPreguntaId, 'respuesta', $mensaje, $pregunta_id);
             }
 
-            header("Location: index.php?controller=preguntas&action=details&id=" . $id);
+            header("Location: index.php?controller=preguntas&action=details&id=" . $pregunta_id);
             exit();
+
         } catch (PDOException $e) {
             $dataToView['error'] = "Error al guardar la respuesta: " . $e->getMessage();
             print_r($dataToView['error']);
@@ -276,7 +277,9 @@ class PreguntasController extends CheckLoginController {
         if ($autorPreguntaId != $usuario_id) { // No notificar al mismo usuario
             $notificacionModel = new Notificacion();
             $mensaje = "Tu pregunta ha recibido un nuevo like de ";
-            $notificacionModel->createNotification($usuario_id,$autorPreguntaId, 'like', $mensaje);
+
+            // Ahora incluimos el pregunta_id
+            $notificacionModel->createNotification($usuario_id, $autorPreguntaId, 'like', $mensaje, $id);
         }
 
         header("Location: index.php?controller=preguntas&action=details&id=" . $id);
