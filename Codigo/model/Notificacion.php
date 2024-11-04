@@ -16,13 +16,13 @@ class Notificacion {
     }
 
     //Metodo para crear una nueva notificación
-    public function createNotification($autor_id, $usuario_id_destinatario, $tipo, $mensaje) {
+    public function createNotification($autor_id, $usuario_id_destinatario, $tipo, $mensaje, $pregunta_id) {
         $fecha = date("Y-m-d");
         $hora = date("H:i:s");
-        $visto = 0;  // Notificación no leída por defecto
+        $visto = 0; // Notificación no leída por defecto
 
-        $sql = "INSERT INTO notificaciones (autor_id, usuario_id, tipo, mensaje, fecha, hora, visto)
-            VALUES (:autor_id, :usuario_id, :tipo, :mensaje, :fecha, :hora, :visto)";
+        $sql = "INSERT INTO notificaciones (autor_id, usuario_id, tipo, mensaje, fecha, hora, visto, pregunta_id)
+            VALUES (:autor_id, :usuario_id, :tipo, :mensaje, :fecha, :hora, :visto, :pregunta_id)";
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':autor_id', $autor_id); // Para el usuario que realiza la acción
@@ -32,9 +32,10 @@ class Notificacion {
         $stmt->bindParam(':fecha', $fecha);
         $stmt->bindParam(':hora', $hora);
         $stmt->bindParam(':visto', $visto);
+        $stmt->bindParam(':pregunta_id', $pregunta_id);
 
         // Ejecuta la inserción
-        return $stmt->execute();  // Devuelve true si la inserción fue exitosa
+        return $stmt->execute(); // Devuelve true si la inserción fue exitosa
     }
 
     // Metodo para obtener todas las notificaciones de un usuario
