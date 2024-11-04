@@ -11,13 +11,18 @@
     <main class="main-content">
         <h1>Mis Notificaciones</h1>
         <ul class="notification-list">
+            <form action="index.php" method="POST" class="delete-all-notifications-form">
+                <input type="hidden" name="controller" value="notificaciones">
+                <input type="hidden" name="action" value="deleteNotification">
+                <button type="submit" class="delete-button">Eliminar todas las notificaciones</button>
+            </form>
             <?php
             // Verificar si existen notificaciones
             if (isset($dataToView['data']['notifications']) && !empty($dataToView['data']['notifications'])) {
                 foreach ($dataToView['data']['notifications'] as $notification) {
                     ?>
                     <li class="notification-item">
-                        <a href="index.php?controller=preguntas&action=details&id=<?php echo htmlspecialchars($notification['pregunta_id']); ?>">
+                        <a href="index.php?controller=notificaciones&action=viewNotification&id=<?php echo htmlspecialchars($notification['id']); ?>">
                             <p>
                                 <?php echo htmlspecialchars($notification['mensaje']); ?>
                                 <strong><?php echo htmlspecialchars($notification['autor_nombre']); ?></strong>
