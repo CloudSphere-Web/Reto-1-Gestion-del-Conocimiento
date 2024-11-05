@@ -14,7 +14,7 @@
         <p class="no-questions">No has realizado ninguna pregunta aún.</p>
     <?php else: ?>
         <?php foreach ($dataToView["data"] as $respuestas): ?>
-            <a href="index.php?controller=preguntas&action=details&id=<?php echo $respuestas['id']; ?>" class='question-card'>
+            <a href="index.php?controller=preguntas&action=details&id=<?php echo $respuestas['pregunta_id']; ?>" class='question-card'>
                 <div class='avatar'></div>
                 <div class='question-content'>
                     <p class='question-description'><?php echo htmlspecialchars($respuestas['contenido']); ?></p>

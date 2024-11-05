@@ -14,7 +14,7 @@
         <p class="no-questions">No has dado favorito a ninguna pregunta aún.</p>
     <?php else: ?>
         <?php foreach ($dataToView["data"] as $favorito): ?>
-            <a href="index.php?controller=preguntas&action=details&id=<?php echo $favorito['id']; ?>" class='question-card'>
+            <a href="index.php?controller=preguntas&action=details&id=<?php echo $favorito['pregunta_id']; ?>" class='question-card'>
                 <div class='avatar'></div>
                 <div class='question-content'>
                     <h2 class='question-title'><?php echo htmlspecialchars($favorito['titulo']); ?></h2>
