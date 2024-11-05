@@ -106,18 +106,4 @@ body, html {
 .tab-final:hover {
     background-color: #D8F2F3 !important;
 }
-.Ranking {
-    margin-left: auto;
-    font-size: 24px;
-    font-weight: bold;
-    border: 3px solid black !important;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #66C6CC !important;
-    color: white;
-}
 

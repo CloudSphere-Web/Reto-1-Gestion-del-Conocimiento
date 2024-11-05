@@ -1,9 +1,12 @@
+* {
+    font-family: Lato, Montserrat, sans-serif;
+}
 body, html {
     margin: 0;
     padding: 0;
     font-family: Lato, Montserrat, sans-serif;
-    background-color: #2a7a78;
-    color: white;
+    background-color: #8CD5D9 !important;
+    color: black !important;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11,7 +14,8 @@ body, html {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    flex: 1; /* This ensures the container takes up available space */
+    flex: 1;
+    width: 100%;
 }
 .logo {
     width: 50px;
@@ -20,7 +24,7 @@ body, html {
     border-radius: 50%;
 }
 .profile-section {
-    background-color: #38a3a5;
+    background-color: #B2E4E6 !important;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -82,17 +86,17 @@ body, html {
 .tabs {
     display: flex;
     justify-content: space-between;
-    background-color: #38a3a5;
+    background-color: #66C6CC !important;
     padding: 3px;
 }
 .tab, .tab-final, .tab-inicio{
     padding: 12px 52.5px;
     cursor: pointer;
-    background-color: #2D8280;
+    background-color: #66C6CC !important;
     border: none;
 }
 .tab:hover {
-    background-color: rgba(78, 198, 197, 1);
+    background-color: #D8F2F3 !important;
 }
 .tab-inicio {
     border: none;
