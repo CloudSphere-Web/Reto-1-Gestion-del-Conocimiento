@@ -172,3 +172,6 @@ body {
     background-color: #d1ecf1;
     color: #0c5460;
 }
+.counter {
+    color: black !important;
+}
