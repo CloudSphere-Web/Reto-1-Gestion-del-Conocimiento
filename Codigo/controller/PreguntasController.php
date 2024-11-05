@@ -172,8 +172,6 @@ class PreguntasController extends CheckLoginController {
             if (move_uploaded_file($fileTmpPath, $destPath)) {
                 print_r($destPath);
                 $filePath = $destPath;
-                print_r($filePath);
-                die();
             } else {
                 $dataToView['error'] = 'Error al subir el archivo';
                 return $dataToView;

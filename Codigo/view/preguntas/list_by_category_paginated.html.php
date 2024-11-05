@@ -10,7 +10,12 @@
 <div class="container">
     <main class="main-content">
         <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
+            <form action="index.php" method="get">
+                <input type="hidden" name="controller" value="preguntas">
+                <input type="hidden" name="action" value="search">
+                <input type="text" name="keyword" placeholder="Buscar..." value="<?php echo isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : ''; ?>">
+                <button type="submit">Buscar</button>
+            </form>
         </div>
         <?php
         if (isset($dataToView["data"]["preguntas"]) && count($dataToView["data"]["preguntas"]) > 0) {
