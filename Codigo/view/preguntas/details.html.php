@@ -91,6 +91,16 @@
                             </div>
                             <div class="container">
                                 <p class="respuesta-contenido"><?php echo $respuesta['contenido']; ?></p>
+                                <?php if ($respuesta['archivo']): ?>
+                                    <?php
+                                    $fileExtension = pathinfo($respuesta['archivo'], PATHINFO_EXTENSION);
+                                    $imageExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                                    if (in_array(strtolower($fileExtension), $imageExtensions)): ?>
+                                        <img src="<?php echo $respuesta['archivo']; ?>" alt="Imagen de la pregunta" class="question-image">
+                                    <?php else: ?>
+                                        <a href="<?php echo $respuesta['archivo']; ?>" class="download-button">Descargar archivo</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </div>
                             <div class="answer-footer">
                                 <div class="izquierda">
