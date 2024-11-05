@@ -9,6 +9,8 @@ body, html {
     flex-direction: column;
 }
 .delete-all-notifications-form {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 

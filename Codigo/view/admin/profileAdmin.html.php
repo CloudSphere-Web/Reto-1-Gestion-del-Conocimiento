@@ -29,7 +29,6 @@
                 <div class="stat-item"><img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">1</div>
             </div>
         </div>
-        <div class="Ranking">2</div>
     </div>
 
     <div class="tabs">

@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
     lightNotificacionesLink.href = 'assets/css/lightViews/lightNotificaciones.css'; // Estilos específicos para la página de Notificaciones de Usuario
     lightNotificacionesLink.id = 'lightNotificacionesStyle';
 
+    let lightAdmin_ProfileLink = document.createElement('link');
+    lightAdmin_ProfileLink.rel = 'stylesheet';
+    lightAdmin_ProfileLink.href = 'assets/css/lightViews/lightAdmin_Profile.css'; // Estilos específicos para la página de Notificaciones de Usuario
+    lightAdmin_ProfileLink.id = 'lightAdmin_ProfileStyle';
+
     // Verifica si el modo claro está activado en las cookies
     if (getCookie('lightMode') === 'enabled') {
         document.head.appendChild(lightHeaderLink);
@@ -108,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications') ) {
             document.head.appendChild(lightNotificacionesLink);
+        }
+        if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin') ) {
+            document.head.appendChild(lightAdmin_ProfileLink);
         }
 
         isLightMode = true;
@@ -167,6 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications')) {
                     document.head.appendChild(lightNotificacionesLink);
                 }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin')) {
+                    document.head.appendChild(lightAdmin_ProfileLink);
+                }
 
 
                 setCookie('lightMode', 'enabled', 7);
@@ -218,6 +229,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications') ) {
                     document.getElementById('lightNotificacionesStyle')?.remove();
+                }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin') ) {
+                    document.getElementById('lightAdmin_ProfileStyle')?.remove();
                 }
 
                 setCookie('lightMode', 'disabled', 7);

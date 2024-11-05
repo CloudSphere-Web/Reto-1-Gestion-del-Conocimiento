@@ -10,15 +10,19 @@
 <div class="container">
     <main class="main-content">
         <h1>Mis Notificaciones</h1>
+
         <ul class="notification-list">
-            <form action="index.php?controller=notificaciones&action=deleteNotification" method="POST" class="delete-all-notifications-form">
-                <input type="hidden" name="controller" value="notificaciones">
-                <input type="hidden" name="action" value="deleteNotification">
-                <button type="submit" class="delete-button">Eliminar todas las notificaciones</button>
-            </form>
             <?php
             // Verificar si existen notificaciones
             if (isset($dataToView['data']['notifications']) && !empty($dataToView['data']['notifications'])) {
+                // Mostrar el botón solo si hay notificaciones
+                ?>
+                <form action="index.php?controller=notificaciones&action=deleteNotification" method="POST" class="delete-all-notifications-form">
+                    <input type="hidden" name="controller" value="notificaciones">
+                    <input type="hidden" name="action" value="deleteNotification">
+                    <button type="submit" class="delete-button">Eliminar todas las notificaciones</button>
+                </form>
+                <?php
                 foreach ($dataToView['data']['notifications'] as $notification) {
                     ?>
                     <li class="notification-item">
