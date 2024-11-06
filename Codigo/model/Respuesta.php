@@ -69,5 +69,13 @@ class Respuesta {
         // Return the ID of the last inserted row
         return $this->connection->lastInsertId();
     }
+
+    public function countRespuestasByUserId($userId) {
+        $query = "SELECT COUNT(*) FROM respuestas WHERE usuario_id = :userId";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
 }
 ?>

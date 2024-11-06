@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+date_default_timezone_set("Europe/Madrid");
+
 require_once 'config/config.php';
 require_once 'model/db.php';
 require_once 'controller/CheckLoginController.php';
@@ -12,12 +14,12 @@ if ($_GET["controller"] !== "usuario" || $_GET["action"] !== "login") {
     $checkLogin = new CheckLoginController();
 }
 
-$controller_path = 'controller/' . $_GET["controller"] . 'Controller.php';
+$controller_path = 'controller/' . ucfirst($_GET["controller"]) . 'Controller.php';
 
 if (!file_exists($controller_path)) $controller_path = 'controller/' . constant("DEFAULT_CONTROLLER") . 'Controller.php';
 
 require_once $controller_path;
-$controllerName = $_GET["controller"] . 'Controller';
+$controllerName = ucfirst($_GET["controller"]) . 'Controller';
 $controller = new $controllerName();
 
 $dataToView["data"] = array();
