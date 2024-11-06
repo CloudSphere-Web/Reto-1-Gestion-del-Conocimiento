@@ -77,5 +77,20 @@ class Respuesta {
         $stmt->execute();
         return $stmt->fetchColumn();
     }
+
+    public function getRespuestaById($id) {
+        $sql = "SELECT * FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteRespuesta($id) {
+        $sql = "DELETE FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }
 ?>

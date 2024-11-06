@@ -91,7 +91,6 @@ body {
     margin-right: 15px; /* Espacio entre los elementos */
     margin-bottom: 0; /* Quitar margen inferior para alinearlo */
 }
-
 .question-user-fullname {
     font-weight: bold;
     font-size: 1.2em;
@@ -100,6 +99,17 @@ body {
 .question-user-subname, .question-user-job, .question-date, .question-time {
     font-size: 0.9em;
     color: #cccccc;
+}
+.header-trash {
+    margin-left: auto; /* Pushes .header-trash to the right */
+    width: 1.5%;
+    height: 1.5%;
+}
+
+.delete-icon {
+    font-size: 1.2em; /* Adjust the icon size as needed */
+    display: flex;
+    align-items: center;
 }
 
 /* Estilo del botón de borrar */
