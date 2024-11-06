@@ -13,7 +13,7 @@
     <div class="profile-section">
         <div class="profile-pic">
             <?php if ($userData['data']['foto_perfil']) { ?>
-                <img src="<?php echo $userData['foto_perfil']; ?>" alt="Avatar del usuario">
+                <img src="<?php echo $userData['data']['foto_perfil']; ?>" alt="Avatar del usuario">
             <?php } else { ?>
                 <?php echo substr($userData['data']['nombre'], 0, 1) . substr($userData['data']['apellidos'], 0, 1); ?>
             <?php } ?>
