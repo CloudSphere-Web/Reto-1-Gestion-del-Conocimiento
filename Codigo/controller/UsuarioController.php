@@ -67,7 +67,7 @@ class UsuarioController extends CheckLoginController {
         $dataToView['respuestasCount'] = $respuestasCount;
         $dataToView['favoritosCount'] = $favoritosCount;
 
-        include 'view/usuario/profileUsuario.html.php';
+        return $dataToView;
     }
 
     public function viewPreguntasUsuario() {

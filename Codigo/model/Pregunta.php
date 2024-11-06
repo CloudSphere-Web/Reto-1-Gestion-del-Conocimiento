@@ -360,7 +360,7 @@ class Pregunta{
 
     // Contar favoritos de un usuario
     public function countFavoritosByUserId($userId) {
-        $query = "SELECT COUNT(*) FROM favoritos WHERE usuario_id = :userId";
+        $query = "SELECT COUNT(*) FROM favoritos WHERE usuario_id = :userId";   
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
