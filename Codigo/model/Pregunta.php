@@ -367,5 +367,12 @@ class Pregunta{
         return $stmt->fetchColumn();
     }
 
+    public function deletePregunta($id) {
+        $sql = "DELETE FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 }
 ?>
