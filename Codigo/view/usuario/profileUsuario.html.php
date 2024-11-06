@@ -19,23 +19,25 @@
             <?php } ?>
         </div>
         <div class="profile-info">
-            <div class="name"><?php echo $userData['data']['nombre'] . ' ' . $userData['data']['apellidos']; ?></div>
-            <div class="email"><?php echo $userData['data']['email']; ?></div>
-            <div class="position"><?php echo $userData['data']['puesto']; ?></div>
+            <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
+            <div class="email"><?php echo $userData['email']; ?></div>
+            <div class="position"><?php echo $userData['puesto']; ?></div>
+
             <div class="stats">
                 <div class="stat-item">
                     <img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">
-                    <?php echo $userData['preguntasCount']; ?>
+                    <?php echo $dataToView['preguntasCount']; ?>
                 </div>
                 <div class="stat-item">
                     <img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">
-                    <?php echo $userData['respuestasCount']; ?>
+                    <?php echo $dataToView['respuestasCount']; ?>
                 </div>
                 <div class="stat-item">
                     <img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">
-                    <?php echo $userData['favoritosCount']; ?>
+                    <?php echo $dataToView['favoritosCount']; ?>
                 </div>
             </div>
+
         </div>
     </div>
 
