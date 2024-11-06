@@ -36,15 +36,6 @@ class UsuarioController extends CheckLoginController {
         exit();
     }
 
-    //FUNCION ANTERIOR
-//    public function viewProfile() {
-//        $this->view = "profileUsuario";
-//        $this->page_title = "Profile";
-//        $userData = $this->model->getUserDataByEmail($_COOKIE["email_usuario"]);
-//        return $userData;
-//    }
-
-//FUNCION NUEVA PERO FUNCIONA RARO
     public function viewProfile() {
         $this->view = "profileUsuario";
         $this->page_title = "Profile";
