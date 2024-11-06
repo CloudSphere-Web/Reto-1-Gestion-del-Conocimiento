@@ -22,11 +22,22 @@
             <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
             <div class="email"><?php echo $userData['email']; ?></div>
             <div class="position"><?php echo $userData['puesto']; ?></div>
+
             <div class="stats">
-                <div class="stat-item"><img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">1</div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">
+                    <?php echo $dataToView['preguntasCount']; ?>
+                </div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">
+                    <?php echo $dataToView['respuestasCount']; ?>
+                </div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">
+                    <?php echo $dataToView['favoritosCount']; ?>
+                </div>
             </div>
+
         </div>
     </div>
 

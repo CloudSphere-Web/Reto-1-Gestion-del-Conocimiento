@@ -36,11 +36,38 @@ class UsuarioController extends CheckLoginController {
         exit();
     }
 
+    //FUNCION ANTERIOR
+//    public function viewProfile() {
+//        $this->view = "profileUsuario";
+//        $this->page_title = "Profile";
+//        $userData = $this->model->getUserDataByEmail($_COOKIE["email_usuario"]);
+//        return $userData;
+//    }
+
+//FUNCION NUEVA PERO FUNCIONA RARO
     public function viewProfile() {
         $this->view = "profileUsuario";
         $this->page_title = "Profile";
+
         $userData = $this->model->getUserDataByEmail($_COOKIE["email_usuario"]);
-        return $userData;
+        $userId = $this->model->getUserIdByEmail($_COOKIE["email_usuario"]);
+
+        // Crear instancias de los modelos
+        $preguntaModel = new Pregunta();
+        $respuestaModel = new Respuesta();
+
+        // Obtener los conteos
+        $preguntasCount = $preguntaModel->countPreguntasByUserId($userId);
+        $respuestasCount = $respuestaModel->countRespuestasByUserId($userId);
+        $favoritosCount = $preguntaModel->countFavoritosByUserId($userId);
+
+        // Pasar datos a la vista
+        $dataToView['data'] = $userData;
+        $dataToView['preguntasCount'] = $preguntasCount;
+        $dataToView['respuestasCount'] = $respuestasCount;
+        $dataToView['favoritosCount'] = $favoritosCount;
+
+        include 'view/usuario/profileUsuario.html.php';
     }
 
     public function viewPreguntasUsuario() {
