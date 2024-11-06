@@ -115,3 +115,68 @@ footer {
     position: relative;
     bottom: 0;
 }
+/* Media Queries para Pantallas Más Pequeñas */
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        min-width: 100%;
+        padding: 10px;
+    }
+
+    .profile-section {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 70px;
+        height: 70px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .profile-info {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab, .tab-inicio, .tab-final {
+        padding: 12px 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-info .name {
+        font-size: 16px;
+    }
+
+    .profile-info .email, .profile-info .position {
+        font-size: 12px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .tab, .tab-inicio, .tab-final {
+        padding: 10px 30px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
