@@ -12,20 +12,29 @@
 <div class="container">
     <div class="profile-section">
         <div class="profile-pic">
-            <?php if ($userData['foto_perfil']) { ?>
+            <?php if ($userData['data']['foto_perfil']) { ?>
                 <img src="<?php echo $userData['foto_perfil']; ?>" alt="Avatar del usuario">
             <?php } else { ?>
-                <?php echo substr($userData['nombre'], 0, 1) . substr($userData['apellidos'], 0, 1); ?>
+                <?php echo substr($userData['data']['nombre'], 0, 1) . substr($userData['data']['apellidos'], 0, 1); ?>
             <?php } ?>
         </div>
         <div class="profile-info">
-            <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
-            <div class="email"><?php echo $userData['email']; ?></div>
-            <div class="position"><?php echo $userData['puesto']; ?></div>
+            <div class="name"><?php echo $userData['data']['nombre'] . ' ' . $userData['data']['apellidos']; ?></div>
+            <div class="email"><?php echo $userData['data']['email']; ?></div>
+            <div class="position"><?php echo $userData['data']['puesto']; ?></div>
             <div class="stats">
-                <div class="stat-item"><img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">1</div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">
+                    <?php echo $userData['preguntasCount']; ?>
+                </div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">
+                    <?php echo $userData['respuestasCount']; ?>
+                </div>
+                <div class="stat-item">
+                    <img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">
+                    <?php echo $userData['favoritosCount']; ?>
+                </div>
             </div>
         </div>
     </div>

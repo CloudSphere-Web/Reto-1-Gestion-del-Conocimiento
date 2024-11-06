@@ -67,19 +67,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Patrocinadores */
-.footer-sponsors {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-sponsors img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .footer-container {

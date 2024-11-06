@@ -33,3 +33,15 @@ define("PAGINATION", 5);
 //
 //define("PAGINATION", 5);
 //?>
+
+<?php
+//define("DB_HOST", "139.162.209.26");
+//define("DB", "aergibid_grupo5_2425");
+//define("DB_USER", "aergibid");
+//define("DB_PASS", "eck7bam.kuz7XMG2dxh");
+//
+//define("DEFAULT_CONTROLLER", "Preguntas");
+//define("DEFAULT_ACTION", "list_paginated");
+//
+//define("PAGINATION", 5);
+//?>
