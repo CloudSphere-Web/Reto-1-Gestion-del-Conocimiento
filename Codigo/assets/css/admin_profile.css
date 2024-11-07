@@ -85,16 +85,20 @@ body, html {
 }
 .tabs {
     display: flex;
-    justify-content: space-between;
-    background-color: #38a3a5;
+    justify-content: space-evenly;
+    background-color: #2D8280;
     padding: 3px;
 }
-.tab, .tab-final, .tab-inicio{
-    padding: 12px 52.5px;
+
+.tab, .tab-final, .tab-inicio {
+    flex-grow: 1; /* Ocupa el mismo espacio de forma uniforme */
+    padding: 12px 0; /* Ajusta el padding lateral para ocupar más espacio */
     cursor: pointer;
     background-color: #2D8280;
     border: none;
+    text-align: center; /* Centra el texto en cada tab */
 }
+
 .tab:hover {
     background-color: rgba(78, 198, 197, 1);
 }
