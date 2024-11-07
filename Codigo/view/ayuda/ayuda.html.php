@@ -29,6 +29,8 @@ $userEmail = isset($_COOKIE['email_usuario']) ? $_COOKIE['email_usuario'] : null
 </div>
 
 <script>
+    let isAtBottom = true; // Variable para saber si el usuario está al fondo del chat
+
     function loadMessages() {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'index.php?controller=ayuda&action=getMessagesAjax', true);
@@ -36,6 +38,9 @@ $userEmail = isset($_COOKIE['email_usuario']) ? $_COOKIE['email_usuario'] : null
             if (this.status === 200) {
                 const response = JSON.parse(this.responseText);
                 const messagesContainer = document.getElementById('chat-messages');
+                const currentScrollPosition = messagesContainer.scrollHeight - messagesContainer.scrollTop === messagesContainer.clientHeight;
+
+                // Guardamos la posición de desplazamiento antes de añadir los nuevos mensajes
                 messagesContainer.innerHTML = '';
 
                 response.mensajes.forEach(function(mensaje) {
@@ -65,12 +70,20 @@ $userEmail = isset($_COOKIE['email_usuario']) ? $_COOKIE['email_usuario'] : null
                     messagesContainer.appendChild(messageDiv);
                 });
 
-                // Desplazar al fondo después de cargar los mensajes
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                // Si el usuario estaba al fondo, desplazamos hacia abajo
+                if (currentScrollPosition || isAtBottom) {
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }
             }
         };
         xhr.send();
     }
+
+    // Función para detectar si el usuario está al fondo
+    document.getElementById('chat-messages').addEventListener('scroll', function() {
+        const messagesContainer = document.getElementById('chat-messages');
+        isAtBottom = messagesContainer.scrollHeight - messagesContainer.scrollTop === messagesContainer.clientHeight;
+    });
 
     // Cargar los mensajes cada 1 segundo
     setInterval(loadMessages, 1000);
