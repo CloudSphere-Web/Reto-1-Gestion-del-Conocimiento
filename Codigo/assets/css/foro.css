@@ -42,7 +42,7 @@ html, body {
     background-color: #2a5b5b;
     color: white;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .search-bar button, .search-bar a {
@@ -228,7 +228,8 @@ html, body {
         width: 100%;
         padding: 8px;
         font-size: 14px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        margin-right: 1px;
     }
 
     .search-bar button, .search-bar a {
@@ -250,6 +251,15 @@ html, body {
     .page-link {
         padding: 10px;
         font-size: 14px;
+        text-align: center;
+        width: 100%;
+    }
+}
+@media (max-width: 340px) {
+
+    .page-link {
+        padding: 10px;
+        font-size: 6.2px;
         text-align: center;
         width: 100%;
     }
