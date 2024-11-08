@@ -172,5 +172,6 @@ footer {
     }
     .chat-container{
         padding: 15px;
+        border-radius: 0;
     }
 }

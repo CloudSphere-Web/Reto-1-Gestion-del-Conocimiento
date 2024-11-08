@@ -8,7 +8,7 @@ html, body {
 /* Cuerpo principal de la página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #B2E4E6 !important;
+    background-color: #8CD5D9 !important;
     display: flex;
     flex-direction: column;
 }
@@ -17,6 +17,7 @@ body {
 .chat-container {
     max-width: 800px;
     margin: 20px auto;
+    padding: 15px;
     border: 1px solid #215A59;
     border-radius: 8px;
     overflow: hidden;
@@ -171,6 +172,7 @@ footer {
         text-align: center;
     }
     .chat-container{
-        padding: 15px;
+        padding: 15px !important;
+        border-radius: 0 !important;
     }
 }
