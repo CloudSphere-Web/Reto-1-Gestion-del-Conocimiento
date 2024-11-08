@@ -35,6 +35,8 @@ body {
     padding: 10px;
     text-align: center;
     font-weight: bold;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px ;
 }
 
 /* Estilos de los mensajes */
@@ -79,6 +81,8 @@ body {
     display: flex;
     padding: 10px;
     background-color: #2D8280;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px ;
 }
 
 
@@ -172,6 +176,17 @@ footer {
     }
     .chat-container{
         padding: 15px;
-        border-radius: 0;
+        border-radius: 15px;
+    }
+
+    .chat-header{
+        padding-top: 15px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px ;
+    }
+    .chat-input{
+        padding-top: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px ;
     }
 }
