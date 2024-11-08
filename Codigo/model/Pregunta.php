@@ -115,18 +115,49 @@ class Pregunta{
         return $this->connection->lastInsertId();
     }
 
-    public function getPreguntasByCategoriaNombre($nombreCategoria) {
+//    public function getPreguntasByCategoriaNombre($nombreCategoria) {
+//        $sql = "SELECT p.*, c.nombre as categoria_nombre, c.descripcion as categoria_descripcion, u.foto_perfil
+//            FROM " . $this->table . " p
+//            JOIN categorias c ON p.categoria_id = c.id
+//            JOIN usuarios u ON p.usuario_id = u.id
+//            WHERE c.nombre = :nombreCategoria
+//            ORDER BY p.fecha_publicacion DESC, p.hora_publicacion DESC";
+//        $stmt = $this->connection->prepare($sql);
+//        $stmt->bindParam(':nombreCategoria', $nombreCategoria, PDO::PARAM_STR);
+//        $stmt->execute();
+//        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+//    }
+
+    public function getPreguntasByCategoriaNombre($nombreCategoria, $limit, $offset) {
+        $limit = PAGINATION;
         $sql = "SELECT p.*, c.nombre as categoria_nombre, c.descripcion as categoria_descripcion, u.foto_perfil 
-            FROM " . $this->table . " p
-            JOIN categorias c ON p.categoria_id = c.id
-            JOIN usuarios u ON p.usuario_id = u.id
-            WHERE c.nombre = :nombreCategoria
-            ORDER BY p.fecha_publicacion DESC, p.hora_publicacion DESC";
+        FROM " . $this->table . " p
+        JOIN categorias c ON p.categoria_id = c.id
+        JOIN usuarios u ON p.usuario_id = u.id
+        WHERE c.nombre = :nombreCategoria
+        ORDER BY p.fecha_publicacion DESC, p.hora_publicacion DESC
+        LIMIT :limit OFFSET :offset";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':nombreCategoria', $nombreCategoria, PDO::PARAM_STR);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function countPreguntasByCategoriaNombre($nombreCategoria) {
+        $sql = "SELECT COUNT(*) as total 
+        FROM " . $this->table . " p
+        JOIN categorias c ON p.categoria_id = c.id
+        WHERE c.nombre = :nombreCategoria";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':nombreCategoria', $nombreCategoria, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'] ?? 0;
+    }
+
+
 
     public function getPreguntasByFavoriteUser($userId) {
         // Selecciona preguntas de los usuarios favoritos del usuario actual
@@ -347,6 +378,31 @@ class Pregunta{
         $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Contar preguntas de un usuario
+    public function countPreguntasByUserId($userId) {
+        $query = "SELECT COUNT(*) FROM preguntas WHERE usuario_id = :userId";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    // Contar favoritos de un usuario
+    public function countFavoritosByUserId($userId) {
+        $query = "SELECT COUNT(*) FROM favoritos WHERE usuario_id = :userId AND respuesta_id IS NULL";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    public function deletePregunta($id) {
+        $sql = "DELETE FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
 }

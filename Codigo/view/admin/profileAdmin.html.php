@@ -23,19 +23,12 @@
             <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
             <div class="email"><?php echo $userData['email']; ?></div>
             <div class="position"><?php echo $userData['puesto']; ?></div>
-            <div class="stats">
-                <div class="stat-item"><img src="assets/img/userImagenes/preguntaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/respuestaImagen.png" class="stat-icon">1</div>
-                <div class="stat-item"><img src="assets/img/userImagenes/favoritoImagen.png" class="stat-icon">1</div>
-            </div>
         </div>
-        <div class="Ranking">2</div>
     </div>
 
     <div class="tabs">
         <button class="tab tab-inicio" onclick="cargarContenido('viewListaUsuarios')">USUARIOS</button>
         <button class="tab" onclick="cargarContenido('viewRegisterUsuarios')">REGISTRAR</button>
-        <button class="tab" onclick="cargarContenido('favoritos')">PROBLEMAS</button>
     </div>
 
     <div id="contenido-dinamico">

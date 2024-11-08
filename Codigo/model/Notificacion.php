@@ -56,13 +56,33 @@ class Notificacion {
 
 
     // Metodo para marcar una notificación como leída
-    public function markAsRead($notification_id) {
+    public function markAsRead($notificationId) {
         $sql = "UPDATE notificaciones SET visto = 1 WHERE id = :notification_id";
-        $stmt = $this->connection->prepare($sql);  // Cambia $this->db a $this->connection
-        $stmt->bindParam(':notification_id', $notification_id);
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':notification_id', $notificationId);
 
-        return $stmt->execute();  // Devuelve true si la actualización fue exitosa
+        return $stmt->execute();
     }
+
+
+    public function getNotificationById($notificationId) {
+        $sql = "SELECT * FROM notificaciones WHERE id = :notification_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':notification_id', $notificationId);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteNotification($usuario_id) {
+        // Elimina todas las notificaciones del usuario
+        $sql = "DELETE FROM notificaciones WHERE usuario_id = :usuario_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':usuario_id', $usuario_id);
+        return $stmt->execute();
+    }
+
+
 
 
 }

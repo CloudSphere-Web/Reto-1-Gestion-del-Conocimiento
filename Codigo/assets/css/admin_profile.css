@@ -85,16 +85,20 @@ body, html {
 }
 .tabs {
     display: flex;
-    justify-content: space-between;
-    background-color: #38a3a5;
+    justify-content: space-evenly;
+    background-color: #2D8280;
     padding: 3px;
 }
-.tab, .tab-final, .tab-inicio{
-    padding: 12px 52.5px;
+
+.tab, .tab-final, .tab-inicio {
+    flex-grow: 1; /* Ocupa el mismo espacio de forma uniforme */
+    padding: 12px 0; /* Ajusta el padding lateral para ocupar más espacio */
     cursor: pointer;
     background-color: #2D8280;
     border: none;
+    text-align: center; /* Centra el texto en cada tab */
 }
+
 .tab:hover {
     background-color: rgba(78, 198, 197, 1);
 }
@@ -110,26 +114,157 @@ body, html {
 .tab-final:hover {
     background-color: rgba(78, 198, 197, 1);
 }
-.Ranking {
-    margin-left: auto;
-    font-size: 24px;
-    font-weight: bold;
-    border: 5px solid black;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #4BBEB3;
-    color: white;
+
+/* Media queries para pantallas de hasta 768px */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 15px; /* Añadir algo de padding */
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .profile-section {
+        flex-direction: row;
+        padding: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile-pic img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile-info {
+        flex-direction: row;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .email, .position {
+        font-size: 13px;
+    }
+
+    .stats {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .stat-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .stat-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .tab, .tab-final, .tab-inicio {
+        padding: 10px 35px;
+        margin-bottom: 5px;
+    }
 }
-footer {
-    background-color: #1A4F46;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    width: 100%;
-    position: relative;
-    bottom: 0;
+
+/* Media queries para pantallas de hasta 480px */
+@media (max-width: 480px) {
+    body, html {
+        font-size: 14px; /* Reducir el tamaño de la fuente en pantallas más pequeñas */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-section {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-pic img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-info {
+        margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 15px;
+    }
+
+    .email, .position {
+        font-size: 12px;
+    }
+
+    .position {
+        padding: 4px 8px;
+    }
+
+    .stats {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 15px;
+    }
+
+    .stat-item {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .stat-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .tab, .tab-final, .tab-inicio {
+        padding: 8px 30px;
+        margin-bottom: 4px;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 10px;
+    }
 }

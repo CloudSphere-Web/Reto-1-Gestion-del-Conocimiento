@@ -55,15 +55,50 @@ class NotificacionesController extends CheckLoginController {
         }
     }
 
-    // (Opcional) Metodo para eliminar una notificación
-    public function deleteNotification($notification_id) {
-        // Metodo que deberías implementar en el modelo Notificacion para eliminar
-        // $success = $this->model->deleteNotification($notification_id);
-        // if ($success) {
-        //     echo "Notificación eliminada.";
-        // } else {
-        //     echo "Error al eliminar la notificación.";
-        // }
+    public function deleteNotification($notification_id = null) {
+        $email = $_COOKIE["email_usuario"];
+        $userId = $this->usuarioModel->getUserIdByEmail($email);
+
+        if ($userId) {
+            // Llama al modelo para eliminar todas las notificaciones del usuario
+            $success = $this->model->deleteNotification($userId); // Sin pasar el notification_id para eliminar todas
+
+            if ($success) {
+                echo "Todas las notificaciones han sido eliminadas.";
+                header("Location: index.php?controller=notificaciones&action=viewNotifications");
+                exit();
+            } else {
+                echo "Error al eliminar las notificaciones.";
+            }
+        } else {
+            echo "Error: Usuario no encontrado.";
+        }
     }
+
+    public function viewNotification() {
+        $notificationId = isset($_GET['id']) ? $_GET['id'] : 0;
+
+        if ($notificationId == 0) {
+            echo "Error: notificación no válida.";
+            return;
+        }
+
+        // Marca la notificación como leída usando el metodo existente
+        $this->markNotificationAsRead($notificationId);
+
+        // Obtiene el ID de la pregunta asociada con la notificación
+        $notification = $this->model->getNotificationById($notificationId);
+
+        if ($notification && isset($notification['pregunta_id'])) {
+            $preguntaId = $notification['pregunta_id'];
+
+            // Redirige a la pregunta relacionada con la notificación
+            header("Location: index.php?controller=preguntas&action=details&id=" . $preguntaId);
+            exit();
+        } else {
+            echo "Error: no se encontró la pregunta asociada a la notificación.";
+        }
+    }
+
 }
 ?>

@@ -4,53 +4,68 @@ document.addEventListener('DOMContentLoaded', function () {
     // Creamos los enlaces a los archivos CSS para el modo claro
     let lightHeaderLink = document.createElement('link');
     lightHeaderLink.rel = 'stylesheet';
-    lightHeaderLink.href = 'assets/css/lightHeader.css'; // Estilos para el header
+    lightHeaderLink.href = 'assets/css/lightViews/lightHeader.css'; // Estilos para el header
     lightHeaderLink.id = 'lightHeaderStyle';
 
     let lightFooterLink = document.createElement('link');
     lightFooterLink.rel = 'stylesheet';
-    lightFooterLink.href = 'assets/css/lightFooter.css'; // Estilos para el footer
+    lightFooterLink.href = 'assets/css/lightViews/lightFooter.css'; // Estilos para el footer
     lightFooterLink.id = 'lightFooterStyle';
 
     let lightLoginLink = document.createElement('link');
     lightLoginLink.rel = 'stylesheet';
-    lightLoginLink.href = 'assets/css/lightLogin.css'; // Estilos específicos para la página de login
+    lightLoginLink.href = 'assets/css/lightViews/lightLogin.css'; // Estilos específicos para la página de login
     lightLoginLink.id = 'lightLoginStyle';
 
     let lightConfigLink = document.createElement('link');
     lightConfigLink.rel = 'stylesheet';
-    lightConfigLink.href = 'assets/css/lightConfig.css'; // Estilos específicos para la página de Config
+    lightConfigLink.href = 'assets/css/lightViews/lightConfig.css'; // Estilos específicos para la página de Config
     lightConfigLink.id = 'lightConfigStyle';
 
     let lightForoLink = document.createElement('link');
     lightForoLink.rel = 'stylesheet';
-    lightForoLink.href = 'assets/css/lightForo.css'; // Estilos específicos para la página de Foro
+    lightForoLink.href = 'assets/css/lightViews/lightForo.css'; // Estilos específicos para la página de Foro
     lightForoLink.id = 'lightForoStyle';
 
     let lightPreguntaLink = document.createElement('link');
     lightPreguntaLink.rel = 'stylesheet';
-    lightPreguntaLink.href = 'assets/css/lightPregunta.css'; // Estilos específicos para la página de Pregunta
+    lightPreguntaLink.href = 'assets/css/lightViews/lightPregunta.css'; // Estilos específicos para la página de Pregunta
     lightPreguntaLink.id = 'lightPreguntaStyle';
 
     let lightPublicarLink = document.createElement('link');
     lightPublicarLink.rel = 'stylesheet';
-    lightPublicarLink.href = 'assets/css/lightPublicar.css'; // Estilos específicos para la página de Publicar
+    lightPublicarLink.href = 'assets/css/lightViews/lightPublicar.css'; // Estilos específicos para la página de Publicar
     lightPublicarLink.id = 'lightPublicarStyle';
 
     let lightResponderLink = document.createElement('link');
     lightResponderLink.rel = 'stylesheet';
-    lightResponderLink.href = 'assets/css/lightResponder.css'; // Estilos específicos para la página de Responder
+    lightResponderLink.href = 'assets/css/lightViews/lightResponder.css'; // Estilos específicos para la página de Responder
     lightResponderLink.id = 'lightResponderStyle';
 
     let lightPerfilUsuarioLink = document.createElement('link');
     lightPerfilUsuarioLink.rel = 'stylesheet';
-    lightPerfilUsuarioLink.href = 'assets/css/lightPerfilUsuario.css'; // Estilos específicos para la página de Perfil del Usuario
+    lightPerfilUsuarioLink.href = 'assets/css/lightViews/lightPerfilUsuario.css'; // Estilos específicos para la página de Perfil del Usuario
     lightPerfilUsuarioLink.id = 'lightResponderStyle';
 
     let lightPreguntaUsuarioLink = document.createElement('link');
     lightPreguntaUsuarioLink.rel = 'stylesheet';
-    lightPreguntaUsuarioLink.href = 'assets/css/lightPreguntaUsuario.css'; // Estilos específicos para la página de Preguntas de Usuario
+    lightPreguntaUsuarioLink.href = 'assets/css/lightViews/lightPreguntaUsuario.css'; // Estilos específicos para la página de Preguntas de Usuario
     lightPreguntaUsuarioLink.id = 'lightResponderStyle';
+
+    let lightNotificacionesLink = document.createElement('link');
+    lightNotificacionesLink.rel = 'stylesheet';
+    lightNotificacionesLink.href = 'assets/css/lightViews/lightNotificaciones.css'; // Estilos específicos para la página de Notificaciones de Usuario
+    lightNotificacionesLink.id = 'lightNotificacionesStyle';
+
+    let lightAdmin_ProfileLink = document.createElement('link');
+    lightAdmin_ProfileLink.rel = 'stylesheet';
+    lightAdmin_ProfileLink.href = 'assets/css/lightViews/lightAdmin_Profile.css'; // Estilos específicos para la página de Perfil de Admin
+    lightAdmin_ProfileLink.id = 'lightAdmin_ProfileStyle';
+
+    let lightAyudaLink = document.createElement('link');
+    lightAyudaLink.rel = 'stylesheet';
+    lightAyudaLink.href = 'assets/css/lightViews/lightAyuda.css'; // Estilos específicos para la página de chat de ayuda
+    lightAyudaLink.id = 'lightAyudaStyle';
 
     // Verifica si el modo claro está activado en las cookies
     if (getCookie('lightMode') === 'enabled') {
@@ -100,6 +115,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile') ) {
             document.head.appendChild(lightPerfilUsuarioLink);
+        }
+        if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications') ) {
+            document.head.appendChild(lightNotificacionesLink);
+        }
+        if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin') ) {
+            document.head.appendChild(lightAdmin_ProfileLink);
+        }
+        if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda') ) {
+            document.head.appendChild(lightAyudaLink);
         }
 
         isLightMode = true;
@@ -156,6 +180,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile')) {
                     document.head.appendChild(lightResponderLink);
                 }
+                if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications')) {
+                    document.head.appendChild(lightNotificacionesLink);
+                }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin')) {
+                    document.head.appendChild(lightAdmin_ProfileLink);
+                }
+                if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda')) {
+                    document.head.appendChild(lightAyudaLink);
+                }
 
 
                 setCookie('lightMode', 'enabled', 7);
@@ -204,6 +237,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (window.location.search.includes('controller=usuario') && window.location.search.includes('action=viewProfile') ) {
                     document.getElementById('lightResponderStyle')?.remove();
+                }
+                if (window.location.search.includes('controller=notificaciones') && window.location.search.includes('action=viewNotifications') ) {
+                    document.getElementById('lightNotificacionesStyle')?.remove();
+                }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=viewProfileAdmin') ) {
+                    document.getElementById('lightAdmin_ProfileStyle')?.remove();
+                }
+                if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda') ) {
+                    document.getElementById('lightAyudaStyle')?.remove();
                 }
 
                 setCookie('lightMode', 'disabled', 7);
