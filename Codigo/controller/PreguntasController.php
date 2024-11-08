@@ -126,21 +126,49 @@ class PreguntasController extends CheckLoginController {
         }
     }
 
+//    public function listByCategory() {
+//        $this->view = 'list_by_category_paginated';
+//        $nombreCategoria = isset($_GET['category']) ? $_GET['category'] : '';
+//
+//        if (empty($nombreCategoria)) {
+//            return ['error' => 'Categoría inválida'];
+//        }
+//
+//        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria);
+//
+//        $categoriaModel = new Categoria();
+//        $categoria = $categoriaModel->getCategoriaByNombre($nombreCategoria);
+//
+//        return ['preguntas' => $preguntas, 'categoria' => $categoria];
+//    }
+
     public function listByCategory() {
         $this->view = 'list_by_category_paginated';
         $nombreCategoria = isset($_GET['category']) ? $_GET['category'] : '';
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $limit = PAGINATION;
 
         if (empty($nombreCategoria)) {
             return ['error' => 'Categoría inválida'];
         }
 
-        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria);
+        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria, $limit, $offset);
+        $totalPreguntas = $this->model->countPreguntasByCategoriaNombre($nombreCategoria);
+        $totalPages = ceil($totalPreguntas / $limit);
 
         $categoriaModel = new Categoria();
         $categoria = $categoriaModel->getCategoriaByNombre($nombreCategoria);
 
-        return ['preguntas' => $preguntas, 'categoria' => $categoria];
+        return [
+            'preguntas' => $preguntas,
+            'categoria' => $categoria,
+            'pagination' => [
+                'currentPage' => $page,
+                'totalPages' => $totalPages,
+            ]
+        ];
     }
+
 
     public function responder() {
         $this->view = 'responder';

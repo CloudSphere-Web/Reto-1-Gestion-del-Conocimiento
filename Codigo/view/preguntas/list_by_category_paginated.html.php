@@ -38,7 +38,43 @@
                 </a>
                 <?php
             }
-        } else {
+            ?>
+            <nav aria-label="Paginación de notas" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <?php if ($dataToView["data"]["pagination"]["currentPage"] > 1): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=listByCategory&category=<?php echo htmlspecialchars($dataToView['data']['categoria']['nombre']); ?>&page=1">Primera</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=listByCategory&category=<?php echo htmlspecialchars($dataToView['data']['categoria']['nombre']); ?>&page=<?php echo $dataToView["data"]["pagination"]["currentPage"] - 1; ?>">Anterior</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="page-item disabled"><span class="page-link">Primera</span></li>
+                        <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+                    <?php endif; ?>
+
+                    <?php for ($i = max(1, $dataToView["data"]["pagination"]["currentPage"] - 1); $i <= min($dataToView["data"]["pagination"]["totalPages"], $dataToView["data"]["pagination"]["currentPage"] + 1); $i++): ?>
+                        <li class="page-item <?= ($i == $dataToView["data"]["pagination"]["currentPage"]) ? 'active' : ''; ?>">
+                            <a class="page-link" href="index.php?controller=preguntas&action=listByCategory&category=<?php echo htmlspecialchars($dataToView['data']['categoria']['nombre']); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+
+                    <?php if ($dataToView["data"]["pagination"]["currentPage"] < $dataToView["data"]["pagination"]["totalPages"]): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=listByCategory&category=<?php echo htmlspecialchars($dataToView['data']['categoria']['nombre']); ?>&page=<?php echo $dataToView["data"]["pagination"]["currentPage"] + 1; ?>">Siguiente</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=listByCategory&category=<?php echo htmlspecialchars($dataToView['data']['categoria']['nombre']); ?>&page=<?php echo $dataToView["data"]["pagination"]["totalPages"]; ?>">Última</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
+                        <li class="page-item disabled"><span class="page-link">Última</span></li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+
+            <?php
+        }else{
             ?>
             <div class="alert alert-info">Actualmente no existen preguntas.</div>
             <?php
