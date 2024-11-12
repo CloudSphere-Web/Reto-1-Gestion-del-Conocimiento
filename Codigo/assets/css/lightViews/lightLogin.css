@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../img/Avion-PNG-Photos.png');
+    background-image: url('../../img/Avion-PNG-Photos.png');
     background-repeat: no-repeat;
     background-size: 250px 150px;
     animation: takeOff 10s ease-in-out infinite;

@@ -20,9 +20,6 @@
     </div>
 
     <div class="header-section icons-section">
-        <a href="index.php?controller=ranking&action=list">
-            <img src="assets/svg/ranking-star-solid.svg" alt="Chart" class="header-icon">
-        </a>
         <a href="index.php?controller=notificaciones&action=viewNotifications">
             <img src="assets/svg/bell-regular.svg" alt="Notification" class="header-icon">
         </a>

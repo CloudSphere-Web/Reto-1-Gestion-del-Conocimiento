@@ -57,7 +57,7 @@ class AdminController Extends CheckLoginController {
                 ];
 
                 $this->model->updateUserDataById($_GET['id'], $userData); // Actualizar usando ID
-                header("Location: index.php?controller=admin&action=viewProfile");
+                header("Location: index.php?controller=admin&action=viewProfileAdmin");
                 exit();
             }
 
@@ -109,7 +109,7 @@ class AdminController Extends CheckLoginController {
             'foto_perfil' => $fotoPerfil
         ];
         $this->model->insertUserData($userData);
-        header("Location: index.php?controller=admin&action=viewProfile");
+        header("Location: index.php?controller=admin&action=viewProfileAdmin");
         exit();
     }
 

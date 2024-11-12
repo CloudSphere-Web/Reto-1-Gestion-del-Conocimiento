@@ -1,3 +1,8 @@
+<?php
+// Obtener el correo electrónico del usuario desde la cookie
+$userEmail = isset($_COOKIE['email_usuario']) ? $_COOKIE['email_usuario'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,21 +16,79 @@
     <div class="chat-header">
         Chat de Ayuda
     </div>
-    <div class="chat-messages">
-        <div class="message support-message">
-            Hola, ¿en qué puedo ayudarte hoy?
-        </div>
-        <div class="message user-message">
-            Hola, tengo una pregunta sobre cómo publicar en el foro.
-        </div>
-        <div class="message support-message">
-            Claro, estaré encantado de ayudarte. ¿Qué específicamente te gustaría saber sobre publicar en el foro?
-        </div>
+    <div class="chat-messages" id="chat-messages">
+        <!-- Los mensajes se cargarán aquí -->
     </div>
+
     <div class="chat-input">
-        <input type="text" placeholder="Escribe tu mensaje aquí...">
-        <button>Enviar</button>
+        <form action="index.php?controller=ayuda&action=insertMessage" method="POST">
+            <input type="text" name="message" placeholder="Escribe tu mensaje aquí...">
+            <button type="submit">Enviar</button>
+        </form>
     </div>
 </div>
+
+<script>
+    let isAtBottom = true; // Variable para saber si el usuario está al fondo del chat
+
+    function loadMessages() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'index.php?controller=ayuda&action=getMessagesAjax', true);
+        xhr.onload = function() {
+            if (this.status === 200) {
+                const response = JSON.parse(this.responseText);
+                const messagesContainer = document.getElementById('chat-messages');
+                const currentScrollPosition = messagesContainer.scrollHeight - messagesContainer.scrollTop === messagesContainer.clientHeight;
+
+                // Guardamos la posición de desplazamiento antes de añadir los nuevos mensajes
+                messagesContainer.innerHTML = '';
+
+                response.mensajes.forEach(function(mensaje) {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = mensaje.user == response.user_id ? 'message user-message' : 'message support-message';
+
+                    const messageHeader = document.createElement('div');
+                    messageHeader.className = 'message-header';
+                    const profileImg = document.createElement('img');
+                    profileImg.src = mensaje.user_details.foto_perfil;
+                    profileImg.alt = 'Foto de perfil';
+                    profileImg.className = 'profile-img';
+                    const userName = document.createElement('span');
+                    userName.className = 'user-name';
+                    userName.textContent = mensaje.user_details.nombre + ' ' + mensaje.user_details.apellidos;
+
+                    messageHeader.appendChild(profileImg);
+                    messageHeader.appendChild(userName);
+
+                    const messageBody = document.createElement('div');
+                    messageBody.className = 'message-body';
+                    messageBody.textContent = mensaje.message;
+
+                    messageDiv.appendChild(messageHeader);
+                    messageDiv.appendChild(messageBody);
+
+                    messagesContainer.appendChild(messageDiv);
+                });
+
+                // Si el usuario estaba al fondo, desplazamos hacia abajo
+                if (currentScrollPosition || isAtBottom) {
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    // Función para detectar si el usuario está al fondo
+    document.getElementById('chat-messages').addEventListener('scroll', function() {
+        const messagesContainer = document.getElementById('chat-messages');
+        isAtBottom = messagesContainer.scrollHeight - messagesContainer.scrollTop === messagesContainer.clientHeight;
+    });
+
+    // Cargar los mensajes cada 1 segundo
+    setInterval(loadMessages, 1000);
+    // Cargar los mensajes al cargar la página
+    window.onload = loadMessages;
+</script>
 </body>
 </html>

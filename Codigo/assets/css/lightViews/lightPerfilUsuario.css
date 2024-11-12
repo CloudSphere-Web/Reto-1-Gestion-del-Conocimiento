@@ -2,8 +2,8 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Lato, Montserrat, sans-serif;
-    background-color: #2a7a78;
-    color: white;
+    background-color: #8CD5D9 !important;
+    color: black !important;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@ body, html {
     border-radius: 50%;
 }
 .profile-section {
-    background-color: #38a3a5;
+    background-color: #B2E4E6 !important;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -82,107 +82,28 @@ body, html {
 .tabs {
     display: flex;
     justify-content: space-between;
-    background-color: #38a3a5;
+    background-color: #66C6CC !important;
     padding: 3px;
 }
 .tab, .tab-final, .tab-inicio{
     padding: 12px 52.5px;
     cursor: pointer;
-    background-color: #2D8280;
+    background-color: #66C6CC !important;
     border: none;
 }
 .tab:hover {
-    background-color: rgba(78, 198, 197, 1);
+    background-color: #D8F2F3 !important;
 }
 .tab-inicio {
     border: none;
 }
 .tab-inicio:hover {
-    background-color: rgba(78, 198, 197, 1);
+    background-color: #D8F2F3 !important;
 }
 .tab-final {
     border: none;
 }
 .tab-final:hover {
-    background-color: rgba(78, 198, 197, 1);
-}
-footer {
-    background-color: #1A4F46;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-/* Media Queries para Pantallas Más Pequeñas */
-
-@media (max-width: 768px) {
-    .container {
-        max-width: 100%;
-        min-width: 100%;
-        padding: 10px;
-    }
-
-    .profile-section {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-
-    .profile-info {
-        margin-left: 20px;
-        text-align: left;
-    }
-
-    .tabs {
-        flex-direction: column;
-    }
-
-    .tab, .tab-inicio, .tab-final {
-        padding: 12px 40px;
-    }
+    background-color: #D8F2F3 !important;
 }
 
-@media (max-width: 480px) {
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-    }
-
-    .profile-info .name {
-        font-size: 16px;
-    }
-
-    .profile-section {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .profile-info .email, .profile-info .position {
-        font-size: 12px;
-    }
-
-    .tabs {
-        flex-direction: column;
-        padding: 5px;
-    }
-
-    .tab, .tab-inicio, .tab-final {
-        padding: 10px 30px;
-    }
-
-    footer {
-        padding: 15px;
-        font-size: 14px;
-    }
-}

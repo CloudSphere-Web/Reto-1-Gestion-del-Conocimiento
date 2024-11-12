@@ -8,7 +8,7 @@ html, body {
 /* Cuerpo principal de la página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #123535;
+    background-color: #8CD5D9 !important;
     display: flex;
     flex-direction: column;
 }
@@ -17,6 +17,7 @@ body {
 .chat-container {
     max-width: 800px;
     margin: 20px auto;
+    padding: 15px;
     border: 1px solid #215A59;
     border-radius: 8px;
     overflow: hidden;
@@ -30,13 +31,11 @@ body {
 
 /* Estilos de la cabecera del chat */
 .chat-header {
-    background-color: #2D8280;
-    color: white;
+    background-color: #B2E4E6 !important;
+    color: black !important;
     padding: 10px;
     text-align: center;
     font-weight: bold;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px ;
 }
 
 /* Estilos de los mensajes */
@@ -44,7 +43,7 @@ body {
     flex-grow: 1; /* Hace que los mensajes ocupen el espacio restante */
     overflow-y: auto;
     padding: 10px;
-    background-color: #215A59;
+    background-color: #D8F2F3 !important;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -80,9 +79,7 @@ body {
 .chat-input {
     display: flex;
     padding: 10px;
-    background-color: #2D8280;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px ;
+    background-color: #B2E4E6 !important;
 }
 
 
@@ -91,8 +88,8 @@ body {
     padding: 8px;
     border: 1px solid #38A9A8;
     border-radius: 4px;
-    background-color: #215A59;
-    color: white;
+    background-color: #d1ecf1 !important;
+    color: black !important;
 }
 
 .chat-input input::placeholder {
@@ -175,18 +172,7 @@ footer {
         text-align: center;
     }
     .chat-container{
-        padding: 15px;
-        border-radius: 15px;
-    }
-
-    .chat-header{
-        padding-top: 15px;
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px ;
-    }
-    .chat-input{
-        padding-top: 15px;
-        border-bottom-right-radius: 15px;
-        border-bottom-left-radius: 15px ;
+        padding: 15px !important;
+        border-radius: 15px !important;
     }
 }

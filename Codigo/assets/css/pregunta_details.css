@@ -11,6 +11,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #338C8A; /* Color de fondo */
     color: #fff;
+    min-height: 100vh; /* Se asegura que el body cubra toda la pantalla */
 }
 
 .container {
@@ -91,7 +92,6 @@ body {
     margin-right: 15px; /* Espacio entre los elementos */
     margin-bottom: 0; /* Quitar margen inferior para alinearlo */
 }
-
 .question-user-fullname {
     font-weight: bold;
     font-size: 1.2em;
@@ -100,6 +100,17 @@ body {
 .question-user-subname, .question-user-job, .question-date, .question-time {
     font-size: 0.9em;
     color: #cccccc;
+}
+.header-trash {
+    margin-left: auto; /* Pushes .header-trash to the right */
+    width: 25px;
+    height: 25px;
+}
+
+.delete-icon {
+    font-size: 1.2em; /* Adjust the icon size as needed */
+    display: flex;
+    align-items: center;
 }
 
 /* Estilo del botón de borrar */
@@ -175,7 +186,7 @@ body {
 
 /* Para las imágenes incluidas en las preguntas */
 .question-image {
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
     border-radius: 10px;
     margin-top: 15px;
@@ -282,4 +293,32 @@ body {
 a {
     text-decoration: none;
 }
+/* Responsive */
+@media (max-width: 480px) {
+    .header-question {
+        padding: 10px;
+    }
 
+    .header-content {
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8em ;
+        text-align: left;
+    }
+
+    .avatar {
+        margin-bottom: 10px;
+        width: 40px; /* Reducir el tamaño del avatar */
+        height: 40px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .question-user-fullname {
+        font-size: 1.3em;
+    }
+    .header-trash{
+        width: 20px;
+        height: 20px;
+    }
+}

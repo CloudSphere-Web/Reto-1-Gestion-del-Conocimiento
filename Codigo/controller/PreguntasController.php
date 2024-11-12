@@ -126,21 +126,49 @@ class PreguntasController extends CheckLoginController {
         }
     }
 
+//    public function listByCategory() {
+//        $this->view = 'list_by_category_paginated';
+//        $nombreCategoria = isset($_GET['category']) ? $_GET['category'] : '';
+//
+//        if (empty($nombreCategoria)) {
+//            return ['error' => 'Categoría inválida'];
+//        }
+//
+//        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria);
+//
+//        $categoriaModel = new Categoria();
+//        $categoria = $categoriaModel->getCategoriaByNombre($nombreCategoria);
+//
+//        return ['preguntas' => $preguntas, 'categoria' => $categoria];
+//    }
+
     public function listByCategory() {
         $this->view = 'list_by_category_paginated';
         $nombreCategoria = isset($_GET['category']) ? $_GET['category'] : '';
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $limit = PAGINATION;
 
         if (empty($nombreCategoria)) {
             return ['error' => 'Categoría inválida'];
         }
 
-        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria);
+        $preguntas = $this->model->getPreguntasByCategoriaNombre($nombreCategoria, $limit, $offset);
+        $totalPreguntas = $this->model->countPreguntasByCategoriaNombre($nombreCategoria);
+        $totalPages = ceil($totalPreguntas / $limit);
 
         $categoriaModel = new Categoria();
         $categoria = $categoriaModel->getCategoriaByNombre($nombreCategoria);
 
-        return ['preguntas' => $preguntas, 'categoria' => $categoria];
+        return [
+            'preguntas' => $preguntas,
+            'categoria' => $categoria,
+            'pagination' => [
+                'currentPage' => $page,
+                'totalPages' => $totalPages,
+            ]
+        ];
     }
+
 
     public function responder() {
         $this->view = 'responder';
@@ -172,8 +200,6 @@ class PreguntasController extends CheckLoginController {
             if (move_uploaded_file($fileTmpPath, $destPath)) {
                 print_r($destPath);
                 $filePath = $destPath;
-                print_r($filePath);
-                die();
             } else {
                 $dataToView['error'] = 'Error al subir el archivo';
                 return $dataToView;
@@ -328,6 +354,143 @@ class PreguntasController extends CheckLoginController {
         $this->model->toggleAnswerLike($param);
         header("Location: index.php?controller=preguntas&action=details&id=" . $pregunta_id);
         exit();
+    }
+
+    public function deletePreguntaByAdmin() {
+        if (!isset($_COOKIE['email_usuario'])) {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE['email_usuario'];
+        $userData = $usuarioModel->getUserDataByEmail($email);
+
+        if (!$userData || strtolower($userData['puesto']) != 'admin') {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        try {
+            $this->model->deletePregunta($id);
+            header("Location: index.php?controller=preguntas&action=list_paginated");
+            exit();
+        } catch (PDOException $e) {
+            echo "Error al eliminar la pregunta: " . $e->getMessage();
+        }
+    }
+
+    public function deletePreguntaByUser() {
+        if (!isset($_COOKIE['email_usuario'])) {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE['email_usuario'];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        if (!$usuario_id) {
+            echo "Error: Usuario no encontrado.";
+            return;
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        $pregunta = $this->model->getPreguntaById($id);
+        if ($pregunta['usuario_id'] != $usuario_id) {
+            echo "Error: No tienes permisos para eliminar esta pregunta.";
+            return;
+        }
+
+        try {
+            $this->model->deletePregunta($id);
+            header("Location: index.php?controller=preguntas&action=list_paginated");
+            exit();
+        } catch (PDOException $e) {
+            echo "Error al eliminar la pregunta: " . $e->getMessage();
+        }
+    }
+
+    public function deleteRespuestaByAdmin() {
+        if (!isset($_COOKIE['email_usuario'])) {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE['email_usuario'];
+        $userData = $usuarioModel->getUserDataByEmail($email);
+
+        if (!$userData || strtolower($userData['puesto']) != 'admin') {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+        $respuestaModel = new Respuesta();
+        $respuesta = $respuestaModel->getRespuestaById($id);
+
+        try {
+            $respuestaModel->deleteRespuesta($id);
+            header("Location: index.php?controller=preguntas&action=details&id=" . $respuesta['pregunta_id']);
+            exit();
+        } catch (PDOException $e) {
+            echo "Error al eliminar la pregunta: " . $e->getMessage();
+        }
+    }
+
+    public function deleteRespuestaByUser() {
+        if (!isset($_COOKIE['email_usuario'])) {
+            echo "Error: No tienes permisos para realizar esta acción.";
+            return;
+        }
+
+        $usuarioModel = new Usuario();
+        $email = $_COOKIE['email_usuario'];
+        $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+        if (!$usuario_id) {
+            echo "Error: Usuario no encontrado.";
+            return;
+        }
+
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        if ($id == 0) {
+            echo "Error: pregunta_id no válido.";
+            return;
+        }
+
+
+        $respuestaModel = new Respuesta();
+        $respuesta = $respuestaModel->getRespuestaById($id);
+        if ($respuesta['usuario_id'] != $usuario_id) {
+            echo "Error: No tienes permisos para eliminar esta pregunta.";
+            return;
+        }
+
+        try {
+            $respuestaModel->deleteRespuesta($id);
+            header("Location: index.php?controller=preguntas&action=details&id=" . $respuesta['pregunta_id']);
+            exit();
+        } catch (PDOException $e) {
+            echo "Error al eliminar la pregunta: " . $e->getMessage();
+        }
     }
 
 //    public function loadFormRespuesta() {
