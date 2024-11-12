@@ -20,7 +20,7 @@
         </div>
         <div class="profile-info">
             <div class="name"><?php echo $userData['data']['nombre'] . ' ' . $userData['data']['apellidos']; ?></div>
-            <div class="email"><?php echo $userData['data']['email']; ?></div>
+            <div class="email"><?php echo $userData['data']['email_contacto']; ?></div>
             <div class="position"><?php echo $userData['data']['puesto']; ?></div>
             <div class="stats">
                 <div class="stat-item">

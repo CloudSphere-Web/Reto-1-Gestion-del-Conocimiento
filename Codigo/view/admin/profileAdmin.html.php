@@ -21,7 +21,7 @@
         </div>
         <div class="profile-info">
             <div class="name"><?php echo $userData['nombre'] . ' ' . $userData['apellidos']; ?></div>
-            <div class="email"><?php echo $userData['email']; ?></div>
+            <div class="email"><?php echo $userData['email_contacto']; ?></div>
             <div class="position"><?php echo $userData['puesto']; ?></div>
         </div>
     </div>
