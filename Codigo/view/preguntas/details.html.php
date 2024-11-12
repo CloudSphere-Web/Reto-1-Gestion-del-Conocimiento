@@ -140,20 +140,20 @@
                             </div>
                             <div class="answer-footer">
                                 <div class="izquierda">
-                                    <a href="index.php?controller=preguntas&action=answerLikeActions&id=<?php echo $respuesta['id']; ?>&pregunta_id=<?php echo $pregunta['id']; ?>">
+                                    <a href="index.php?controller=preguntas&action=questionLikeActions&id=<?php echo $pregunta['id']; ?>" onclick="saveScrollPosition()">
                                         <div class="like">
                                             <img src="assets/svg/airplane-tilt-thin-svgrepo-com.svg" alt="Like">
-                                            <span class="counter"><?php echo $respuesta['likes']; ?></span>
+                                            <span class="counter"><?php echo $pregunta['likes']; ?></span>
                                         </div>
                                     </a>
                                     <a href="index.php?controller=preguntas&action=responder&id=<?php echo $pregunta['id']; ?>" class="comentar">
                                         <img src="assets/svg/share-white.svg" alt="Comentar">
                                     </a>
                                 </div>
-                                <a href="index.php?controller=preguntas&action=answerFavoriteActions&id=<?php echo $respuesta['id']; ?>&pregunta_id=<?php echo $pregunta['id']; ?>">
+                                <a href="index.php?controller=preguntas&action=questionFavoriteActions&id=<?php echo $pregunta['id']; ?>" onclick="saveScrollPosition()">
                                     <div class="fav">
                                         <img src="assets/svg/star-regular.svg" alt="Favorite">
-                                        <span class="counter"><?php echo $respuesta['favoritos']; ?></span>
+                                        <span class="counter"><?php echo $pregunta['favoritos']; ?></span>
                                     </div>
                                 </a>
                             </div>
@@ -172,5 +172,22 @@
         ?>
     </main>
 </div>
+<script>
+    window.addEventListener('beforeunload', function() {
+        localStorage.setItem('scrollPosition', window.scrollY);
+    });
+
+    window.addEventListener('load', function() {
+        const scrollPosition = localStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition, 10));
+            localStorage.removeItem('scrollPosition'); // Eliminar la posición guardada después de restaurarla
+        }
+    });
+
+    function saveScrollPosition() {
+        localStorage.setItem('scrollPosition', window.scrollY);
+    }
+</script>
 </body>
 </html>
