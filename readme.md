@@ -25,6 +25,15 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
 
 - [Fuente Secundaria (En caso de que no cargue la predeterminada)](https://fonts.google.com/specimen/Montserrat)
 
+## Acceso a Proyecto Red Interna
+
+    1. En el equipo numero 11 de clase arrancamos Laragon.
+    2. Accedemos a la direccion "172.20.224.111"
+    3. Seguimos la ruta de archivos, "Reto-1-Gestion-Del-Conocimiento-Main/" 
+    4. Una vez dentro de esa carpeta accedemos a la siguiente, "Codigo/"
+    5. Los usuarios con permisos de usuario y permisos de admin se encuentran en sus respectivos
+       manuales.
+
 ## Instalacion Proyecto en Local
 
     1. Clonamos el Repositorio: https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento.git
