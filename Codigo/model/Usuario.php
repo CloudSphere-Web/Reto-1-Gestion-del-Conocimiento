@@ -170,5 +170,19 @@ class Usuario
         $stmt->bindParam(':foto_perfil', $userData['foto_perfil']);
         $stmt->execute();
     }
+
+    public function deleteUserById($id)
+    {
+        try {
+            $sql = "DELETE FROM $this->table WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        } catch (Exception $e) {
+            $this->connection->rollBack();
+            throw $e;
+        }
+    }
+
 }
 ?>

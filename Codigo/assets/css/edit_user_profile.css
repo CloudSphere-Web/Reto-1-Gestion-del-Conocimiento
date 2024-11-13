@@ -94,3 +94,8 @@ body, html {
 .cancel-btn:hover {
     background-color: #c9302c;
 }
+.user-delete img{
+    margin-left: 20em;
+    width: 30px;
+    height: 30px;
+}

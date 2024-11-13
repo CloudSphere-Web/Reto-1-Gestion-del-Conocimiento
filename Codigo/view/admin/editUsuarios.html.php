@@ -22,6 +22,9 @@
                 <label for="foto_perfil">Cambiar Foto:</label>
                 <input type="file" id="foto_perfil" name="foto_perfil">
             </div>
+            <a href="index.php?controller=usuario&action=deleteUser&user_id=<?php echo $userData['id']; ?>" class="user-delete" >
+                <img src="assets/svg/trash-can-solid.svg" alt="Eliminar usuario">
+            </a>
         </div>
         <div class="form-section">
             <label for="nombre">Nombre:</label>
