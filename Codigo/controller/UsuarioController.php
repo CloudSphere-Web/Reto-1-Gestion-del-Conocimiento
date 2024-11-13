@@ -132,6 +132,19 @@ class UsuarioController extends CheckLoginController {
         return $preguntasFavoritas;
     }
 
+    public function deleteUser()
+    {
+        if (isset($_GET['user_id'])) {
+            $userId = $_GET['user_id'];
+            $this->model->deleteUserById($userId);
+            header("Location: index.php?controller=admin&action=viewProfileAdmin");
+            exit();
+        } else {
+            echo "ID de usuario no encontrado.";
+        }
+    }
+
+
 //    public function login() {
 //        $this -> page_title = 'Login';
 //        $this -> view = 'login';
