@@ -172,3 +172,31 @@ body {
     background-color: #d1ecf1;
     color: #0c5460;
 }
+.counter {
+    color: black !important;
+}
+/* Responsive */
+@media (max-width: 480px) {
+    .header-question {
+        padding: 10px;
+    }
+
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.74em !important; ;
+    }
+
+    .avatar {
+        margin-bottom: 10px;
+        width: 40px; /* Reducir el tamaño del avatar */
+        height: 40px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .question-user-fullname {
+        font-size: 1.3em;
+    }
+}

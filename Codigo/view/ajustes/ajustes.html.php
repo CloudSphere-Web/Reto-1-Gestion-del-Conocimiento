@@ -11,25 +11,16 @@
     <h1>Configuración</h1>
     <div class="config-item">
         <div class="icon-label">
-            <span class="icon bell">&#128276;</span> <!-- Bell Icon -->
-            <span>Notificaciones</span>
-        </div>
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-        </label>
-    </div>
-    <div class="config-item">
-        <div class="icon-label">
             <span class="icon moon">&#127769;</span> <!-- Moon Icon -->
             <span>Tema</span>
         </div>
         <label class="switch">
-            <input type="checkbox" id="LightModeIcon">
+            <input type="checkbox" id="LightModeIcon" class="active-Mode">
             <span class="slider round"></span>
         </label>
     </div>
 </div>
 <script src="assets/js/lightMode.js"></script>
+<script src="assets/js/toggleMode.js"></script>
 </body>
 </html>

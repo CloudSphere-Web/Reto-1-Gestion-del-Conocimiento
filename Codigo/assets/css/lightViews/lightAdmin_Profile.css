@@ -1,3 +1,6 @@
+* {
+    font-family: Lato, Montserrat, sans-serif;
+}
 body, html {
     margin: 0;
     padding: 0;
@@ -11,7 +14,8 @@ body, html {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    flex: 1; /* This ensures the container takes up available space */
+    flex: 1;
+    width: 100%;
 }
 .logo {
     width: 50px;
@@ -98,26 +102,20 @@ body, html {
     border: none;
 }
 .tab-inicio:hover {
-    background-color: #D8F2F3 !important;
+    background-color: rgba(78, 198, 197, 1);
 }
 .tab-final {
     border: none;
 }
 .tab-final:hover {
-    background-color: #D8F2F3 !important;
+    background-color: rgba(78, 198, 197, 1);
 }
-.Ranking {
-    margin-left: auto;
-    font-size: 24px;
-    font-weight: bold;
-    border: 3px solid black !important;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #66C6CC !important;
+footer {
+    background-color: #1A4F46;
+    padding: 20px;
+    text-align: center;
     color: white;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
-

@@ -43,6 +43,17 @@
             ?>
             <nav aria-label="Paginación de notas" class="mt-4">
                 <ul class="pagination justify-content-center">
+                    <!-- Enlace a la primera página -->
+                    <?php if ($dataToView["data"][1] > 1): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=list_paginated&page=1">Primera</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="page-item disabled">
+                            <span class="page-link">Primera</span>
+                        </li>
+                    <?php endif; ?>
+
                     <!-- Enlace a la página anterior -->
                     <?php if ($dataToView["data"][1] > 1): ?>
                         <li class="page-item">
@@ -53,12 +64,14 @@
                             <span class="page-link">Anterior</span>
                         </li>
                     <?php endif; ?>
-                    <!-- Enlaces de número de página -->
-                    <?php for ($i = 1; $i <= $dataToView["data"][2]; $i++): ?>
-                        <li class="page-item <?= ($i == $dataToView["data"][1]) ?'active' : ''; ?>">
+
+                    <!-- Enlace a la página anterior, actual y siguiente -->
+                    <?php for ($i = max(1, $dataToView["data"][1] - 1); $i <= min($dataToView["data"][2], $dataToView["data"][1] + 1); $i++): ?>
+                        <li class="page-item <?= ($i == $dataToView["data"][1]) ? 'active' : ''; ?>">
                             <a class="page-link" href="index.php?controller=preguntas&action=list_paginated&page=<?= $i; ?>"><?= $i; ?></a>
                         </li>
                     <?php endfor; ?>
+
                     <!-- Enlace a la página siguiente -->
                     <?php if ($dataToView["data"][1] < $dataToView["data"][2]): ?>
                         <li class="page-item">
@@ -67,6 +80,17 @@
                     <?php else: ?>
                         <li class="page-item disabled">
                             <span class="page-link">Siguiente</span>
+                        </li>
+                    <?php endif; ?>
+
+                    <!-- Enlace a la última página -->
+                    <?php if ($dataToView["data"][1] < $dataToView["data"][2]): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="index.php?controller=preguntas&action=list_paginated&page=<?= $dataToView["data"][2]; ?>">Última</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="page-item disabled">
+                            <span class="page-link">Última</span>
                         </li>
                     <?php endif; ?>
                 </ul>

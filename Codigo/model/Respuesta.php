@@ -69,5 +69,28 @@ class Respuesta {
         // Return the ID of the last inserted row
         return $this->connection->lastInsertId();
     }
+
+    public function countRespuestasByUserId($userId) {
+        $query = "SELECT COUNT(*) FROM respuestas WHERE usuario_id = :userId";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    public function getRespuestaById($id) {
+        $sql = "SELECT * FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteRespuesta($id) {
+        $sql = "DELETE FROM $this->table WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }
 ?>

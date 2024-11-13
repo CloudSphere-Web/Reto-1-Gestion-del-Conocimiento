@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', Montserrat, sans-serif;
+}
+
+.header {
+    background-color: #66C6CC !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #333;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+}
+
+.header-section h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 5rem;
+}
+
+.icons-section {
+    display: flex;
+    align-items: center;
+}
+
+.header-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 0.5rem;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    background-color: #d6d6d6;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Responsivo para pantallas medianas (tabletas y móviles grandes) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Ajustes para el logo y el título */
+    .logo {
+        width: 45px;
+        height: 45px; /* Reducimos el tamaño del logo */
+        margin-right: 1rem;
+    }
+
+    .header-section h3 {
+        font-size: 2.3rem; /* Disminuye el tamaño del título */
+        margin: 0;
+    }
+
+    /* Iconos */
+    .icons-section {
+        display: flex;
+        gap: 0.5rem; /* Reduce el espacio entre los iconos */
+    }
+
+    .header-icon {
+        width: 27px;
+        height: 27px; /* Ajusta el tamaño de los iconos */
+    }
+}
+
+/* Responsivo para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    .header-section h3 {
+        font-size: 2rem; /* Disminuye aún más el tamaño del título */
+        text-align: center;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px; /* Ajusta el logo a un tamaño más pequeño */
+        margin-right: 1rem;
+    }
+
+    .icons-section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .header-icon {
+        width: 25px;
+        height: 25px; /* Reduce el tamaño de los iconos */
+    }
+
+    .dropdown-content {
+        min-width: 120px; /* Ajusta el tamaño del dropdown */
+    }
+}

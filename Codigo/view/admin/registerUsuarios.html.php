@@ -38,7 +38,7 @@
         </div>
         <div class="form-buttons">
             <button type="submit" class="save-btn">Confirmar</button>
-            <a href="index.php?controller=admin&action=viewProfile" class="cancel-btn">Cancelar</a>
+            <a href="index.php?controller=admin&action=viewProfileAdmin" class="cancel-btn">Cancelar</a>
         </div>
     </form>
 </div>

@@ -27,6 +27,24 @@
                             <p class="question-time"><?php echo $pregunta['hora_publicacion']; ?></p>
                             <p class="question-user-job"><?php echo $pregunta['puesto']; ?></p>
                         </div>
+                        <div class="header-trash">
+                            <?php
+                            $email = $_COOKIE['email_usuario'];
+                            $usuarioModel = new Usuario();
+                            $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+                            if (isset($_COOKIE['puesto_usuario']) && strtolower($_COOKIE['puesto_usuario']) == 'admin') {
+                                $deleteAction = 'deletePreguntaByAdmin';
+                            } elseif ($usuario_id == $pregunta['usuario_id']) {
+                                $deleteAction = 'deletePreguntaByUser';
+                            }
+
+                            if (isset($deleteAction)): ?>
+                                <a href="index.php?controller=preguntas&action=<?php echo $deleteAction; ?>&id=<?php echo $pregunta['id']; ?>" class="delete-icon" title="Eliminar pregunta" onclick="return confirm('¿Estás seguro de que deseas eliminar esta pregunta?');">
+                                    <img src="assets/svg/trash-can-solid.svg" alt="Eliminar pregunta">
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="container">
                         <h1 class="question-titulo"><?php echo $pregunta['titulo']; ?></h1>
@@ -88,9 +106,37 @@
                                     <p class="question-time"><?php echo $respuesta['hora_publicacion']; ?></p>
                                     <p class="question-user-job"><?php echo $respuesta['puesto']; ?></p>
                                 </div>
+                                <div class="header-trash">
+                                    <?php
+                                    $email = $_COOKIE['email_usuario'];
+                                    $usuarioModel = new Usuario();
+                                    $usuario_id = $usuarioModel->getUserIdByEmail($email);
+
+                                    if (isset($_COOKIE['puesto_usuario']) && strtolower($_COOKIE['puesto_usuario']) == 'admin') {
+                                        $deleteAction = 'deleteRespuestaByAdmin';
+                                    } elseif ($usuario_id == $respuesta['usuario_id']) {
+                                        $deleteAction = 'deleteRespuestaByUser';
+                                    }
+
+                                    if (isset($deleteAction)): ?>
+                                        <a href="index.php?controller=preguntas&action=<?php echo $deleteAction; ?>&id=<?php echo $respuesta['id']; ?>" class="delete-icon" title="Eliminar respuesta" onclick="return confirm('¿Estás seguro de que deseas eliminar esta respuesta?');">
+                                            <img src="assets/svg/trash-can-solid.svg" alt="Eliminar respuesta">
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                             <div class="container">
                                 <p class="respuesta-contenido"><?php echo $respuesta['contenido']; ?></p>
+                                <?php if ($respuesta['archivo']): ?>
+                                    <?php
+                                    $fileExtension = pathinfo($respuesta['archivo'], PATHINFO_EXTENSION);
+                                    $imageExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                                    if (in_array(strtolower($fileExtension), $imageExtensions)): ?>
+                                        <img src="<?php echo $respuesta['archivo']; ?>" alt="Imagen de la pregunta" class="question-image">
+                                    <?php else: ?>
+                                        <a href="<?php echo $respuesta['archivo']; ?>" class="download-button">Descargar archivo</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </div>
                             <div class="answer-footer">
                                 <div class="izquierda">

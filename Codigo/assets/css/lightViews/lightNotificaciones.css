@@ -1,0 +1,107 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, Montserrat, sans-serif;
+    background-color: #8CD5D9 !important;
+    color: black !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.delete-all-notifications-form {
+    margin-bottom: 20px;
+}
+
+.delete-button {
+    background-color: #4EC6C5;
+    color: #123535;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #3a7c7c;
+}
+
+h1 {
+    color: #42b5b4 !important;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.notification-item {
+    background-color: #D8F2F3 !important;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.notification-item:hover {
+    transform: translateY(-3px);
+}
+
+.notification-item a {
+    display: block;
+    padding: 15px;
+    color: black !important;
+    text-decoration: none;
+}
+
+.notification-item p {
+    margin: 0 0 5px 0;
+}
+
+.notification-item strong {
+    color: #4EC6C5;
+}
+
+.notification-item small {
+    display: block;
+    color: #38A9A8;
+    font-size: 0.8em;
+}
+
+.unread {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4EC6C5;
+    color: #123535;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+/* Estilos para cuando no hay notificaciones */
+.notification-list > p {
+    text-align: center;
+    color: #38A9A8;
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .notification-list {
+        max-width: 100%;
+    }
+    .delete-button {
+        width: 100%;
+    }
+}
