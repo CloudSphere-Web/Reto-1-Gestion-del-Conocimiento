@@ -56,9 +56,12 @@ class Usuario
 
         if (isset($map[$emailParam]) && password_verify($contrasennaParam, $map[$emailParam]['contrasenna'])) {
             // Establece las cookies si el usuario es validado
-            setcookie("email_usuario", $emailParam, time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
-            setcookie("puesto_usuario", $map[$emailParam]['puesto'], time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
+//            setcookie("email_usuario", $emailParam, time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
+//            setcookie("puesto_usuario", $map[$emailParam]['puesto'], time() + 3600, "/", "", true, true); // Expira en 1h, httponly y secure
 
+            setcookie("email_usuario", $emailParam, time() + 3600, "/", ""); // Expira en 1h
+            setcookie("puesto_usuario", $map[$emailParam]['puesto'], time() + 3600, "/", ""); // Expira en 1h
+            
             $_SESSION['is_logged_in'] = true;
             return true; // Usuario encontrado y validado
         }
