@@ -6,6 +6,8 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
 
 ## Guia de Estilos
 
+- Prototipos: https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=0-1
+
 - Guia de Estilos: https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=6-2
 
 - Fuente Predeterminada: https://fonts.google.com/specimen/Lato
