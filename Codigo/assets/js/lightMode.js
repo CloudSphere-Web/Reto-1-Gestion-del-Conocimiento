@@ -67,6 +67,12 @@ document.addEventListener('DOMContentLoaded', function () {
     lightAyudaLink.href = 'assets/css/lightViews/lightAyuda.css'; // Estilos específicos para la página de chat de ayuda
     lightAyudaLink.id = 'lightAyudaStyle';
 
+    let lightEditUserPLink = document.createElement('link');
+    lightEditUserPLink.rel = 'stylesheet';
+    lightEditUserPLink.href = 'assets/css/lightViews/lightEditUserP.css'; // Estilos específicos para la página de chat de editar usuario
+    lightEditUserPLink.id = 'lightEditUserPLinkStyle';
+
+
     // Verifica si el modo claro está activado en las cookies
     if (getCookie('lightMode') === 'enabled') {
         document.head.appendChild(lightHeaderLink);
@@ -124,6 +130,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda') ) {
             document.head.appendChild(lightAyudaLink);
+        }
+        if (window.location.search.includes('controller=admin') && window.location.search.includes('action=editUsuarios') ) {
+            document.head.appendChild(lightEditUserPLink);
         }
 
         isLightMode = true;
@@ -189,6 +198,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda')) {
                     document.head.appendChild(lightAyudaLink);
                 }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=editUsuarios')) {
+                    document.head.appendChild(lightEditUserPLink);
+                }
 
 
                 setCookie('lightMode', 'enabled', 7);
@@ -246,6 +258,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (window.location.search.includes('controller=ayuda') && window.location.search.includes('action=viewAyuda') ) {
                     document.getElementById('lightAyudaStyle')?.remove();
+                }
+                if (window.location.search.includes('controller=admin') && window.location.search.includes('action=editUsuarios') ) {
+                    document.getElementById('lightEditUserPLinkStyle')?.remove();
                 }
 
                 setCookie('lightMode', 'disabled', 7);
