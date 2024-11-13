@@ -4,6 +4,14 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
 
 ![Logo](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/banner%20aergibide.jpg?raw=true)
 
+## Manuales y Documentación
+
+- Documentación: https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Documentaci%C3%B3n.pdf
+
+- Manual de Usuario: https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Manual%20de%20Usuario.pdf
+
+- Manual de Administrador: https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Manual%20de%20Administrador.pdf
+
 ## Guia de Estilos
 
 - Prototipos: https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=0-1
