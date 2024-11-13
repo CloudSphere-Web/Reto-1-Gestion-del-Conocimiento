@@ -4,15 +4,35 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
 
 ![Logo](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/banner%20aergibide.jpg?raw=true)
 
+## Manuales y Documentación
+
+> [!NOTE]
+> [Documentación](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Documentaci%C3%B3n.pdf)
+
+> [!NOTE]
+> [Manual de Usuario](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Manual%20de%20Usuario.pdf)
+
+> [!NOTE]
+> [Manual de Administrador](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/8c04880abc5075f1da4d755f3c038bad96034ef9/Documentaci%C3%B3n%2C%20presentaci%C3%B3n%20y%20manuales/Manual%20de%20Administrador.pdf)
+
 ## Guia de Estilos
 
-- Prototipos: https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=0-1
+- [Prototipos](https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=0-1)
 
-- Guia de Estilos: https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=6-2
+- [Guia de Estilos](https://www.figma.com/design/unWJXWA3r8w7IQXHQUwNX0/Aergibide?node-id=6-2)
 
-- Fuente Predeterminada: https://fonts.google.com/specimen/Lato
+- [Fuente Predeterminada](https://fonts.google.com/specimen/Lato)
 
-- Fuente Secundaria (En caso de que no cargue la predeterminada): https://fonts.google.com/specimen/Montserrat
+- [Fuente Secundaria (En caso de que no cargue la predeterminada)](https://fonts.google.com/specimen/Montserrat)
+
+## Acceso a Proyecto Red Interna
+
+    1. En el equipo numero 11 de clase arrancamos Laragon.
+    2. Accedemos a la direccion "172.20.224.111"
+    3. Seguimos la ruta de archivos, "Reto-1-Gestion-Del-Conocimiento-Main/" 
+    4. Una vez dentro de esa carpeta accedemos a la siguiente, "Codigo/"
+    5. Los usuarios con permisos de usuario y permisos de admin se encuentran en sus respectivos
+       manuales.
 
 ## Instalacion Proyecto en Local
 
