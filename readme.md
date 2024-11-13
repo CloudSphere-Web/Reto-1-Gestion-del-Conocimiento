@@ -2,7 +2,7 @@
 
 APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOCIMIENTO”
 
-![Logo](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/banner%20aergibide.jpg?raw=true)
+![Logo](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/banner%20aergibide.jpg?raw=true)
 
 ## Guia de Estilos
 
@@ -21,12 +21,12 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
         2.1 En caso de estar conectado a la red "arfplh" deberemos tener activa esta conexion en
             el archivo "config.php"
             
-![ConexionArfplh](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/conexion-arfplh.PNG?raw=true)
+![ConexionArfplh](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/conexion-arfplh.PNG?raw=true)
     
         2.2 En caso de estar conectado a cualquier otra red deberemos tener activa esta conexion en
             el archivo "config.php"
 
-![conexionCualquiera](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/conexion-otra-red.PNG?raw=true)
+![conexionCualquiera](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/conexion-otra-red.PNG?raw=true)
 
         2.3 En caso de preferir usarlo en localhost deberemos tener activa esta conexion en
             el archivo "config.php"
@@ -37,7 +37,7 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
             importar las tablas y todos los datos. Para ello dispones del archivo "carga_datos.sql" en 
             la carpeta "BD" de la raiz del repositorio.
 
-![conexionLocal](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/conexion-local.png?raw=true)
+![conexionLocal](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/conexion-local.png?raw=true)
 
     3. Ejecutamos Xampp o Laragon y entramos desde un navegador a la ruta "http://localhost/"
 
@@ -48,7 +48,7 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
         Los usuarios con permisos de usuario y permisos de admin se encuentran en sus respectivos
         manuales. La sesion tiene una duracion de 60 minutos.
 
-![exito](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/exito.PNG?raw=true)
+![exito](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/exito.PNG?raw=true)
 
 ## Acceso Proyecto en Remoto (Tiempos de Carga Mayores)
 
@@ -61,7 +61,7 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2024/2025 RETO 1: “GESTIÓN DEL CONOC
         login. Los usuarios con permisos de usuario y permisos de admin se encuentran en sus respectivos
         manuales. La sesion tiene una duracion de 60 minutos.
 
-![exito](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Documentos/exito-remoto.PNG?raw=true)
+![exito](https://github.com/CloudSphere-Web/Reto-1-Gestion-del-Conocimiento/blob/main/Utiles/exito-remoto.PNG?raw=true)
 
 
 ## Autores
